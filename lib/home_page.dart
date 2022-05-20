@@ -18,8 +18,8 @@ class _HomeState extends State<Home> {
           leading: Icon( Icons.arrow_back, color: Colors.black),
           elevation: 0,
           title: Text(
-            'فروشگا من',
-            style: TextStyle(fontSize: 20, color: Colors.deepOrangeAccent,fontFamily: "Nas"),
+            'MyDigiRead',
+            style: TextStyle(fontSize: 20, color: Colors.deepOrangeAccent,fontFamily: "Kurale"),
           ),
           centerTitle: true,
           actions: [
@@ -39,6 +39,11 @@ class _HomeState extends State<Home> {
           ),
         ),
         bottomNavigationBar: ShopButtonNavigator(),
+        floatingActionButton: FloatingActionButton(onPressed: (){},
+          backgroundColor: Colors.lightGreenAccent,
+        child: Icon(Icons.add_shopping_cart,color: Colors.white,),
+        ),
+        floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       ),
     );
   }

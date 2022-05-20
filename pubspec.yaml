@@ -79,7 +79,7 @@ flutter:
          - asset: fonts/Salam.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
-     - family: Trajan Pro
+     - family: Kurale
        fonts:
          - asset: fonts/Kurale.ttf
   #       - asset: fonts/TrajanPro_Bold.ttf

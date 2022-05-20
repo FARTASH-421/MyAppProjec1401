@@ -49,8 +49,8 @@ class _SpalshState extends State<Spalsh> {
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.tealAccent,
-                    fontFamily: "Salam",
-                    fontSize: 40,
+                    fontFamily: "Kurale",
+                    fontSize: 45,
 
                   ),
                 ),

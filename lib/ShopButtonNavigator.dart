@@ -10,7 +10,7 @@ class ShopButtonNavigator extends StatelessWidget {
       clipBehavior: Clip.antiAlias,
       child: Container(
         height: 50,
-        color: Colors.lightBlueAccent,
+        color: Colors.deepOrangeAccent,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
