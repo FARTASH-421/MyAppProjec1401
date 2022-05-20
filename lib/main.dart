@@ -1,28 +1,30 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:my_pojects/splush_screen.dart';
 
-void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
+void  main(){
+  SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(statusBarColor: Colors.transparent));
+  runApp(Store());
+}
 
+class Store extends StatefulWidget {
+  @override
+  State<Store> createState() => _StoreState();
+}
+
+class _StoreState extends State<Store> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('DigiBlue'),
-        ),
-        body: Center(
-          child: Text('Wellcome my app',
-          style: TextStyle(
-            color: Colors.lightBlue
-          ),
-          ),
-        ),
-        floatingActionButton: FloatingActionButton(onPressed:(){},
-       child: Icon(Icons.bookmark_added),
-        ),
-      ),
+      debugShowCheckedModeBanner: false,
+      title: 'Stores',
+      color: Colors.blue,
+      home: Spalsh(),
     );
   }
 }
+
+
+
