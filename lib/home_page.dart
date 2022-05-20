@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_pojects/ShopButtonNavigator.dart';
 class Home extends StatefulWidget {
   @override
   State<Home> createState() => _HomeState();
@@ -37,9 +38,7 @@ class _HomeState extends State<Home> {
             ),
           ),
         ),
-        floatingActionButton: FloatingActionButton(onPressed: () {  },
-
-        ),
+        bottomNavigationBar: ShopButtonNavigator(),
       ),
     );
   }

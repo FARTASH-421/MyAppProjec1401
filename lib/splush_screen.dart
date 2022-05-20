@@ -3,11 +3,9 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'home_page.dart';
-import 'main.dart';
+
 
 class Spalsh extends StatefulWidget {
-  const Spalsh({Key? key}) : super(key: key);
-
   @override
   State<Spalsh> createState() => _SpalshState();
 }
