@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:my_pojects/ShopButtonNavigator.dart';
+import 'package:my_pojects/signUpPage.dart';
 
 class LongPage extends StatefulWidget {
   const LongPage({Key? key}) : super(key: key);
@@ -166,7 +167,7 @@ class _LongPageState extends State<LongPage> {
          Navigator.of(context).push(
            MaterialPageRoute(
                builder: (context){
-                 return ShopButtonNavigator();
+                 return SignUp();
                }
            ),
          );
@@ -211,7 +212,6 @@ Widget _bulidSocialBtnRow(){
                  }
              ),
            );
-           setState(() { });
          },
          child: Container(
            height: 80,
@@ -238,6 +238,8 @@ Widget _bulidSocialBtnRow(){
    );
 }
 Widget _bulidForgitPasswordRow(){
+
+  final url = "https://www.google.com";
    return Row(
      mainAxisAlignment: MainAxisAlignment.start,
      crossAxisAlignment: CrossAxisAlignment.start,

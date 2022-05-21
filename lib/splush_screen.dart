@@ -1,9 +1,7 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:my_pojects/LongPage.dart';
-import 'home_page.dart';
 
 
 class Spalsh extends StatefulWidget {
@@ -15,7 +13,7 @@ class _SpalshState extends State<Spalsh> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 2),
+    Timer(Duration(seconds: 5),
             ()=> Navigator.pushReplacement(context,
             MaterialPageRoute(builder: (context) => LongPage(),
             ))
@@ -32,8 +30,8 @@ class _SpalshState extends State<Spalsh> {
             begin: Alignment.topRight,
             end: Alignment.bottomRight,
             colors: [
-              Color(0xFFA9900F),
-              Color(0xFFFa1010)
+              Color(0xFFAEEA00),
+              Color(0xFF2E7D32),
             ],
           ),
         ),
@@ -46,17 +44,19 @@ class _SpalshState extends State<Spalsh> {
                 Image.asset('images/PngItem.png',
                   width: 360,
                   height: 360,),
-                Text("DigiRed",
+                Text("DigiGreen",
                   textAlign: TextAlign.center,
                   style: TextStyle(
-                    color: Colors.tealAccent,
+                    color: Colors.deepOrange,
                     fontFamily: "Kurale",
                     fontSize: 45,
                   ),
                 ),
               ],
             ),
-            CircularProgressIndicator(),
+            CircularProgressIndicator(
+              color: Colors.black,
+            ),
           ],
         ),
       ),
