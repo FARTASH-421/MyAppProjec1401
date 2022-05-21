@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:my_pojects/Chat.dart';
+import 'package:my_pojects/Favorite.dart';
+import 'package:my_pojects/Profile.dart';
+import 'package:my_pojects/home_page.dart';
 
 class ShopButtonNavigator  extends StatefulWidget {
   const ShopButtonNavigator({Key? key}) : super(key: key);
@@ -8,11 +12,13 @@ class ShopButtonNavigator  extends StatefulWidget {
 }
 
 class _ShopButtonNavigatorState extends State<ShopButtonNavigator > {
-
+  final scrrens= [ Profile(),  Home(),Chat(), Favorite(),];
   int currentIndex = 0;
   @override
-  Widget build(BuildContext context) {
-    return BottomNavigationBar(
+
+  Widget build(BuildContext context) =>Scaffold(
+      body: scrrens[currentIndex],
+      bottomNavigationBar: BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
       backgroundColor: Colors.white,
       selectedItemColor: Colors.black,
@@ -24,11 +30,11 @@ class _ShopButtonNavigatorState extends State<ShopButtonNavigator > {
       onTap: (index) =>setState( () => currentIndex = index ),
       currentIndex: currentIndex,
       items: const [
+
         BottomNavigationBarItem(
           icon: Icon(Icons.person_outline, size: 30,),
           label: 'Profile',
         ),
-
 
         BottomNavigationBarItem(
             icon: Icon(Icons.message_outlined, size: 30,),
@@ -44,8 +50,8 @@ class _ShopButtonNavigatorState extends State<ShopButtonNavigator > {
         ),
       ],
 
-    );
-  }
+    ),
+  );
 
 }
 
