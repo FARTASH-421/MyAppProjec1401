@@ -40,7 +40,7 @@ class _HomeState extends State<Home> {
         ),
         bottomNavigationBar: ShopButtonNavigator(),
         floatingActionButton: FloatingActionButton(onPressed: (){},
-          backgroundColor: Colors.lightGreenAccent,
+          backgroundColor: Colors.red,
         child: Icon(Icons.add_shopping_cart,color: Colors.white,),
         ),
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,

@@ -14,7 +14,7 @@ class _SpalshState extends State<Spalsh> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds: 7),
+    Timer(Duration(seconds: 3),
             ()=> Navigator.pushReplacement(context,
             MaterialPageRoute(builder: (context) => Home()
             ))
