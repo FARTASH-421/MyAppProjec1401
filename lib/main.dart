@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:my_pojects/LongPage.dart';
 import 'package:my_pojects/splush_screen.dart';
 
 
@@ -21,7 +22,7 @@ class _StoreState extends State<Store> {
       debugShowCheckedModeBanner: false,
       title: 'Stores',
       color: Colors.blue,
-      home: Spalsh(),
+      home: LongPage(),
     );
   }
 }
