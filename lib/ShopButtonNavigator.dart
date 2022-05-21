@@ -12,7 +12,7 @@ class ShopButtonNavigator  extends StatefulWidget {
 }
 
 class _ShopButtonNavigatorState extends State<ShopButtonNavigator > {
-  final scrrens= [ Profile(),  Home(),Chat(), Favorite(),];
+  final scrrens= [ Profile(), Chat(), Favorite(), Home(),];
   int currentIndex = 0;
   @override
 

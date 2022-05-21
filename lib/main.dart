@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:my_pojects/LongPage.dart';
+import 'package:my_pojects/ShopButtonNavigator.dart';
 import 'package:my_pojects/splush_screen.dart';
 
 
@@ -19,10 +20,12 @@ class _StoreState extends State<Store> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+
       debugShowCheckedModeBanner: false,
       title: 'Stores',
       color: Colors.blue,
-      home: LongPage(),
+      home: Spalsh(),
+
     );
   }
 }

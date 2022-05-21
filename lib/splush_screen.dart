@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:my_pojects/LongPage.dart';
 import 'home_page.dart';
 
 
@@ -16,7 +17,7 @@ class _SpalshState extends State<Spalsh> {
     super.initState();
     Timer(Duration(seconds: 2),
             ()=> Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) => Home()
+            MaterialPageRoute(builder: (context) => LongPage(),
             ))
     );
   }
@@ -51,7 +52,6 @@ class _SpalshState extends State<Spalsh> {
                     color: Colors.tealAccent,
                     fontFamily: "Kurale",
                     fontSize: 45,
-
                   ),
                 ),
               ],

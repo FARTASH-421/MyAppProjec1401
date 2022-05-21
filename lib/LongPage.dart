@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:my_pojects/home_page.dart';
+import 'package:my_pojects/ShopButtonNavigator.dart';
 
 class LongPage extends StatefulWidget {
   const LongPage({Key? key}) : super(key: key);
@@ -38,11 +38,9 @@ class _LongPageState extends State<LongPage> {
      Text('- OR -',
    style: TextStyle(
      fontWeight: FontWeight.w400,
-
    ),
    )
-
-     ],
+    ],
    );
  }
  Widget _bulidContianer(){
@@ -66,7 +64,6 @@ class _LongPageState extends State<LongPage> {
                  children: [
                    Text('Login',
                      style: TextStyle(
-
                        fontSize: MediaQuery.of(context).size.height/30
                      ),
                    ),
@@ -102,8 +99,6 @@ class _LongPageState extends State<LongPage> {
          hintText: 'PhoneNumber',
        ),
      ),
-
-
    );
  }
   Widget  _bulidPasswordRow(){
@@ -148,12 +143,11 @@ class _LongPageState extends State<LongPage> {
              Navigator.of(context).push(
                MaterialPageRoute(
                    builder: (context){
-                     return Home();
+                     return ShopButtonNavigator();
                    }
                ),
              );
            },
-
            child: Text("Login",
            style: TextStyle(
              fontSize: MediaQuery.of(context).size.height/40
@@ -172,7 +166,7 @@ class _LongPageState extends State<LongPage> {
          Navigator.of(context).push(
            MaterialPageRoute(
                builder: (context){
-                 return Home();
+                 return ShopButtonNavigator();
                }
            ),
          );
@@ -213,7 +207,7 @@ Widget _bulidSocialBtnRow(){
            Navigator.of(context).push(
              MaterialPageRoute(
                  builder: (context){
-                   return Home();
+                   return ShopButtonNavigator();
                  }
              ),
            );
@@ -252,7 +246,7 @@ Widget _bulidForgitPasswordRow(){
          Navigator.of(context).push(
            MaterialPageRoute(
                builder: (context){
-                 return Home();
+                 return ShopButtonNavigator();
                }
            ),
          );
@@ -301,7 +295,6 @@ Widget changeIconsPassword(){
               )
             ],
           ),
-
     ));
   }
 

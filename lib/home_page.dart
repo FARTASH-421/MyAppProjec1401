@@ -6,7 +6,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -40,7 +39,6 @@ class _HomeState extends State<Home> {
             ),
           ),
         ),
-        bottomNavigationBar: ShopButtonNavigator(),
         floatingActionButton: FloatingActionButton(onPressed: (){},
           backgroundColor: Colors.red,
         child: Icon(Icons .add_shopping_cart,color: Colors.white,),
