@@ -1,6 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:my_pojects/home_page.dart';
 
 class LongPage extends StatefulWidget {
   const LongPage({Key? key}) : super(key: key);
@@ -9,19 +9,38 @@ class LongPage extends StatefulWidget {
 }
 
 class _LongPageState extends State<LongPage> {
-  late String email,password;
+   String? password;
+    var numberPhone;
+    bool isHidePassword= true;
+
  Widget _bulidLoge(){
    return Row(
      mainAxisAlignment: MainAxisAlignment.center,
      children: [
-       Text("خوش آمدید",
-       style: TextStyle(
-         fontFamily: "Nas",
-         fontSize: MediaQuery.of(context).size.height/25,
-         fontWeight: FontWeight.bold,
-         color: Colors.lightBlue,
+       Padding(
+         padding: const EdgeInsets.symmetric(vertical: 70),
+         child: Text("خوش آمدید",
+         style: TextStyle(
+           fontFamily: "Nas",
+           fontSize: MediaQuery.of(context).size.height/25,
+           fontWeight: FontWeight.bold,
+           color: Colors.lightBlue,
+         ),
+         ),
        ),
-       ),
+     ],
+   );
+ }
+ Widget _bulidOrRow(){
+   return Row(
+     mainAxisAlignment: MainAxisAlignment.center,
+    children: const [
+     Text('- OR -',
+   style: TextStyle(
+     fontWeight: FontWeight.w400,
+
+   ),
+   )
 
      ],
    );
@@ -31,11 +50,11 @@ class _LongPageState extends State<LongPage> {
      mainAxisAlignment: MainAxisAlignment.center,
      children: [
        ClipRRect(
-         borderRadius: BorderRadius.all(Radius.circular(20.0),),
+         borderRadius: const BorderRadius.all(Radius.circular(20.0),),
          child: Container(
            height: MediaQuery.of(context).size.height* 0.6,
            width: MediaQuery.of(context).size.width * 0.8,
-           decoration: BoxDecoration(
+           decoration: const BoxDecoration(
              color: Colors.white
            ),
            child:  Column(
@@ -47,53 +66,65 @@ class _LongPageState extends State<LongPage> {
                  children: [
                    Text('Login',
                      style: TextStyle(
+
                        fontSize: MediaQuery.of(context).size.height/30
                      ),
                    ),
                  ],
                ),
-               _bulidEmailRow(),
+               _bulidPhoneNumberRow(),
                _bulidPasswordRow(),
                _bulidForgitPasswordRow(),
                _bulidLoginButton(),
+               _bulidOrRow(),
+               _bulidSocialBtnRow(),
              ],
            ),
          ),
        ),
-
      ],
    );
  }
 
- Widget  _bulidEmailRow(){
-   return Padding(padding: EdgeInsets.all(8),
+ Widget  _bulidPhoneNumberRow(){
+   return Padding(padding: const EdgeInsets.all(8),
      child: TextFormField(
+       autofocus:true,
        keyboardType: TextInputType.emailAddress,
        onChanged: (value){
          setState(() {
-           this.email = value;
+           numberPhone = value;
          });
+         print(numberPhone);
        },
-       decoration: InputDecoration(
-         prefixIcon: Icon(Icons.email, color: Colors.lightGreen,),
-         label: Text('E-mail'),
+       decoration: const InputDecoration(
+         prefixIcon: Icon(Icons.phone, color: Colors.lightGreen,),
+         hintText: 'PhoneNumber',
        ),
      ),
+
 
    );
  }
   Widget  _bulidPasswordRow(){
-    return Padding(padding: EdgeInsets.all(8),
+    return Padding(padding: const EdgeInsets.all(8),
       child: TextFormField(
         keyboardType: TextInputType.emailAddress,
+        obscureText: isHidePassword,
         onChanged: (value){
           setState(() {
-            this.email = value;
+            password = value;
           });
         },
         decoration: InputDecoration(
-          prefixIcon: Icon(Icons.lock, color: Colors.lightGreen,),
-          label: Text('Password'),
+
+          prefixIcon: const Icon(Icons.lock, color: Colors.lightGreen,),
+          hintText :'Password',
+          suffixIcon:InkWell(
+            onTap: _togglePassword,
+            child:  changeIconsPassword(),
+          ),
+
         ),
       ),
 
@@ -106,14 +137,23 @@ class _LongPageState extends State<LongPage> {
        Container(
          height: 1.4* (MediaQuery.of(context).size.height/20 ),
          width: 5* (MediaQuery.of(context).size.width/10 ),
-         margin: EdgeInsets.only(bottom: 20),
-         child : RaisedButton(
+         margin: const EdgeInsets.only(bottom: 20),
+         child : RaisedButton (
            elevation: 5.0,
            color: Colors.lightGreen,
            shape: RoundedRectangleBorder(
              borderRadius: BorderRadius.circular(30.0),
            ),
-           onPressed: () { },
+           onPressed: () {
+             Navigator.of(context).push(
+               MaterialPageRoute(
+                   builder: (context){
+                     return Home();
+                   }
+               ),
+             );
+           },
+
            child: Text("Login",
            style: TextStyle(
              fontSize: MediaQuery.of(context).size.height/40
@@ -122,37 +162,131 @@ class _LongPageState extends State<LongPage> {
        ),
      ],
    );
-
-
   }
+  Widget _bulidSingUpBtn(){
+   return Row(
+     mainAxisAlignment: MainAxisAlignment.center,
+     children: [
+       Padding(padding: const EdgeInsets.only(top: 40),
+       child: FlatButton(onPressed: (){
+         Navigator.of(context).push(
+           MaterialPageRoute(
+               builder: (context){
+                 return Home();
+               }
+           ),
+         );
+         },
+         child: RichText(
+           text: TextSpan(
+             children: [
+               TextSpan(
+                 text: "Don't have an account? ",
+                 style: TextStyle(
+                   color: Colors.black,
+                   fontSize:  MediaQuery.of(context).size.height/40,
+                   fontWeight: FontWeight.w400,
+                 ),
+               ),
+           TextSpan(
+             text: "Sign Up",
+             style: TextStyle(
+               color: Colors.green,
+               fontSize:  MediaQuery.of(context).size.height/40,
+               fontWeight: FontWeight.bold,
+                )
+              )
+             ],
+           ),
+         ),
+       ),
+       )
+     ],
+   );
+  }
+Widget _bulidSocialBtnRow(){
+   return Row(
+     mainAxisAlignment: MainAxisAlignment.center,
+     children: [
+       GestureDetector(
+         onTap: () {
+           Navigator.of(context).push(
+             MaterialPageRoute(
+                 builder: (context){
+                   return Home();
+                 }
+             ),
+           );
+           setState(() { });
+         },
+         child: Container(
+           height: 80,
+           width: 60,
+           decoration: const BoxDecoration(
+             shape: BoxShape.circle,
+             color: Colors.black,
+             boxShadow: [
+               BoxShadow(
+                 color: Colors.black26,
+                 offset: Offset(0,2),
+                 blurRadius: 6.0,
+               ),
+             ],
+           ),
+           child: Icon(
+           FontAwesomeIcons.google,
+             color: Colors.white,
+           ),
+         ),
+       )
+     ],
+
+   );
+}
 Widget _bulidForgitPasswordRow(){
    return Row(
      mainAxisAlignment: MainAxisAlignment.start,
      crossAxisAlignment: CrossAxisAlignment.start,
      children: [
-       FlatButton(onPressed: (){},
-           child: Text("Forget PassWord"),
+       FlatButton(onPressed: (){
+         Navigator.of(context).push(
+           MaterialPageRoute(
+               builder: (context){
+                 return Home();
+               }
+           ),
+         );
+       },
+           child: const Text("Forget Password"),
        ),
      ],
-     
    );
+}
+Widget changeIconsPassword(){
+   if(isHidePassword == true){
+   return Icon(
+      Icons.visibility
+   );
+   }
+   else return Icon(Icons.visibility_off);
 }
   @override
   Widget build(BuildContext context) {
     return SafeArea(
         child: Scaffold(
-          backgroundColor: Color(0xfff2f3f7),
+          resizeToAvoidBottomInset: false,
+          backgroundColor: const Color(0xfff2f3f7),
           body: Stack(
             children: [
-              Container(
+              SizedBox(
                 height: MediaQuery.of(context).size.height*0.7,
                 width: MediaQuery.of(context).size.width,
                 child: Container(
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     color:Colors.lightGreen ,
                     borderRadius: BorderRadius.only(
-                      bottomLeft: const Radius.circular(70),
-                      bottomRight: const Radius.circular(70),
+                      bottomLeft: Radius.circular(70),
+                      bottomRight: Radius.circular(70),
                     )
                   ),
                 ),
@@ -162,11 +296,18 @@ Widget _bulidForgitPasswordRow(){
               children: [
                 _bulidLoge(),
                 _bulidContianer(),
+                _bulidSingUpBtn(),
               ],
               )
             ],
           ),
 
     ));
+  }
+
+  void _togglePassword() {
+   setState(() {
+     isHidePassword = !isHidePassword;
+   });
   }
 }

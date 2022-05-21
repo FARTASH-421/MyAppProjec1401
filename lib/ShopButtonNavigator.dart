@@ -25,10 +25,11 @@ class _ShopButtonNavigatorState extends State<ShopButtonNavigator > {
       currentIndex: currentIndex,
       items: const [
         BottomNavigationBarItem(
-
-            icon: Icon(Icons.home, size: 30),
-            label: 'Home',
+          icon: Icon(Icons.person_outline, size: 30,),
+          label: 'Profile',
         ),
+
+
         BottomNavigationBarItem(
             icon: Icon(Icons.message_outlined, size: 30,),
             label: 'FeedBack',
@@ -38,8 +39,8 @@ class _ShopButtonNavigatorState extends State<ShopButtonNavigator > {
           label: 'Favorite',
         ),
         BottomNavigationBarItem(
-            icon: Icon(Icons.person_outline, size: 30,),
-            label: 'Home',
+          icon: Icon(Icons.home, size: 30),
+          label: 'Home',
         ),
       ],
 
