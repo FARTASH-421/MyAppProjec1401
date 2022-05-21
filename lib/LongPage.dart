@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 
@@ -13,11 +14,12 @@ class _LongPageState extends State<LongPage> {
    return Row(
      mainAxisAlignment: MainAxisAlignment.center,
      children: [
-       Text("Logan",
+       Text("خوش آمدید",
        style: TextStyle(
+         fontFamily: "Nas",
          fontSize: MediaQuery.of(context).size.height/25,
          fontWeight: FontWeight.bold,
-         color: Colors.white,
+         color: Colors.lightBlue,
        ),
        ),
 
@@ -52,6 +54,8 @@ class _LongPageState extends State<LongPage> {
                ),
                _bulidEmailRow(),
                _bulidPasswordRow(),
+               _bulidForgitPasswordRow(),
+               _bulidLoginButton(),
              ],
            ),
          ),
@@ -94,8 +98,45 @@ class _LongPageState extends State<LongPage> {
       ),
 
     );
-  }
+ }
+  Widget _bulidLoginButton(){
+   return Row(
+     mainAxisAlignment: MainAxisAlignment.center,
+     children: [
+       Container(
+         height: 1.4* (MediaQuery.of(context).size.height/20 ),
+         width: 5* (MediaQuery.of(context).size.width/10 ),
+         margin: EdgeInsets.only(bottom: 20),
+         child : RaisedButton(
+           elevation: 5.0,
+           color: Colors.lightGreen,
+           shape: RoundedRectangleBorder(
+             borderRadius: BorderRadius.circular(30.0),
+           ),
+           onPressed: () { },
+           child: Text("Login",
+           style: TextStyle(
+             fontSize: MediaQuery.of(context).size.height/40
+           ),),
+         ),
+       ),
+     ],
+   );
 
+
+  }
+Widget _bulidForgitPasswordRow(){
+   return Row(
+     mainAxisAlignment: MainAxisAlignment.start,
+     crossAxisAlignment: CrossAxisAlignment.start,
+     children: [
+       FlatButton(onPressed: (){},
+           child: Text("Forget PassWord"),
+       ),
+     ],
+     
+   );
+}
   @override
   Widget build(BuildContext context) {
     return SafeArea(
