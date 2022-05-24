@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:my_pojects/ShopButtonNavigator.dart';
-import 'package:my_pojects/signUpPage.dart';
+import 'package:my_pojects/SingUp_Page.dart';
 
 class LongPage extends StatefulWidget {
   const LongPage({Key? key}) : super(key: key);
@@ -20,9 +20,9 @@ class _LongPageState extends State<LongPage> {
      children: [
        Padding(
          padding: const EdgeInsets.symmetric(vertical: 70),
-         child: Text("خوش آمدید",
-         style: TextStyle(
-           fontFamily: "Nas",
+         child: Text("WellCome",
+           style: TextStyle(
+           fontFamily: "Kurale",
            fontSize: MediaQuery.of(context).size.height/25,
            fontWeight: FontWeight.bold,
            color: Colors.lightBlue,
@@ -103,7 +103,8 @@ class _LongPageState extends State<LongPage> {
    );
  }
   Widget  _bulidPasswordRow(){
-    return Padding(padding: const EdgeInsets.all(8),
+    return Padding(
+      padding: const EdgeInsets.all(8),
       child: TextFormField(
         keyboardType: TextInputType.emailAddress,
         obscureText: isHidePassword,
@@ -167,7 +168,7 @@ class _LongPageState extends State<LongPage> {
          Navigator.of(context).push(
            MaterialPageRoute(
                builder: (context){
-                 return SignUp();
+                 return SingUpPage();
                }
            ),
          );
@@ -299,7 +300,6 @@ Widget changeIconsPassword(){
           ),
     ));
   }
-
   void _togglePassword() {
    setState(() {
      isHidePassword = !isHidePassword;

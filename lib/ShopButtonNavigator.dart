@@ -2,21 +2,25 @@ import 'package:flutter/material.dart';
 import 'package:my_pojects/Chat.dart';
 import 'package:my_pojects/Favorite.dart';
 import 'package:my_pojects/Profile.dart';
+import 'package:my_pojects/Shoping.dart';
 import 'package:my_pojects/home_page.dart';
 
 class ShopButtonNavigator  extends StatefulWidget {
-  const ShopButtonNavigator({Key? key}) : super(key: key);
 
   @override
   State<ShopButtonNavigator > createState() => _ShopButtonNavigatorState();
 }
 
 class _ShopButtonNavigatorState extends State<ShopButtonNavigator > {
-  final scrrens= [ Profile(), Chat(), Favorite(), Home(),];
-  int currentIndex = 0;
+  final scrrens= [ Profile(), Chat(), Shoping(), Favorite(), Home(),];
+  int currentIndex =4 ;
   @override
 
-  Widget build(BuildContext context) =>Scaffold(
+  Widget build(BuildContext context) =>MaterialApp(
+  debugShowCheckedModeBanner: false,
+  title:'DigiGreen',
+  color: Colors.lightGreenAccent,
+  home: Scaffold(
       body: scrrens[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
@@ -40,6 +44,11 @@ class _ShopButtonNavigatorState extends State<ShopButtonNavigator > {
             icon: Icon(Icons.message_outlined, size: 30,),
             label: 'FeedBack',
         ),
+
+        BottomNavigationBarItem(
+          icon: Icon(Icons.add_shopping_cart, size: 30,),
+          label: 'Shoping',
+        ),
         BottomNavigationBarItem(
           icon: Icon(Icons.border_all, size: 30, ),
           label: 'Favorite',
@@ -51,6 +60,7 @@ class _ShopButtonNavigatorState extends State<ShopButtonNavigator > {
       ],
 
     ),
+  ),
   );
 
 }
