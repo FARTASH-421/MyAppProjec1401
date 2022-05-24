@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_settings_screens/flutter_settings_screens.dart';
 import 'package:my_pojects/Chat.dart';
 import 'package:my_pojects/Favorite.dart';
-import 'package:my_pojects/Profile.dart';
 import 'package:my_pojects/Shoping.dart';
 import 'package:my_pojects/home_page.dart';
+import 'Profile/Header_page.dart';
+import 'Profile/ProfilePage.dart';
 
 class ShopButtonNavigator  extends StatefulWidget {
 
@@ -12,14 +14,26 @@ class ShopButtonNavigator  extends StatefulWidget {
 }
 
 class _ShopButtonNavigatorState extends State<ShopButtonNavigator > {
-  final scrrens= [ Profile(), Chat(), Shoping(), Favorite(), Home(),];
+  final scrrens= [ Profiles(), Chat(), Shoping(), Favorite(), Home(),];
   int currentIndex =4 ;
   @override
 
-  Widget build(BuildContext context) =>MaterialApp(
+  Widget build(BuildContext context)=>ValueChangeObserver<bool>(
+  cacheKey: HeaderPage.keyDarkMode,
+  defaultValue: true,
+  builder: (_,isDarkMode,__)=> MaterialApp(
+  title: 'Stores',
+  color: Colors.blue,
   debugShowCheckedModeBanner: false,
-  title:'DigiGreen',
-  color: Colors.lightGreenAccent,
+  theme: isDarkMode
+  ? ThemeData.dark().copyWith(
+  primaryColor: Colors.teal,
+  accentColor: Colors.white,
+  scaffoldBackgroundColor: Color(0xFF170635),
+  canvasColor: Color(0xFF170635),
+  )
+      : ThemeData.light().copyWith(accentColor: Colors.black38),
+
   home: Scaffold(
       body: scrrens[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
@@ -44,7 +58,6 @@ class _ShopButtonNavigatorState extends State<ShopButtonNavigator > {
             icon: Icon(Icons.message_outlined, size: 30,),
             label: 'FeedBack',
         ),
-
         BottomNavigationBarItem(
           icon: Icon(Icons.add_shopping_cart, size: 30,),
           label: 'Shoping',
@@ -61,42 +74,6 @@ class _ShopButtonNavigatorState extends State<ShopButtonNavigator > {
 
     ),
   ),
+  ),
   );
-
 }
-
-// shape: CircularNotchedRectangle(),
-// notchMargin: 10,
-// clipBehavior: Clip.antiAlias,
-//
-// child: Container(
-// height: 60,
-// color: Colors.orange,
-// child: Row(
-// mainAxisAlignment: MainAxisAlignment.spaceBetween,
-// children: [
-// Container (
-// width: MediaQuery.of(context).size.width/2-30,
-// child: Row(
-// mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-// children: [
-// Icon(Icons.person_outline,size: 30,color: Colors.white,),
-// Icon(Icons.message_outlined,size: 30, color: Colors.white,),
-// ],
-// ),
-// ),
-// Container(
-// width: MediaQuery.of(context).size.width/2-30,
-// child: Row(
-// mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-// children:[
-// Icon(Icons.border_all,size: 30,color: Colors.white,
-// ),
-//
-// Icon(Icons.home,size: 30, color: Colors.white)
-// ],
-// ),
-// ),
-// ],
-// ),
-// ),

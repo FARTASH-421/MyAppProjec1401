@@ -83,7 +83,6 @@ class _LongPageState extends State<LongPage> {
      ],
    );
  }
-
  Widget  _bulidPhoneNumberRow(){
    return Padding(padding: const EdgeInsets.all(8),
      child: TextFormField(
