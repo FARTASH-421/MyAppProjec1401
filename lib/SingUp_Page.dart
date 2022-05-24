@@ -83,12 +83,14 @@ class _SingUpPageState extends State<SingUpPage>{
   }
 
   Widget  _bulidUserName(){
+    print(userName);
     return Padding(
       padding: const EdgeInsets.all(15),
       child: TextFormField(
 
         keyboardType: TextInputType.emailAddress,
         onChanged: (value){
+
           setState(() {
             this.userName = value;
           });

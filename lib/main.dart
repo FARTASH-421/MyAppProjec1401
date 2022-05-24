@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_settings_screens/flutter_settings_screens.dart';
 import 'package:my_pojects/LongPage.dart';
 import 'package:my_pojects/SingUp_Page.dart';
 import 'ShopButtonNavigator.dart';
@@ -7,7 +8,8 @@ import 'package:my_pojects/home_page.dart';
 import 'package:my_pojects/splush_screen.dart';
 
 
-void  main(){
+Future<void>  main() async {
+  await Settings.init(cacheProvider:  SharePreferenceCache());
   SystemChrome.setSystemUIOverlayStyle(
       SystemUiOverlayStyle(statusBarColor: Colors.transparent));
   runApp(Store());

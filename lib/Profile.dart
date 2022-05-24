@@ -1,14 +1,59 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:flutter_settings_screens/flutter_settings_screens.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:my_pojects/constants.dart';
 class Profile extends StatelessWidget {
-  const Profile({Key? key}) : super(key: key);
-
+    var Language = {
+      1: 'English',
+      2: 'Persion',
+      3: 'Chinese',
+      4: 'Hindi'
+    };
   @override
   Widget build(BuildContext context) {
+
     ScreenUtil.init(context);
+    Widget bulidDarkMoad() => SwitchSettingsTile(
+        leading: Icon(
+        Icons.dark_mode,
+          color: Color(0xFF642EF3),
+        ),
+      // settingKey: keyDarkMode,
+      title: 'Dark Mode',
+      onChange: (isDarkMode){ },
+    );
+
+    Widget buildLogOut() =>SimpleSettingsTile(
+      title: 'Logout',
+      leading: Icon(Icons.logout, color: Colors.blueAccent,),
+      subtitle: '',
+      onTap: (){ } ,
+
+    );
+    Widget bulidAccount() =>SimpleSettingsTile(
+      leading: Icon(Icons.person,color: Colors.green,),
+      title: 'Account Settings',
+      subtitle: 'Privacy, Security, Language',
+      child: Container(),
+      onTap: () { },
+
+
+    );
+    Widget bulidLanguage() =>DropDownSettingsTile(
+        title: 'Language',
+        settingKey: keyLanguage,
+        selected: 1,
+        values: Language,
+    );
+    Widget bulidLocation() => TextInputSettingsTile(
+        title: 'Location',
+        settingKey: keyLocation,
+        initialValue: 'Iran',
+        onChange: (location){ },
+
+    );
 
     var profileInfo = Expanded(
 

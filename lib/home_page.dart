@@ -49,7 +49,7 @@ class _HomeState extends State<Home> {
           });
         },
         child:Icon(Icons.add),
-        backgroundColor: Colors.lightGreenAccent,
+        backgroundColor: Colors.deepOrangeAccent,
       ),
     );
 
@@ -101,7 +101,6 @@ Card generateItem() {
               ],
             ),
           ),
-
           Center(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
