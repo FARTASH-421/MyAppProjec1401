@@ -163,7 +163,7 @@ class _LongPageState extends State<LongPage> {
      mainAxisAlignment: MainAxisAlignment.center,
      children: [
        Padding(padding: const EdgeInsets.only(top: 40),
-       child: FlatButton(onPressed: (){
+       child: FlatButton( onPressed: (){
          Navigator.of(context).push(
            MaterialPageRoute(
                builder: (context){

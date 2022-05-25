@@ -3,7 +3,7 @@ import 'package:flutter_settings_screens/flutter_settings_screens.dart';
 import 'package:my_pojects/Chat.dart';
 import 'package:my_pojects/Favorite.dart';
 import 'package:my_pojects/Shoping.dart';
-import 'package:my_pojects/home_page.dart';
+import 'package:my_pojects/Home/home_page.dart';
 import 'Profile/Header_page.dart';
 import 'Profile/ProfilePage.dart';
 
@@ -14,6 +14,7 @@ class ShopButtonNavigator  extends StatefulWidget {
 }
 
 class _ShopButtonNavigatorState extends State<ShopButtonNavigator > {
+  late Colors color;
   final scrrens= [ Profiles(), Chat(), Shoping(), Favorite(), Home(),];
   int currentIndex =4 ;
   @override
@@ -23,24 +24,24 @@ class _ShopButtonNavigatorState extends State<ShopButtonNavigator > {
   defaultValue: true,
   builder: (_,isDarkMode,__)=> MaterialApp(
   title: 'Stores',
-  color: Colors.blue,
+  color: Colors.lightGreen,
   debugShowCheckedModeBanner: false,
   theme: isDarkMode
   ? ThemeData.dark().copyWith(
   primaryColor: Colors.teal,
   accentColor: Colors.white,
-  scaffoldBackgroundColor: Color(0xFF170635),
-  canvasColor: Color(0xFF170635),
+  scaffoldBackgroundColor: Color(0xFF041E34),
+  canvasColor: Color(0xFF05182C),
   )
-      : ThemeData.light().copyWith(accentColor: Colors.black38),
+      : ThemeData.light().copyWith(accentColor: Colors.black),
 
   home: Scaffold(
       body: scrrens[currentIndex],
       bottomNavigationBar: BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
-      backgroundColor: Colors.white,
-      selectedItemColor: Colors.black,
-      unselectedItemColor: Colors.black38,
+      // backgroundColor: Colors.grey,
+      // selectedItemColor: Colors.black,
+      //   unselectedItemColor: Colors.black38,
       selectedFontSize: 16,
       unselectedFontSize: 14,
       showUnselectedLabels: false,
@@ -48,7 +49,6 @@ class _ShopButtonNavigatorState extends State<ShopButtonNavigator > {
       onTap: (index) =>setState( () => currentIndex = index ),
       currentIndex: currentIndex,
       items: const [
-
         BottomNavigationBarItem(
           icon: Icon(Icons.person_outline, size: 30,),
           label: 'Profile',

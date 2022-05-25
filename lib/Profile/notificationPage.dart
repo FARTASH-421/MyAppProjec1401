@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_settings_screens/flutter_settings_screens.dart';
 import 'package:my_pojects/Profile/setting_page.dart';
 
 import 'icon_widget.dart';
 
-class AccontPage extends StatelessWidget {
-static const keyLanguage = 'key-language';
-static const keyLocation = 'key-location';
-static const keyPassword = 'key-password';
+class Page extends StatelessWidget {
+  static const keyLanguage = 'key-language';
+  static const keyLocation = 'key-location';
+  static const keyPassword = 'key-password';
   var Language = {
     1: 'English',
     2: 'Persion',
@@ -48,13 +47,13 @@ static const keyPassword = 'key-password';
     onChange: (location){ },
 
   );
-  // Widget bulidAccount() =>SimpleSettingsTile(
-  //   leading: IconWidget( icon:Icons.person,color: Colors.green,),
-  //   title: 'Account Settings',
-  //   subtitle: 'Privacy, Security, Language',
-  //   child: Container(),
-  //   onTap: () { },
-  // );
+  Widget bulidAccount() =>SimpleSettingsTile(
+    leading: IconWidget( icon:Icons.person,color: Colors.green,),
+    title: 'Account Settings',
+    subtitle: 'Privacy, Security, Language',
+    child: Container(),
+    onTap: () { },
+  );
 
   Widget buildPassword() => TextInputSettingsTile(
     settingKey: keyPassword,
@@ -65,27 +64,27 @@ static const keyPassword = 'key-password';
 
   );
 
- Widget buildPrivacy(BuildContext context) => SimpleSettingsTile(
-     title: 'Privacy',
-     subtitle: '',
-   leading: IconWidget( icon: Icons.lock, color: Colors.blue,),
-   onTap: ()=> Utils.showSnackBar(context,'Clicked Privacy'),
- );
+  Widget buildPrivacy(BuildContext context) => SimpleSettingsTile(
+    title: 'Privacy',
+    subtitle: '',
+    leading: IconWidget( icon: Icons.lock, color: Colors.blue,),
+    onTap: ()=> Utils.showSnackBar(context,'Clicked Privacy'),
+  );
 
 
-Widget buildSecurity(context) =>SimpleSettingsTile(
-  title: 'Security',
-  subtitle: '',
-  leading: IconWidget( icon: Icons.security, color: Colors.red,),
-  onTap: ()=> Utils.showSnackBar(context,'Clicked Security'),
-);
+  Widget buildSecurity(context) =>SimpleSettingsTile(
+    title: 'Security',
+    subtitle: '',
+    leading: IconWidget( icon: Icons.security, color: Colors.red,),
+    onTap: ()=> Utils.showSnackBar(context,'Clicked Security'),
+  );
 
 
-Widget buildAcconuntInfo(context) =>SimpleSettingsTile(
-  title: 'AccountInfo',
-  subtitle: '',
-  leading: IconWidget( icon: Icons.info, color: Colors.purple,),
-  onTap: ()=> Utils.showSnackBar(context,'Clicked AccountInfo'),
-);
+  Widget buildAcconuntInfo(context) =>SimpleSettingsTile(
+    title: 'AccountInfo',
+    subtitle: '',
+    leading: IconWidget( icon: Icons.info, color: Colors.purple,),
+    onTap: ()=> Utils.showSnackBar(context,'Clicked AccountInfo'),
+  );
 
 }

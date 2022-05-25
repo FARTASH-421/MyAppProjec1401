@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:my_pojects/Profile/setting_page.dart';
 import 'package:my_pojects/SiveInfo.dart';
 
 import 'ShopButtonNavigator.dart';
@@ -11,7 +12,7 @@ class SingUpPage extends StatefulWidget {
   State<SingUpPage> createState() => _SingUpPageState();
 }
 class _SingUpPageState extends State<SingUpPage>{
-  Info me= Info();
+  SettingPage set = SettingPage();
   var userName;
   var numberPhone;
   var password;
@@ -94,7 +95,7 @@ class _SingUpPageState extends State<SingUpPage>{
           setState(() {
             this.userName = value;
           });
-          me.userName = userName;
+         set.userName = userName;
         },
         decoration: const InputDecoration(
           labelText:"*نام و نام خانوادگی",
@@ -122,7 +123,7 @@ class _SingUpPageState extends State<SingUpPage>{
           setState(() {
             this.numberPhone= value;
           });
-          me.numberPhone= numberPhone;
+          set.numberPhone= numberPhone;
         },
         decoration: const InputDecoration(
           labelText:"*شماره تماس",
@@ -150,7 +151,7 @@ class _SingUpPageState extends State<SingUpPage>{
           setState(() {
             password = value;
           });
-          me.email = email;
+          set.email = email;
         },
         decoration: const InputDecoration(
           labelText:"*رمز عبور",
@@ -178,7 +179,7 @@ class _SingUpPageState extends State<SingUpPage>{
           setState(() {
             this.email= value;
           });
-          me.email = email;
+          set.email = email;
         },
         decoration: const InputDecoration(
           labelText:"ایمیل",
@@ -206,7 +207,7 @@ class _SingUpPageState extends State<SingUpPage>{
           setState(() {
             UserAcount = value;
           });
-          me.UserAcount = UserAcount;
+          set.UserAcount = UserAcount;
         },
         decoration: const InputDecoration(
           labelText:"نام فروشند/ فروشگاه",

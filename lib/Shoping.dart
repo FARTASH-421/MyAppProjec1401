@@ -12,38 +12,43 @@ class _ShopingState extends State<Shoping> {
     return Scaffold(
       appBar: AppBar(
         actions: [
-
-          TextButton(
-            onPressed: () {  },
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text('سبد خرید',
-                      style: TextStyle(
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Column(
+                children: const [
+                  Text('سبد خرید',
+                    style: TextStyle(
                         fontFamily: "Nas",
                         fontSize: 24,
                         color: Colors.black
-                      ),
                     ),
-                Text('لیست خرید بعدی',
-                      style: TextStyle(
+                  ),
+                ],
+              ),
+              Column(
+                children: const [
+                  Text('لیست خرید بعدی',
+                    style: TextStyle(
                         fontFamily: "Nas",
                         fontSize: 24,
                         color: Colors.black
-                      ),
-                ),
-              ],
-            ),
-          ),
-        ],
-        backgroundColor: Colors.white60,
-      ),
-      body: Text("Shping",
+                    ),
+                  ),
+                ],
+              ),
+
+            ],
+          )
+
+         ],
+    ),
+
+    body: Text("Shping",
       style: TextStyle(
         fontSize: 50,
-      ),
-      ),
+    ),
+    ),
     );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'SiveInfo.dart';
+import 'package:my_pojects/Home/SearchBar_Page.dart';
+import '../SiveInfo.dart';
 
 class Home extends StatefulWidget {
   @override
@@ -12,27 +13,19 @@ class _HomeState extends State<Home> {
   @override
   Widget build(BuildContext context) {
     Info inform= Info();
-    print(inform.numberPhone);
-    print(inform.userName);
     return Scaffold(
-        appBar: AppBar(
-          title: Text('Sreach'),
-          // actions: [
-          //   IconButton(
-          //     icon: Icon(Icons.search),
-          //     onPressed: (){
-          //       showSearch(
-          //         context: context,
-          //         delegate: MySearchDelegate(),
-          //       );
-          //     },
-          //   )
-          // ],
-          // backgroundColor: Colors.orange,
-
+        appBar:AppBar(
+          title: const Text("Search"),
+          titleTextStyle: const TextStyle(
+            fontFamily: "Kurale",
+            fontSize: 30,
+          ),
+          actions: const [
+            SearchBar(),
+          ],
         ),
         body: Padding(
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           child: GridView.count(
             crossAxisCount: 2,
             crossAxisSpacing: 3,
@@ -48,8 +41,8 @@ class _HomeState extends State<Home> {
             this.add++;
           });
         },
-        child:Icon(Icons.add),
-        backgroundColor: Colors.deepOrangeAccent,
+        child:const Icon(Icons.add,color: Colors.lightBlueAccent,),
+        backgroundColor: Colors.blueGrey,
       ),
     );
 
@@ -57,10 +50,9 @@ class _HomeState extends State<Home> {
 }
 
 Card generateItem() {
-
   return Card(
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.all(Radius.circular(30))
+    shape: const RoundedRectangleBorder(
+      borderRadius: BorderRadius.all(const Radius.circular(30))
     ),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -82,7 +74,7 @@ Card generateItem() {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Center(
+                const Center(
                   child: Text(
                     "خرید کالا",
                     style: TextStyle(
@@ -94,7 +86,7 @@ Card generateItem() {
                 ),
                 Column(
                   children: [
-                    Icon(Icons.edit,size: 20,),
+                    const Icon(Icons.edit,size: 20,),
                   ],
                 )
 
@@ -105,10 +97,10 @@ Card generateItem() {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-               Center(
-                 child: Text(
+               const Center(
+                 child: const Text(
                    "Good Shoping",
-                   style: TextStyle(
+                   style: const TextStyle(
                      fontFamily: "Kurale",
                      fontSize: 20,
                      fontWeight: FontWeight.bold,
@@ -122,35 +114,6 @@ Card generateItem() {
         ],
       ),
     elevation: 4,
-    color: Colors.white54,
+    color: Colors.white24,
   );
 }
-
-class MySearchDelegate  extends SearchDelegate{
-  @override
-  List<Widget>? buildActions(BuildContext context){
-
-  }
-
-  @override
-  Widget? buildLeading(BuildContext context) {
-    return IconButton(
-      icon: Icon(Icons.arrow_back),
-        onPressed: () => close(context,null)
-    );
-
-  }
-
-  @override
-  Widget buildResults(BuildContext context) {
-    // TODO: implement buildResults
-    throw UnimplementedError();
-  }
-
-  @override
-  Widget buildSuggestions(BuildContext context) {
-    // TODO: implement buildSuggestions
-    throw UnimplementedError();
-  }
-}
-
