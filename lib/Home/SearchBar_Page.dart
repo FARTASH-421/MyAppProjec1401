@@ -36,15 +36,7 @@ class CustemSearchdelegate extends SearchDelegate {
   @override
   List<Widget>? buildActions(BuildContext context) =>[
     IconButton(
-      onPressed: (){
-        Navigator.of(context).push(
-          MaterialPageRoute(
-              builder: (context) {
-                return ShopButtonNavigator();
-              }
-          ),
-        );
-      },
+      onPressed: (){ close(context, null);},
       icon: const Icon(Icons.clear),),
   ];
   @override
@@ -93,7 +85,5 @@ class CustemSearchdelegate extends SearchDelegate {
         );
       },
     );
-
   }
-
 }

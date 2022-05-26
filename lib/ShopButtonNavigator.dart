@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_settings_screens/flutter_settings_screens.dart';
-import 'package:my_pojects/Chat.dart';
 import 'package:my_pojects/Favorite.dart';
 import 'package:my_pojects/Shoping.dart';
 import 'package:my_pojects/Home/home_page.dart';
@@ -15,8 +14,8 @@ class ShopButtonNavigator  extends StatefulWidget {
 
 class _ShopButtonNavigatorState extends State<ShopButtonNavigator > {
   late Colors color;
-  final scrrens= [ Profiles(), Chat(), Shoping(), Favorite(), Home(),];
-  int currentIndex =4 ;
+  final scrrens= [ Profiles(),Shoping() , Favorite(), Home(),];
+  int currentIndex =3;
   @override
 
   Widget build(BuildContext context)=>ValueChangeObserver<bool>(
@@ -54,10 +53,6 @@ class _ShopButtonNavigatorState extends State<ShopButtonNavigator > {
           label: 'Profile',
         ),
 
-        BottomNavigationBarItem(
-            icon: Icon(Icons.message_outlined, size: 30,),
-            label: 'FeedBack',
-        ),
         BottomNavigationBarItem(
           icon: Icon(Icons.add_shopping_cart, size: 30,),
           label: 'Shoping',

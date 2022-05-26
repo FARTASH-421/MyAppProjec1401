@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_settings_screens/flutter_settings_screens.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:my_pojects/Profile/EideProfile.dart';
 import 'package:my_pojects/Profile/account_page.dart';
 import '../SingUp_Page.dart';
 import 'icon_widget.dart';
@@ -182,19 +183,9 @@ class _SettingPageState extends State<SettingPage> {
  Widget showInfo()=>Center(
      child: Column(
        mainAxisAlignment: MainAxisAlignment.center,
-       children:  [
-       FlatButton( onPressed: (){
-         Navigator.of(context).push(
-           MaterialPageRoute(
-               builder: (context){
-                 return SingUpPage();
-               }
-           ),
-         );
-       },
-         child: Center(
+       children: [
+         Center(
            child: Column(
-
              children: [
                Row(
                  mainAxisAlignment: MainAxisAlignment.center ,
@@ -221,7 +212,7 @@ class _SettingPageState extends State<SettingPage> {
              ],
            ),
            ),
-        ),
+         EideProfile(),
       ],
     ),
  );
