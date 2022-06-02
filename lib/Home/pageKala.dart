@@ -6,8 +6,9 @@ class ShoePage extends StatelessWidget {
   final CardItem item;
 
   const ShoePage({
+    required this.item,
     Key? key,
-   required this.item
+
   }) : super(key: key);
 
   @override

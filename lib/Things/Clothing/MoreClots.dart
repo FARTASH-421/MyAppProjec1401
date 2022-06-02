@@ -1,31 +1,37 @@
 import 'package:flutter/material.dart';
-import '../../Home/home_page.dart';
+
 import '../../Home/pageKala.dart';
 
-class Comp {
-  BuildContext context;
+class MyClots extends StatefulWidget {
+  const MyClots({Key? key}) : super(key: key);
 
-  Comp(this.context);
+  @override
+  State<MyClots> createState() => _MyClotsState();
+}
 
+class _MyClotsState extends State<MyClots> {
   List<CardItem> items = [
     const CardItem(
-      title: 'موبايل',
-      urlImage: 'images/ComputerImage/7.jpg',
-      subtitle: '1900 کالا',
+      title: 'زنانه',
+      urlImage:
+          'https://modbina.com/wp-content/uploads/2021/02/women538524.jpg',
+      subtitle: '140 کالا',
     ),
     const CardItem(
-      title: 'لپ تاپ',
-      urlImage: 'images/computer.webp',
-      subtitle: '1600 کالا',
+      title: 'مردانه',
+      urlImage:
+          'https://media.sarpoosh.com/images/article/picture/handsome-way-men.jpg',
+      subtitle: '140 کالا',
     ),
     const CardItem(
-      title: 'دوربین',
-      urlImage: 'images/camera.jpg',
-      subtitle: '1400 کالا',
+      title: 'بچگانه',
+      urlImage:
+          'https://tipza.ir/wp-content/uploads/2021/05/Hc6684a577fa54323ab63b8976af8d224Y.jpg',
+      subtitle: '140 کالا',
     ),
   ];
 
-  Widget buildContiner() => Container(
+  Widget buildContaner() => SizedBox(
         height: 220,
         child: ListView.separated(
           padding: const EdgeInsets.all(10),
@@ -42,7 +48,7 @@ class Comp {
   Widget buildCard({
     required CardItem item,
   }) =>
-      Container(
+      SizedBox(
         width: 200,
         child: Column(
           children: [
@@ -53,17 +59,20 @@ class Comp {
                   borderRadius: BorderRadius.circular(20),
                   child: Material(
                     child: Ink.image(
-                      image: AssetImage(item.urlImage),
+                      image: NetworkImage(
+                        item.urlImage,
+                      ),
                       fit: BoxFit.cover,
-                      child: const InkWell(
+                      child: InkWell(
                         // onTap: () => Navigator.push(
-                        //     context,
+                        //   context,
                         //   MaterialPageRoute(
-                        //     builder: (context) =>ShoePage(item:item),
-                        //
+                        //     builder: (context) => ShoePage(
+                        //       item:item,
+                        //     ),
                         //   ),
-                        //   ),
-                          ),
+                        // ),
+                      ),
                     ),
                   ),
                 ),
@@ -85,24 +94,27 @@ class Comp {
         ),
       );
 
-  Widget build(BuildContext context) => Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          TextButton(
-            onPressed: () {},
-            child: const Text(
-              "کالای دیجیتال",
-              style: TextStyle(
-                // fontFamily: 'Nas',
-                fontSize: 20,
-                fontWeight: FontWeight.w600,
-                color: Colors.orange,
+  @override
+  Widget build(BuildContext context) => Scaffold(
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            TextButton(
+              onPressed: () {},
+              child: const Text(
+                "پوشاک",
+                style: TextStyle(
+                  fontFamily: 'Kurale',
+                  fontSize: 20,
+                  fontWeight: FontWeight.w600,
+                  color: Colors.orange,
+                ),
               ),
             ),
-          ),
-          buildContiner(),
-        ],
+            buildContaner(),
+          ],
+        ),
       );
 }
 

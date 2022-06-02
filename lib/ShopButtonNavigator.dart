@@ -6,70 +6,81 @@ import 'package:my_pojects/Home/home_page.dart';
 import 'Profile/Header_page.dart';
 import 'Profile/ProfilePage.dart';
 
-class ShopButtonNavigator  extends StatefulWidget {
+class ShopButtonNavigator extends StatefulWidget {
+  const ShopButtonNavigator({Key? key}) : super(key: key);
 
   @override
-  State<ShopButtonNavigator > createState() => _ShopButtonNavigatorState();
+  State<ShopButtonNavigator> createState() => _ShopButtonNavigatorState();
 }
 
-class _ShopButtonNavigatorState extends State<ShopButtonNavigator > {
-
+class _ShopButtonNavigatorState extends State<ShopButtonNavigator> {
   late Colors color;
-  final scrrens= [ Profiles(),Shoping() , Favorite(), Home(),];
-  int currentIndex =3;
+  final scrrens = [
+    Profiles(),
+    Shoping(),
+    Favorite(),
+    Home(),
+  ];
+  int currentIndex = 3;
+
   @override
-
-  Widget build(BuildContext context)=>ValueChangeObserver<bool>(
-  cacheKey: HeaderPage.keyDarkMode,
-  defaultValue: true,
-  builder: (_,isDarkMode,__)=> MaterialApp(
-  title: 'Stores',
-  color: Colors.lightGreen,
-  debugShowCheckedModeBanner: false,
-  theme: isDarkMode
-  ? ThemeData.dark().copyWith(
-  primaryColor: Colors.teal,
-  accentColor: Colors.white,
-  scaffoldBackgroundColor: Color(0xFF041E34),
-  canvasColor: Color(0xFF05182C),
-  )
-      : ThemeData.light().copyWith(accentColor: Colors.black),
-
-  home: Scaffold(
-      body: scrrens[currentIndex],
-      bottomNavigationBar: BottomNavigationBar(
-      type: BottomNavigationBarType.fixed,
-      // backgroundColor: Colors.grey,
-      // selectedItemColor: Colors.black,
-      //   unselectedItemColor: Colors.black38,
-      selectedFontSize: 16,
-      unselectedFontSize: 14,
-      showUnselectedLabels: false,
-      elevation: 10,
-      onTap: (index) =>setState( () => currentIndex = index ),
-      currentIndex: currentIndex,
-      items: const [
-        BottomNavigationBarItem(
-          icon: Icon(Icons.person_outline, size: 30,),
-          label: 'Profile',
+  Widget build(BuildContext context) => ValueChangeObserver<bool>(
+        cacheKey: HeaderPage.keyDarkMode,
+        defaultValue: true,
+        builder: (_, isDarkMode, __) => MaterialApp(
+          title: 'Stores',
+          color: Colors.lightGreen,
+          debugShowCheckedModeBanner: false,
+          theme: isDarkMode
+              ? ThemeData.dark().copyWith(
+                  primaryColor: Colors.teal,
+                  accentColor: Colors.white,
+                  scaffoldBackgroundColor: Color(0xFF041E34),
+                  canvasColor: Color(0xFF05182C),
+                )
+              : ThemeData.light().copyWith(accentColor: Colors.black),
+          home: Scaffold(
+            body: scrrens[currentIndex],
+            bottomNavigationBar: BottomNavigationBar(
+              type: BottomNavigationBarType.fixed,
+              // backgroundColor: Colors.grey,
+              // selectedItemColor: Colors.black,
+              //   unselectedItemColor: Colors.black38,
+              selectedFontSize: 16,
+              unselectedFontSize: 14,
+              showUnselectedLabels: false,
+              elevation: 10,
+              onTap: (index) => setState(() => currentIndex = index),
+              currentIndex: currentIndex,
+              items: const [
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.person_outline,
+                    size: 30,
+                  ),
+                  label: 'Profile',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.add_shopping_cart,
+                    size: 30,
+                  ),
+                  label: 'Shoping',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(
+                    Icons.favorite_border_sharp,
+                    size: 30,
+                  ),
+                  label: 'Favorite',
+                ),
+                BottomNavigationBarItem(
+                  icon: Icon(Icons.home, size: 30),
+                  label: 'Home',
+                ),
+              ],
+            ),
+          ),
         ),
-
-        BottomNavigationBarItem(
-          icon: Icon(Icons.add_shopping_cart, size: 30,),
-          label: 'Shoping',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.border_all, size: 30, ),
-          label: 'Favorite',
-        ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.home, size: 30),
-          label: 'Home',
-        ),
-      ],
-
-    ),
-  ),
-  ),
-  );
+      );
 }

@@ -6,6 +6,7 @@ import 'package:my_pojects/Things/Sports/Sports.dart';
 
 import '../Things/BooksAndThings/BooksAndThings.dart';
 import '../Things/Tachonology/ComputerAndMobile.dart';
+import 'UploadPage.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -50,9 +51,13 @@ class _HomeState extends State<Home> {
 
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          setState(() {
-            this.add++;
-          });
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) =>UploadPage(context: context,),
+
+            ),
+          );
         },
         child: const Icon(Icons.add),
         backgroundColor: Colors.blueGrey,

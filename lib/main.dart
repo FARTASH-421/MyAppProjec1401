@@ -5,9 +5,9 @@ import 'package:my_pojects/LongPage.dart';
 import 'package:my_pojects/Profile/Header_page.dart';
 import 'package:my_pojects/Profile/ProfilePage.dart';
 import 'package:my_pojects/Profile/account_page.dart';
+import 'package:my_pojects/ShopButtonNavigator.dart';
 import 'package:my_pojects/SingUp_Page.dart';
 import 'package:my_pojects/Profile/setting_page.dart';
-import 'ShopButtonNavigator.dart';
 import 'package:my_pojects/Home/home_page.dart';
 import 'package:my_pojects/splush_screen.dart';
 Future<void>  main() async {
@@ -29,7 +29,7 @@ class _StoreState extends State<Store> {
         title: 'Stores',
         color: Colors.blue,
         debugShowCheckedModeBanner: false,
-        home:LongPage(),
+        home: ShopButtonNavigator(),
 
     );
 }
