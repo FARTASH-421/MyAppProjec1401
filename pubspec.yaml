@@ -30,6 +30,7 @@ dependencies:
   flutter:
     sdk: flutter
   font_awesome_flutter: ^10.1.0
+  shared_preferences: ^2.0.15
   line_awesome_flutter: ^2.0.0
   flutter_screenutil: ^5.5.3+1
   animated_theme_switcher: ^2.0.6
@@ -55,6 +56,7 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^1.0.0
+  path_provider: ^2.0.10
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -71,6 +73,15 @@ flutter:
   assets:
      - images/ksenia.jpg
      - images/PngItem.png
+     - images/Iphone.jpg
+     - images/Iphone13.jpg
+     - images/computer.webp
+     - images/ComputerImage/2.jpg
+     - images/ComputerImage/3.jpeg
+     - images/ComputerImage/4.webp
+     - images/ComputerImage/7.jpg
+     - images/Profile.jpg
+     - images/camera.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

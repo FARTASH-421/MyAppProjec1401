@@ -13,6 +13,7 @@ class ShopButtonNavigator  extends StatefulWidget {
 }
 
 class _ShopButtonNavigatorState extends State<ShopButtonNavigator > {
+
   late Colors color;
   final scrrens= [ Profiles(),Shoping() , Favorite(), Home(),];
   int currentIndex =3;

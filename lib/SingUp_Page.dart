@@ -1,23 +1,22 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:my_pojects/Profile/setting_page.dart';
-import 'package:my_pojects/SiveInfo.dart';
-
 import 'ShopButtonNavigator.dart';
 
+
 class SingUpPage extends StatefulWidget {
-  const SingUpPage({Key? key}) : super(key: key);
+  const SingUpPage({
+    Key? key,
+  }) : super(key: key);
 
   @override
   State<SingUpPage> createState() => _SingUpPageState();
 }
 class _SingUpPageState extends State<SingUpPage>{
-  SettingPage set = SettingPage();
-  var userName;
-  var numberPhone;
-  var password;
-  var UserAcount;
-  var email;
+
+  final userName= TextEditingController();
+  final  numberPhone = TextEditingController();
+  final password= TextEditingController();
+  final nameCompany= TextEditingController();
+  final email= TextEditingController();
 
 
   Widget _bulidLoge(){
@@ -88,15 +87,8 @@ class _SingUpPageState extends State<SingUpPage>{
     return Padding(
       padding: const EdgeInsets.all(15),
       child: TextFormField(
-
+        controller:userName,
         keyboardType: TextInputType.emailAddress,
-        onChanged: (value){
-
-          setState(() {
-            this.userName = value;
-          });
-         set.userName = userName;
-        },
         decoration: const InputDecoration(
           labelText:"*نام و نام خانوادگی",
           contentPadding: EdgeInsets.symmetric(vertical: 8,horizontal: 10),
@@ -108,7 +100,6 @@ class _SingUpPageState extends State<SingUpPage>{
           border: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.grey),
           ),
-          hintText :'نام و نام خانوادگی',
         ),
       ),
     );
@@ -116,15 +107,10 @@ class _SingUpPageState extends State<SingUpPage>{
   Widget  _bulidPhoneNumber(){
     return Padding(
       padding: const EdgeInsets.all(15),
-      child: TextFormField(
-
-        keyboardType: TextInputType.emailAddress,
-        onChanged: (value){
-          setState(() {
-            this.numberPhone= value;
-          });
-          set.numberPhone= numberPhone;
-        },
+      child: TextField(
+        controller: numberPhone,
+        keyboardType: TextInputType.number,
+        onChanged: (value){ },
         decoration: const InputDecoration(
           labelText:"*شماره تماس",
           contentPadding: EdgeInsets.symmetric(vertical: 8,horizontal: 10),
@@ -136,7 +122,6 @@ class _SingUpPageState extends State<SingUpPage>{
           border: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.grey),
           ),
-          hintText :'شماره تماس',
         ),
       ),
     );
@@ -146,13 +131,9 @@ class _SingUpPageState extends State<SingUpPage>{
       padding: const EdgeInsets.all(15),
       child: TextFormField(
 
-        keyboardType: TextInputType.emailAddress,
-        onChanged: (value){
-          setState(() {
-            password = value;
-          });
-          set.email = email;
-        },
+        keyboardType: TextInputType.visiblePassword,
+        controller: password,
+        onChanged: (value){ },
         decoration: const InputDecoration(
           labelText:"*رمز عبور",
           contentPadding: EdgeInsets.symmetric(vertical: 8,horizontal: 10),
@@ -164,7 +145,6 @@ class _SingUpPageState extends State<SingUpPage>{
           border: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.grey),
           ),
-          hintText :'رمزعبور',
         ),
       ),
     );
@@ -175,12 +155,8 @@ class _SingUpPageState extends State<SingUpPage>{
       child: TextFormField(
 
         keyboardType: TextInputType.emailAddress,
-        onChanged: (value){
-          setState(() {
-            this.email= value;
-          });
-          set.email = email;
-        },
+        controller: email,
+        onChanged: (value){ },
         decoration: const InputDecoration(
           labelText:"ایمیل",
           contentPadding: EdgeInsets.symmetric(vertical: 8,horizontal: 10),
@@ -192,7 +168,6 @@ class _SingUpPageState extends State<SingUpPage>{
           border: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.grey),
           ),
-          hintText :'ایمیل',
         ),
       ),
     );
@@ -202,15 +177,11 @@ class _SingUpPageState extends State<SingUpPage>{
       padding: const EdgeInsets.all(15),
       child: TextFormField(
 
-        keyboardType: TextInputType.emailAddress,
-        onChanged: (value){
-          setState(() {
-            UserAcount = value;
-          });
-          set.UserAcount = UserAcount;
-        },
+        keyboardType: TextInputType.text,
+        controller: nameCompany,
+        onChanged: (value){},
         decoration: const InputDecoration(
-          labelText:"نام فروشند/ فروشگاه",
+          labelText:"نام فروشند/فروشگاه",
           contentPadding: EdgeInsets.symmetric(vertical: 8,horizontal: 10),
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(
@@ -220,7 +191,7 @@ class _SingUpPageState extends State<SingUpPage>{
           border: OutlineInputBorder(
             borderSide: BorderSide(color: Colors.grey),
           ),
-          hintText :'نام فروشند/ فروشگاه',
+
         ),
       ),
     );
@@ -231,25 +202,28 @@ class _SingUpPageState extends State<SingUpPage>{
       children: [
         Center(
           child: FloatingActionButton(
-    backgroundColor: Colors.lightGreen,
+
+    backgroundColor: Colors.orange,
       onPressed: (){
         Navigator.of(context).push(
           MaterialPageRoute(
               builder: (context){
+                print("Name: ${userName.text}");
+                print("Password: ${password.text}");
+                print("Email: ${email.text}");
+                print("Number: ${numberPhone.text}");
+                print("NameCompany: ${nameCompany.text}");
                 return ShopButtonNavigator();
               }
           ),
         );
       },
-      child: Icon(Icons.add,
-      ),
+      child: Icon(Icons.playlist_add, color: Colors.black,size: 50,),
     ),
         ),
       ],
     );
   }
-
-
   @override
   Widget build(BuildContext context) {
 
@@ -282,9 +256,9 @@ class _SingUpPageState extends State<SingUpPage>{
               )
             ],
           ),
-
         ));
   }
+
 
 
 }

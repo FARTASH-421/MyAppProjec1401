@@ -1,4 +1,3 @@
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Info{
   var userName;
@@ -22,6 +21,4 @@ class Info{
   setNumberPhone(var n){
     this.numberPhone = n;
   }
-
-
 }

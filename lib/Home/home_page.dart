@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_pojects/Home/SearchBar_Page.dart';
-import 'package:my_pojects/Things/Colts.dart';
+import 'package:my_pojects/Things/Clothing/Colts.dart';
+import 'package:my_pojects/Things/Sports/Sports.dart';
 
-import '../Things/ComputerAndMobile.dart';
+import '../Things/BooksAndThings/BooksAndThings.dart';
+import '../Things/Tachonology/ComputerAndMobile.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
@@ -18,6 +20,11 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     Colts _colts = Colts(context);
     Comp _comp= Comp(context);
+    Spotr _sport= Spotr(context);
+    Books_Things _book= Books_Things(context);
+
+
+
     return Scaffold(
       appBar: AppBar(
         title: const Text("Search"),
@@ -33,12 +40,11 @@ class _HomeState extends State<Home> {
       body: ListView(
         scrollDirection: Axis.vertical,
         children: [
-          _colts.build(context),
           _comp.build(context),
           _colts.build(context),
-          _comp.build(context),
-          _colts.build(context),
-          _comp.build(context),
+          _book.build(context),
+          _sport.build(context),
+
         ],
       ),
 

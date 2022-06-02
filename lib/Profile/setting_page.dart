@@ -6,61 +6,35 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:my_pojects/Profile/EideProfile.dart';
 import 'package:my_pojects/Profile/account_page.dart';
+import 'package:my_pojects/Things/Tachonology/ComputerAndMobile.dart';
 import '../SingUp_Page.dart';
+import '../Things/Clothing/Colts.dart';
 import 'icon_widget.dart';
 
 
-class SettingPage extends StatefulWidget {
-  var _userName;
-  var _numberPhone;
-  var _password;
-  var _UserAcount;
-  var _email;
+class  SettingPage extends  StatefulWidget {
 
 
   @override
   State<SettingPage> createState() => _SettingPageState();
-
-  get userName => _userName;
-
-  set userName(value) {
-    _userName = value;
-  }
-  get numberPhone => _numberPhone;
-  set numberPhone(value) {
-    _numberPhone = value;
-  }
-
-  get password => _password;
-  set password(value) {
-    _password = value;
-  }
-
-  get UserAcount => _UserAcount;
-  set UserAcount(value) {
-    _UserAcount = value;
-  }
-
-  get email => _email;
-  set email(value) {
-    _email = value;
-  }
 }
 
 class _SettingPageState extends State<SettingPage> {
+
    PickedFile? _imageFile;
    final ImagePicker _piker = ImagePicker();
 
   static const keyDarkMode = 'key-dark-mode';
-  String imagePath= "images/ksenia.jpg";
-
+  String imagePath= "images/Profile.jpg";
   @override
+
   Widget build(BuildContext context) => Scaffold(
     // backgroundColor: Color(0x393F8DFF),
     body: SafeArea(
       child: ListView(
-        padding: const EdgeInsets.all(24),
+        padding: const EdgeInsets.only(left: 8.0,right: 8.0,bottom: 10),
         children: [
+          // buildDark(),
           imageProfile(),
           const SizedBox(
             height: 2,
@@ -71,7 +45,15 @@ class _SettingPageState extends State<SettingPage> {
             showInfo(),
             ],
           ),
-          buildDarkMode(),
+          SizedBox(
+            height: 10,
+          ),
+          SettingsGroup(
+              title: 'سفارش های من',
+              children:[
+            Comp(context).buildContiner(),
+          ]),
+
           SettingsGroup(
             title: 'GENERAL',
             children: [
@@ -82,16 +64,25 @@ class _SettingPageState extends State<SettingPage> {
           ),
           SettingsGroup(
               title: 'FEEDBACK',
-              children: [
-                const SizedBox(height: 8,),
-                bulidReportBug(context),
-                bulidSendFeedback(context),
+              children: const [
+                 SizedBox(height: 8,),
+                // bulidReportBug(context),
+                // bulidSendFeedback(context),
               ]
           ),
         ],
       ),
     ),
   );
+
+  Widget buildDark() =>FloatingActionButton(
+
+      onPressed: (){ },
+    child: IconWidget(color: Colors.red,icon: Icons.dark_mode,
+    )
+  );
+
+
   Widget buildLogOut() =>SimpleSettingsTile(
     title: 'Logout',
     leading: const IconWidget( icon: Icons.logout, color: Colors.blueAccent,),
@@ -121,20 +112,6 @@ class _SettingPageState extends State<SettingPage> {
     leading: const IconWidget( icon: Icons.delete, color: Colors.pink,),
     onTap: ()=> Utils.showSnackBar(context,'Clicked Deleted'),
   );
-  Widget bulidReportBug(BuildContext context) =>SimpleSettingsTile(
-     title: 'Report A Bug',
-      subtitle: '',
-      leading: const IconWidget( icon: Icons.bug_report, color: Colors.teal,),
-      onTap: ()=> Utils.showSnackBar(context,'Clicked Report A Bug'),
-
- );
- Widget bulidSendFeedback(BuildContext context) =>SimpleSettingsTile(
-   title: 'Send Feedback',
-   subtitle: '',
-   leading: const IconWidget( icon:Icons.thumb_up, color: Colors.purple,),
-   onTap: ()=> Utils.showSnackBar(context,'Clicked SendFeedBack'),
-
- );
  Widget buildDarkMode () =>SwitchSettingsTile(
     title: 'Dark Mode',
     settingKey: keyDarkMode,
@@ -312,21 +289,24 @@ AssetImage imaage(){
 class Utils{
   static showSnackBar(BuildContext context, String s) => showModalBottomSheet(
     context: context,
-    builder:( (builder) => Container(
-    height: 60,
-    width: MediaQuery.of(context).size.width,
-    margin: const EdgeInsets.symmetric(
-      horizontal: 20,
-      vertical: 10,
-    ) ,
-    child: Text(s,
-      style: const TextStyle(
-          fontSize: 18,
-          fontFamily: "Kurale",
-          fontWeight: FontWeight.bold
-      ),),
+    builder:( (builder) =>
+
+        Container(
+            height: 60,
+            width: MediaQuery.of(context).size.width,
+            margin: const EdgeInsets.symmetric(
+              horizontal: 20,
+              vertical: 10,
+            ) ,
+            child: Text(s,
+              style: const TextStyle(
+                  fontSize: 18,
+                  fontFamily: "Kurale",
+                  fontWeight: FontWeight.bold
+              ),),
+  //
   )
-  ),
+    ),
   );
 }
 

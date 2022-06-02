@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:my_pojects/ShopButtonNavigator.dart';
 import 'package:my_pojects/SingUp_Page.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LongPage extends StatefulWidget {
   const LongPage({Key? key}) : super(key: key);
@@ -10,9 +11,21 @@ class LongPage extends StatefulWidget {
 }
 
 class _LongPageState extends State<LongPage> {
-   String? password;
-    var numberPhone;
-    bool isHidePassword= true;
+
+  TextEditingController  numberPhone = TextEditingController();
+  TextEditingController password= TextEditingController();
+  String number= '09926067519';
+  String pass = '1234';
+
+  Future checkLogin() async{
+    if(numberPhone.text == number && password.text == pass){
+      SharedPreferences preferences= await SharedPreferences.getInstance();
+      preferences.setString('pass',password.text);
+
+    }
+  }
+
+  bool isHidePassword= true;
 
  Widget _bulidLoge(){
    return Row(
@@ -87,13 +100,9 @@ class _LongPageState extends State<LongPage> {
    return Padding(padding: const EdgeInsets.all(8),
      child: TextFormField(
        autofocus:true,
-       keyboardType: TextInputType.emailAddress,
-       onChanged: (value){
-         setState(() {
-           numberPhone = value;
-         });
-         print(numberPhone);
-       },
+       keyboardType: TextInputType.number,
+       controller: numberPhone,
+       onChanged: (value){ },
        decoration: const InputDecoration(
          prefixIcon: Icon(Icons.phone, color: Colors.lightGreen,),
          hintText: 'PhoneNumber',
@@ -105,13 +114,10 @@ class _LongPageState extends State<LongPage> {
     return Padding(
       padding: const EdgeInsets.all(8),
       child: TextFormField(
-        keyboardType: TextInputType.emailAddress,
+        controller: password,
+        keyboardType: TextInputType.visiblePassword,
         obscureText: isHidePassword,
-        onChanged: (value){
-          setState(() {
-            password = value;
-          });
-        },
+        onChanged: (value){ },
         decoration: InputDecoration(
 
           prefixIcon: const Icon(Icons.lock, color: Colors.lightGreen,),

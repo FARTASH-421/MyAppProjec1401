@@ -1,40 +1,28 @@
 import 'package:flutter/material.dart';
-import '../Home/home_page.dart';
-import '../Home/pageKala.dart';
 
-class Comp{
+import '../../Home/pageKala.dart';
+class Spotr{
   BuildContext context;
-  Comp(this.context);
+  Spotr(this.context);
   List<CardItem> items =[
     const CardItem(
-      title:'Nike Free Run',
-        urlImage:
-          'images/ComputerImage/2.jpg',
-      subtitle: '\$99',
+      title:'پوشاک ورزشی',
+      urlImage:
+      'https://kachiran.com/photos/shares/%D9%84%D8%A8%D8%A7%D8%B3%20%D9%88%D8%B1%D8%B2%D8%B4%DB%8C/%D8%AE%D8%B1%DB%8C%D8%AF-%D9%84%D8%A8%D8%A7%D8%B3-%D9%88%D8%B1%D8%B2%D8%B4%DB%8C-%D9%81%D9%88%D8%AA%D8%A8%D8%A7%D9%84.jpg',
+      subtitle: '4 کالا',
+    ),
+
+    const CardItem(
+      title:'لوازم ورزشي',
+      urlImage:
+      'https://www.webgohar.com/wp-content/uploads/2020/12/%D8%B7%D8%B1%D8%A7%D8%AD%DB%8C-%D8%B3%D8%A7%DB%8C%D8%AA-%D9%84%D9%88%D8%A7%D8%B2%D9%85-%D9%88%D8%B1%D8%B2%D8%B4%DB%8C1.png',
+      subtitle: '5 کالا',
     ),
     const CardItem(
-      title:'Nike Good Run',
+      title:' لوازم سفر و كمپينگ',
       urlImage:
-      'images/ComputerImage/1.webp',
-      subtitle: '\$230',
-    ),
-    const CardItem(
-      title:'Nike Free Good',
-      urlImage:
-    'images/ComputerImage/3.jpeg',
-      subtitle: '\$991',
-    ),
-    const CardItem(
-      title:'Nike Free Run',
-      urlImage:
-      'images/ComputerImage/5.jpg',
-      subtitle: '\$932',
-    ),
-    const CardItem(
-      title:'Nike Free Run',
-      urlImage:
-      'images/ComputerImage/6.jpg',
-      subtitle: '\$299',
+        "https://alfablog.ir/wp-content/uploads/2021/12/1-1-850x560.jpg",
+      subtitle: '6 کالا',
     ),
   ];
 
@@ -55,23 +43,20 @@ class Comp{
       children: [
         Expanded(
           child:AspectRatio(
-            aspectRatio: 4/3,
+            aspectRatio: 10,
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(40),
+              borderRadius: BorderRadius.circular(20),
               child: Material(
                 child: Ink.image(
-                  image: AssetImage(
-                    'images/ComputerImage/6.jpg',),
+                  image: NetworkImage(item.urlImage,),
                   fit: BoxFit.cover,
                   child: InkWell(
-                    onTap: ()
-                    {}
-                    // => Navigator.push(
+                    // onTap: ()=> Navigator.push(
                     //   context,
-                      // MaterialPageRoute(
-                      //   // builder: (context) =>ShoePage(item:item),
-                      //
-                      // ),
+                    //   MaterialPageRoute(
+                    //     // builder: (context) =>ShoePage(item:item),
+                    //
+                    //   ),
                     // ),
                   ),
 
@@ -80,30 +65,25 @@ class Comp{
             ),
           ),
         ),
-        const SizedBox(height: 4,),
+        const SizedBox(height: 2,),
         Text(item.title, style: const TextStyle(fontSize: 20,fontWeight: FontWeight.w400),),
         Text(item.subtitle, style: const TextStyle(fontSize: 16,color: Colors.lightBlueAccent),),
-
       ],
     ),
   );
   Widget build(BuildContext context)=>Column(
-    mainAxisAlignment: MainAxisAlignment.end,
+    mainAxisAlignment: MainAxisAlignment.start,
+    crossAxisAlignment: CrossAxisAlignment.start,
     children: [
-      Container(
-        width: MediaQuery.of(context).size.width,
-        decoration: BoxDecoration(borderRadius: BorderRadius.circular(7)
-            ,color: Colors.blue),
-        child: TextButton(
-          onPressed: (){ },
-          child: const Text("Colts", style: TextStyle(
+      TextButton(
+        onPressed: (){ },
+          child: const Text("ورزش و سفر", style: TextStyle(
             fontFamily: 'Kurale',
-            fontSize: 16,
-            fontWeight: FontWeight.bold,
-            color: Colors.orange
+            fontSize: 20,
+            fontWeight: FontWeight.w600,
+            color: Colors.orange,
           ),),
         ) ,
-      ),
 
       buildContiner(),
     ],

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_pojects/Home/home_page.dart';
 
-import '../Things/Colts.dart';
+import '../Things/Clothing/Colts.dart';
 
 class ShoePage extends StatelessWidget {
   final CardItem item;
@@ -28,10 +27,9 @@ class ShoePage extends StatelessWidget {
           const SizedBox(height: 8,),
           Text(
             item.title+'\n'+item.subtitle,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 32, fontWeight: FontWeight.bold,
             ),
-
           ),
         ],
       ),
