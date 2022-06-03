@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../Things/Clothing/Colts.dart';
+import 'Clothing/Colts.dart';
 
 class ShoePage extends StatelessWidget {
-  final CardItem item;
+  final  item;
 
   const ShoePage({
     required this.item,
@@ -27,7 +27,7 @@ class ShoePage extends StatelessWidget {
           ),
           const SizedBox(height: 8,),
           Text(
-            item.title+'\n'+item.subtitle,
+            item.title+'\n'+item.price+'\n${item.nameSeller}',
             style: const TextStyle(
               fontSize: 32, fontWeight: FontWeight.bold,
             ),

@@ -80,3 +80,4 @@ Card generateItem() {
     color: Colors.white24,
   );
 }
+

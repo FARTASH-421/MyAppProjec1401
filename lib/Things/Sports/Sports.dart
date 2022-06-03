@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:my_pojects/Things/Sports/ColtsSport.dart';
+import 'package:my_pojects/Things/Sports/MoreSports.dart';
 
 import '../../Home/home_page.dart';
-import '../../Home/pageKala.dart';
+import '../pageKala.dart';
 
 class Spotr {
   BuildContext context;
@@ -61,15 +63,16 @@ class Spotr {
                         item.urlImage,
                       ),
                       fit: BoxFit.cover,
-                      child: InkWell(
-                          onTap: ()=> Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>Home(),
-
+                      child:InkWell(
+                        onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => MoreSports(
+                              item:item,
                             ),
                           ),
-                          ),
+                        ),
+                      ),
                     ),
                   ),
                 ),

@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
 import 'package:my_pojects/LongPage.dart';
 
 
@@ -13,9 +12,9 @@ class _SpalshState extends State<Spalsh> {
   @override
   void initState() {
     super.initState();
-    Timer(Duration(seconds:2 ),
+    Timer(const Duration(seconds:2 ),
             ()=> Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) => LongPage(),
+            MaterialPageRoute(builder: (context) => const LongPage(),
             ))
     );
   }
@@ -25,7 +24,7 @@ class _SpalshState extends State<Spalsh> {
       body: Container(
         width: double.infinity,
         height: double.infinity,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           gradient: LinearGradient(
             begin: Alignment.topRight,
             end: Alignment.bottomRight,
@@ -44,7 +43,7 @@ class _SpalshState extends State<Spalsh> {
                 Image.asset('images/PngItem.png',
                   width: 360,
                   height: 360,),
-                Text("DigiGreen",
+                const Text("DigiGreen",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.deepOrange,
@@ -54,7 +53,7 @@ class _SpalshState extends State<Spalsh> {
                 ),
               ],
             ),
-            CircularProgressIndicator(
+            const CircularProgressIndicator(
               color: Colors.black,
             ),
           ],

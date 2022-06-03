@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import '../../Home/home_page.dart';
-import '../../Home/pageKala.dart';
+import 'package:my_pojects/Things/Tachonology/MoreTachonology.dart';
 
 class Comp {
   BuildContext context;
@@ -9,23 +8,24 @@ class Comp {
 
   List<CardItem> items = [
     const CardItem(
-      title: 'موبايل',
-      urlImage: 'images/ComputerImage/7.jpg',
+      title:'موبايل',
+      urlImage:
+    'https://media.4rgos.it/i/Argos/3321-m007-25-01-7835216-motorola-simfreemobile?maxW=768&qlt=75&fmt.jpeg.interlaced=true',
       subtitle: '1900 کالا',
     ),
     const CardItem(
       title: 'لپ تاپ',
-      urlImage: 'images/computer.webp',
+      urlImage: 'https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/dell-client-products/notebooks/latitude-notebooks/13-3320/media-gallery/peripherals_laptop_latitude_3320_gallery_1.psd?fmt=pjpg&pscan=auto&scl=1&wid=3337&hei=2417&qlt=100,0&resMode=sharp2&size=3337,2417',
       subtitle: '1600 کالا',
     ),
     const CardItem(
       title: 'دوربین',
-      urlImage: 'images/camera.jpg',
+      urlImage: 'https://play-lh.googleusercontent.com/sqiNB2XdmvHJWcmbhsf6DcCZiTNayIvEeGjDkcmO6v9nlKFsITjnaBfC1wwZ6onLQQ',
       subtitle: '1400 کالا',
     ),
   ];
 
-  Widget buildContiner() => Container(
+  Widget buildContiner() => SizedBox(
         height: 220,
         child: ListView.separated(
           padding: const EdgeInsets.all(10),
@@ -39,10 +39,9 @@ class Comp {
         ),
       );
 
-  Widget buildCard({
-    required CardItem item,
-  }) =>
-      Container(
+  Widget buildCard({ required item,}) {
+    return
+      SizedBox(
         width: 200,
         child: Column(
           children: [
@@ -53,17 +52,16 @@ class Comp {
                   borderRadius: BorderRadius.circular(20),
                   child: Material(
                     child: Ink.image(
-                      image: AssetImage(item.urlImage),
+                      image: NetworkImage(item.urlImage),
                       fit: BoxFit.cover,
-                      child: const InkWell(
-                        // onTap: () => Navigator.push(
-                        //     context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) =>ShoePage(item:item),
-                        //
-                        //   ),
-                        //   ),
+                      child: InkWell(
+                        onTap: () => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => MyTachoNa(item: item),
                           ),
+                        ),
+                      ),
                     ),
                   ),
                 ),
@@ -79,12 +77,13 @@ class Comp {
             Text(
               item.subtitle,
               style:
-                  const TextStyle(fontSize: 16, color: Colors.lightBlueAccent),
+              const TextStyle(fontSize: 16, color: Colors.lightBlueAccent),
             ),
           ],
         ),
       );
 
+  }
   Widget build(BuildContext context) => Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,

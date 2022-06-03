@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:my_pojects/Things/Clothing/MoreClots.dart';
-import '../../Home/home_page.dart';
-import '../../Home/pageKala.dart';
-import '../../Profile/setting_page.dart';
 
 class Colts {
   BuildContext context;
+
   Colts(this.context);
+
   List<CardItem> items = [
     const CardItem(
       title: 'زنانه',
@@ -42,7 +41,10 @@ class Colts {
         ),
       );
 
-  Widget buildCard({required CardItem item,}) => Container(
+  Widget buildCard({
+    required CardItem item,
+  }) =>
+      Container(
         width: 200,
         child: Column(
           children: [
@@ -61,7 +63,7 @@ class Colts {
                         onTap: () => Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) =>MyClots(),
+                            builder: (context) => MyClots(item: item,),
                           ),
                         ),
                       ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../Home/pageKala.dart';
+import '../pageKala.dart';
 import 'MoreBooks.dart';
 
 class Books_Things {
@@ -70,7 +70,7 @@ class Books_Things {
                         onTap: () => Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => MyBooks(),
+                            builder: (context) => MyBooks( item: item),
                           ),
                         ),
                       ),
