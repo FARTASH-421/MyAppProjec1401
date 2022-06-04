@@ -1,11 +1,11 @@
-class MyDataSports{
+class MyData{
   final String title;
   final String nameSeller;
   final String urlImage;
   final String price;
   final String colors;
 
-  const MyDataSports({
+  const MyData({
     required this.title,
     required this.nameSeller,
     required this.urlImage,

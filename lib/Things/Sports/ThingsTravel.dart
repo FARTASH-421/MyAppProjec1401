@@ -1,41 +1,61 @@
+import '../Data.dart';
 
-import '../ThingsData.dart';
-
-class dataTravel{
-
-  final List<MyDataSports> items = [
-    const MyDataSports(
-        title: 'لباس فوتبال',
+class dataTravel {
+  final List<MyData> items = [
+    const MyData(
+        title: 'کوله پشتی',
         urlImage:
-        'https://www.nilimarket.com/upload/img_1627903002_2.jpg',
+       'https://imentraffic.ir/mag/wp-content/uploads/2018/10/%D8%AA%D8%AC%D9%87%DB%8C%D8%B2%D8%A7%D8%AA-%D8%B3%D9%81%D8%B1-%D9%88-%DA%A9%D9%85%D9%BE%DB%8C%D9%86%DA%AF.jpg',
+         nameSeller: 'احمد قادری',
+        price: '990\$',
+        colors: "Black _ Withe _ Red _ Green"),
+    const MyData(
+        title: 'چمدان دلسی',
+        urlImage:
+            'https://powertel.ir/wp-content/uploads/%DA%86%D9%85%D8%AF%D8%A7%D9%86-%D8%AF%D9%84%D8%B3%DB%8C-%D9%85%D8%AF%D9%84-EDEA-%DA%A9%D8%AF-3888811.jpeg?v=1608264369',
         nameSeller: 'احمد قادری',
-        price: '180',
-        colors: "سبز _ آبی _ زرد"
-    ),
-    const MyDataSports(
-        title: 'کفش فوتبال',
+        price: '1800\$',
+        colors: "Black _ Withe _ Red _ Green"),
+    const MyData(
+        title: 'Things for Travel',
         urlImage:
-        'https://varzkala.com/wp-content/uploads/2022/01/%D8%AE%D8%B1%DB%8C%D8%AF-%DA%A9%D9%81%D8%B4-%D9%81%D9%88%D8%AA%D8%B3%D8%A7%D9%84-%D8%B3%D8%A7%D9%84%D9%86%DB%8C-%D9%86%D8%A7%DB%8C%DA%A9-%D9%85%D8%B1%DA%A9%D9%88%D8%B1%DB%8C%D8%A7%D9%84-%D8%B3%D9%88%D9%BE%D8%B1-%D9%81%D9%84%D8%A7%DB%8C-%D9%81%D8%B1%D9%88%D8%B4%DA%AF%D8%A7%D9%87-%D8%A2%D9%86%D9%84%D8%A7%DB%8C%D9%86-%D9%88%D8%B1%D8%B2%D8%B4%DB%8C-%D9%88%D8%B1%D8%B2%DA%A9%D8%A7%D9%84%D8%A7-%D9%85%D8%B4%DA%A9%DB%8C-2.jpg',
+            'https://dobisell.com/blog/wp-content/uploads/2020/10/%D8%B9%DA%A9%D8%B3-%D8%A7%D9%88%D9%84.jpg',
         nameSeller: 'سطان شهریاری',
-        price: '260',
-        colors: "آبی _ مشکی"
-    ),
-    const MyDataSports(
-        title: 'لباس ورزشی ',
+        price: '299\$',
+        colors: "Black _ Withe _ Red _ Green"),
+    const MyData(
+        title: 'Things for Travel',
         urlImage:
-        'https://old.emistock.com/wp-content/uploads/2020/08/%D8%A7%D9%86%D9%88%D8%A7%D8%B9-%D9%84%D8%A8%D8%A7%D8%B3-%D9%88%D8%B1%D8%B2%D8%B4%DB%8C-%D8%B2%D9%86%D8%A7%D9%86%D9%87.jpg',
+            'https://www.mizan.news/wp-content/uploads/2022/01/2042153_598.jpg',
         nameSeller: 'رضا شاکردوست',
-        price: '140',
-        colors: "مشکی _ آبی _ خاکستري"
-    ),
-    const MyDataSports(
-        title: 'لباس دویدن',
+        price: '799\$',
+        colors: "Black _ Withe _ Red _ Green"),
+    const MyData(
+        title: 'Things for Travel',
         urlImage:
-        'https://dkstatics-public.digikala.com/digikala-products/111332200.jpg?x-oss-process=image/resize,m_lfit,h_800,w_800/quality,q_90',
+       'https://www.takshop91.com/uploads/3830_1596742052.jpg',
         nameSeller: 'احمد علیزاده پور',
-        price: '120',
-        colors: "مشکی _ آبی "
-    ),
-
+        price: '400\$',
+        colors: "Black _ Withe _ Red _ Green"),
+    const MyData(
+        title: 'Things for Travel',
+        urlImage: 'https://dalahoo.com/mi_ax/Original/1394/02/22936.jpg',
+        nameSeller: 'رضا شاکردوست',
+        price: '1200\$',
+        colors: "Black _ Withe _ Red _ Green"),
+    const MyData(
+        title: 'Things for Travel',
+        urlImage:
+       'https://www.stylekhob.ir/wp-content/uploads/2021/09/2496158-300x300.jpg',
+          nameSeller: 'سطان شهریاری',
+        price: '460\$',
+        colors: "Black _ Withe _ Red _ Green"),
+    const MyData(
+        title: 'Things for Travel',
+        urlImage:
+'https://bestfarsi.ir/wp-content/uploads/Essential-travel-items-for-beginner-travelers-5.jpg',
+        nameSeller: 'احمد علیزاده پور',
+        price: '500\$',
+        colors: "Black _ Withe _ Red _ Green"),
   ];
 }

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_pojects/Things/Tachonology/DataCamera.dart';
 import 'package:my_pojects/Things/Tachonology/DataComputer.dart';
 import 'package:my_pojects/Things/Tachonology/DataMobile.dart';
-import 'package:my_pojects/Things/pageKala.dart';
+import 'package:my_pojects/Things/ShowDetails.dart';
 
 import '../Sports/ColtsSport.dart';
 import '../Sports/ThaingSport.dart';

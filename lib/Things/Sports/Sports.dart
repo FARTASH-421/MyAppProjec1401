@@ -3,7 +3,7 @@ import 'package:my_pojects/Things/Sports/ColtsSport.dart';
 import 'package:my_pojects/Things/Sports/MoreSports.dart';
 
 import '../../Home/home_page.dart';
-import '../pageKala.dart';
+import '../ShowDetails.dart';
 
 class Spotr {
   BuildContext context;

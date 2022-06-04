@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'pageKala.dart';
+import 'ShowDetails.dart';
 
 class VeiwList {
   List Myitems;
@@ -50,23 +50,28 @@ class VeiwList {
                   ),
                 ],
               ),
-              Ink.image(
-                image: NetworkImage(Myitems[index].urlImage),
-                height: 150,
-                width: 150,
-                fit: BoxFit.fill,
-                alignment: Alignment.centerRight,
-                child:InkWell(
-                  onTap: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) =>ShoePage(
-                        item:Myitems[index],
+              Padding(
+                  padding:  EdgeInsets.only(right: 2),
+                child: Ink.image(
+                  image: NetworkImage(Myitems[index].urlImage),
+                  height: 150,
+                  width: 150,
+                  fit: BoxFit.fill,
+                  alignment: Alignment.centerRight,
+                  child:InkWell(
+                    onTap: () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) =>ShoePage(
+                          item:Myitems[index],
+                        ),
                       ),
                     ),
                   ),
                 ),
+
               ),
+
             ],
           ),
           elevation: 1,

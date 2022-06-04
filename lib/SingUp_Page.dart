@@ -21,7 +21,6 @@ class _SingUpPageState extends State<SingUpPage> {
   final nameCompany = TextEditingController();
   final email = TextEditingController();
 
-
   Widget _bulidLoge() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -149,10 +148,12 @@ class _SingUpPageState extends State<SingUpPage> {
       child: TextFormField(
 
         keyboardType: TextInputType.visiblePassword,
+
         controller: password,
         onChanged: (value) {},
         decoration: const InputDecoration(
           labelText: "*رمز عبور",
+          // errorMaxLines:
           contentPadding: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(
@@ -232,16 +233,14 @@ class _SingUpPageState extends State<SingUpPage> {
                           userName.text, numberPhone.text,
                           password.text, nameCompany.text, email.text);
 
-                      MyDataInf
-                          .getInstance()
-                          .listInfo
-                          .add(my);
-                      return ShopButtonNavigator();
+                      MyDataInf.getInstance()?.listInfo.add(my);
+
+                      return const ShopButtonNavigator();
                     }
                 ),
               );
             },
-            child: Icon(Icons.playlist_add, color: Colors.black, size: 50,),
+            child: const Icon(Icons.playlist_add, color: Colors.black, size: 50,),
           ),
         ),
       ],
@@ -267,7 +266,7 @@ class _SingUpPageState extends State<SingUpPage> {
                     .width,
                 child: Container(
                   decoration: const BoxDecoration(
-                      color: Colors.grey,
+                      color: Colors.greenAccent,
                       borderRadius: BorderRadius.only(
                         bottomLeft: Radius.circular(70),
                         bottomRight: Radius.circular(70),

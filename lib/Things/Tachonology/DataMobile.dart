@@ -1,39 +1,71 @@
-import '../ThingsData.dart';
+import '../Data.dart';
 
 class DataMobile {
 
-  final List<MyDataSports> items = [
-    const MyDataSports(
-        title: 'لباس فوتبال',
+  final List<MyData> items = [
+    const MyData(
+        title: 'SAMSUNG Pro F21',
         urlImage:
-        'https://www.nilimarket.com/upload/img_1627903002_2.jpg',
-        nameSeller: 'احمد قادری',
-        price: '180',
-        colors: "سبز _ آبی _ زرد"
+        'https://www.imagemobiles.com/wp-content/uploads/2022/05/OPPO-F21-Pro-Smart-Phons-492849911-i-1-1200Wx1200H.jpg',
+          nameSeller: 'احمد قادری',
+        price: '18000\$',
+        colors: "Black,Withe,Blue"
     ),
-    const MyDataSports(
-        title: 'کفش فوتبال',
+    const MyData(
+        title: 'IPhone13',
         urlImage:
-        'https://varzkala.com/wp-content/uploads/2022/01/%D8%AE%D8%B1%DB%8C%D8%AF-%DA%A9%D9%81%D8%B4-%D9%81%D9%88%D8%AA%D8%B3%D8%A7%D9%84-%D8%B3%D8%A7%D9%84%D9%86%DB%8C-%D9%86%D8%A7%DB%8C%DA%A9-%D9%85%D8%B1%DA%A9%D9%88%D8%B1%DB%8C%D8%A7%D9%84-%D8%B3%D9%88%D9%BE%D8%B1-%D9%81%D9%84%D8%A7%DB%8C-%D9%81%D8%B1%D9%88%D8%B4%DA%AF%D8%A7%D9%87-%D8%A2%D9%86%D9%84%D8%A7%DB%8C%D9%86-%D9%88%D8%B1%D8%B2%D8%B4%DB%8C-%D9%88%D8%B1%D8%B2%DA%A9%D8%A7%D9%84%D8%A7-%D9%85%D8%B4%DA%A9%DB%8C-2.jpg',
+       'https://phonemania.shop/wp-content/uploads/2021/09/VETRINA-12-PRO.jpg',
         nameSeller: 'سطان شهریاری',
-        price: '260',
-        colors: "آبی _ مشکی"
+        price: '20260\$',
+        colors: "Black,Withe,Blue,Gray"
     ),
-    const MyDataSports(
-        title: 'لباس ورزشی ',
+    const MyData(
+        title: 'AGNI',
         urlImage:
-        'https://old.emistock.com/wp-content/uploads/2020/08/%D8%A7%D9%86%D9%88%D8%A7%D8%B9-%D9%84%D8%A8%D8%A7%D8%B3-%D9%88%D8%B1%D8%B2%D8%B4%DB%8C-%D8%B2%D9%86%D8%A7%D9%86%D9%87.jpg',
+      'https://cdn.vox-cdn.com/thumbor/9yOru4bT_wqQMp8viBEYT39Eiuo=/0x0:2040x1360/1200x1200/filters:focal(1020x680:1021x681)/cdn.vox-cdn.com/uploads/chorus_asset/file/22388892/bfarsace_4481_20210317_0068.jpg',
         nameSeller: 'رضا شاکردوست',
-        price: '140',
-        colors: "مشکی _ آبی _ خاکستري"
+        price: '17999\$',
+        colors: "Black _ Withe _ Blue _ Gray"
     ),
-    const MyDataSports(
-        title: 'لباس دویدن',
+    const MyData(
+        title: 'Motorola WE',
         urlImage:
-        'https://dkstatics-public.digikala.com/digikala-products/111332200.jpg?x-oss-process=image/resize,m_lfit,h_800,w_800/quality,q_90',
+        'https://motorolauk.vtexassets.com/arquivos/ids/158389-800-800?v=637522641556800000&width=800&height=800&aspect=true',
         nameSeller: 'احمد علیزاده پور',
-        price: '120',
-        colors: "مشکی _ آبی "
+        price: '12200\$',
+        colors: "Black _ Withe _ Blue _ Gray"
+    ),
+    const MyData(
+        title: 'SAMSUNG S22',
+        urlImage:
+       'http://sc04.alicdn.com/kf/H9e78e5f4beb948b298401d5697b70f4aY.jpg',
+        nameSeller: 'رضا شاکردوست',
+        price: '140000\$',
+        colors: "Black _ Withe _ Blue _ Gray"
+    ),
+    const MyData(
+        title: 'IPhone13',
+        urlImage:
+      'https://store.marvansmobile.com/assets_2/images/categories/category1.jpg',
+        nameSeller: 'احمد قادری',
+        price: '18000\$',
+        colors: "Black _ Withe _ Blue _ Gray"
+    ),
+    const MyData(
+        title: 'motorola WE',
+        urlImage:
+        'https://motorolauk.vtexassets.com/arquivos/ids/157465-800-800?v=637231634490500000&width=800&height=800&aspect=true',
+         nameSeller: 'سطان شهریاری',
+        price: '20260\$',
+        colors:"Black _ Withe _ Blue _ Gray"
+    ),
+    const MyData(
+        title: 'motorola WE',
+        urlImage:
+       'https://motorolaroe.vtexassets.com/arquivos/ids/156172-800-800?v=637272120542000000&width=800&height=800&aspect=true',
+        nameSeller: 'احمد علیزاده پور',
+        price: '12200\$',
+        colors: "Black _ Withe _ Blue _ Gray"
     ),
 
   ];

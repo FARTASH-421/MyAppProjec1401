@@ -2,9 +2,10 @@ import 'package:my_pojects/SaveData/SiveInfo.dart';
 
 class MyDataInf {
   static late List<Information> _listInfo;
-  static late MyDataInf instance;
-
-  MyDataInf();
+  static MyDataInf? _instance= null;
+  MyDataInf(){
+    _listInfo= <Information>[];
+  }
 
   List<Information> get listInfo => _listInfo;
 
@@ -12,10 +13,10 @@ class MyDataInf {
     _listInfo = value;
   }
 
-  static MyDataInf getInstance() {
-    if (instance == null) {
-      instance = MyDataInf();
+  static MyDataInf? getInstance() {
+    if (_instance == null) {
+      _instance = MyDataInf();
     }
-    return instance;
+    return _instance;
   }
 }

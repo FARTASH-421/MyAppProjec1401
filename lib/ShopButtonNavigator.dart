@@ -17,7 +17,7 @@ class _ShopButtonNavigatorState extends State<ShopButtonNavigator> {
   late Colors color;
   final scrrens = [
     Profiles(),
-    Shoping(),
+    BasketShoping(),
     Favorite(),
     Home(),
   ];
@@ -75,7 +75,7 @@ class _ShopButtonNavigatorState extends State<ShopButtonNavigator> {
                   label: 'Favorite',
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.home, size: 30),
+                  icon: Icon(Icons.home, size: 30,),
                   label: 'Home',
                 ),
               ],

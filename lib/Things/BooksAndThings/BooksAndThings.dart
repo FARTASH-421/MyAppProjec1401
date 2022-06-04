@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../pageKala.dart';
+import '../ShowDetails.dart';
 import 'MoreBooks.dart';
 
 class Books_Things {

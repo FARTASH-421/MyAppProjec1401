@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:my_pojects/Profile/account_page.dart';
+import '../Profile/icon_widget.dart';
 import '../ShopButtonNavigator.dart';
 
 class UploadPage extends StatelessWidget {
@@ -7,13 +9,16 @@ class UploadPage extends StatelessWidget {
   UploadPage({ required this.context,
 
     Key? key}) : super(key: key);
+  PickedFile? _imageFile;
+  final ImagePicker _piker = ImagePicker();
+  static const keyDarkMode = 'key-dark-mode';
+  String imagePath = "images/Profile.jpg";
 
-
-  final userName= TextEditingController();
-  final  numberPhone = TextEditingController();
-  final password= TextEditingController();
-  final nameCompany= TextEditingController();
-  final email= TextEditingController();
+  final Title= TextEditingController();
+  final  nameSeller = TextEditingController();
+  final urlImage= TextEditingController();
+  final Price= TextEditingController();
+  final color= TextEditingController();
 
 
   Widget _bulidLoge(){
@@ -22,9 +27,9 @@ class UploadPage extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 20),
-          child: Text("اضافه کردن کالا",
+          child: Text("Add Commodity",
             style: TextStyle(
-              fontFamily: "Nas",
+              fontFamily: "Kurale",
               fontSize: MediaQuery.of(context).size.height/25,
               fontWeight: FontWeight.bold,
               color: Colors.lightBlue,
@@ -52,23 +57,12 @@ class UploadPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text('SignUp',
-                      style: TextStyle(
-                          fontSize: MediaQuery.of(context).size.height/30,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: "Kurale"
-                      ),
-                    ),
-                  ],
-                ),
-                _bulidUserName(),
-                _bulidPhoneNumber(),
-                _bulidPassword(),
-                _bulidUserAcount(),
-                _bulidEmail(),
+                imageProfile(),
+                _bulidTitle(),
+                _bulidNameSeller(),
+                _bulidUrlImage(),
+                _bulidPrice(),
+                _bulidColor(),
                 _bulidAdd(),
               ],
             ),
@@ -79,15 +73,16 @@ class UploadPage extends StatelessWidget {
     );
   }
 
-  Widget  _bulidUserName(){
+  Widget  _bulidTitle(){
     return Padding(
       padding: const EdgeInsets.all(15),
       child: TextFormField(
-        controller:userName,
-        keyboardType: TextInputType.emailAddress,
+        controller: Title,
+        keyboardType: TextInputType.text,
         decoration: const InputDecoration(
-          labelText:"*نام کالا",
+          labelText:"Title",
           labelStyle: TextStyle(
+            fontFamily: "Kurale",
             color: Colors.black87
           ),
           contentPadding: EdgeInsets.symmetric(vertical: 8,horizontal: 10),
@@ -103,16 +98,17 @@ class UploadPage extends StatelessWidget {
       ),
     );
   }
-  Widget  _bulidPhoneNumber(){
+  Widget  _bulidUrlImage(){
     return Padding(
       padding: const EdgeInsets.all(15),
       child: TextField(
-        controller: numberPhone,
-        keyboardType: TextInputType.number,
+        controller: urlImage,
+        keyboardType: TextInputType.text,
         onChanged: (value){ },
         decoration: const InputDecoration(
-          labelText:"*شماره تماس",
+          labelText:"url Image",
           labelStyle: TextStyle(
+            fontFamily: "Kurale",
               color: Colors.black87
           ),
           contentPadding: EdgeInsets.symmetric(vertical: 8,horizontal: 10),
@@ -128,17 +124,18 @@ class UploadPage extends StatelessWidget {
       ),
     );
   }
-  Widget  _bulidPassword(){
+  Widget  _bulidPrice(){
     return Padding(
       padding: const EdgeInsets.all(15),
       child: TextFormField(
 
         keyboardType: TextInputType.visiblePassword,
-        controller: password,
+        controller: Price,
         onChanged: (value){ },
         decoration: const InputDecoration(
-          labelText:"*رمز عبور",
+          labelText:'Price',
           labelStyle: TextStyle(
+            fontFamily: 'Kurale',
               color: Colors.black87
           ),
           contentPadding: EdgeInsets.symmetric(vertical: 8,horizontal: 10),
@@ -154,17 +151,18 @@ class UploadPage extends StatelessWidget {
       ),
     );
   }
-  Widget  _bulidEmail(){
+  Widget  _bulidColor(){
     return Padding(
       padding: const EdgeInsets.all(15),
       child: TextFormField(
 
         keyboardType: TextInputType.emailAddress,
-        controller: email,
+        controller: color,
         onChanged: (value){ },
         decoration: const InputDecoration(
-          labelText:"ایمیل",
+          labelText:"Color",
           labelStyle: TextStyle(
+            fontFamily: "Kurale",
               color: Colors.black87
           ),
           contentPadding: EdgeInsets.symmetric(vertical: 8,horizontal: 10),
@@ -180,17 +178,18 @@ class UploadPage extends StatelessWidget {
       ),
     );
   }
-  Widget _bulidUserAcount(){
+  Widget _bulidNameSeller(){
     return Padding(
       padding: const EdgeInsets.all(15),
       child: TextFormField(
 
         keyboardType: TextInputType.text,
-        controller: nameCompany,
+        controller: nameSeller,
         onChanged: (value){},
         decoration: const InputDecoration(
-          labelText:"نام فروشند/فروشگاه",
+          labelText:'nameSeller',
           labelStyle: TextStyle(
+            fontFamily: "Kurale",
               color: Colors.black87
           ),
           contentPadding: EdgeInsets.symmetric(vertical: 8,horizontal: 10),
@@ -219,17 +218,12 @@ class UploadPage extends StatelessWidget {
               Navigator.of(context).push(
                 MaterialPageRoute(
                     builder: (context){
-                      print("Name: ${userName.text}");
-                      print("Password: ${password.text}");
-                      print("Email: ${email.text}");
-                      print("Number: ${numberPhone.text}");
-                      print("NameCompany: ${nameCompany.text}");
-                      return ShopButtonNavigator();
+                      return const ShopButtonNavigator();
                     }
                 ),
               );
             },
-            child: Icon(Icons.playlist_add, color: Colors.black,size: 50,),
+            child: const Icon(Icons.playlist_add, color: Colors.black,size: 50,),
           ),
         ),
       ],
@@ -267,8 +261,102 @@ class UploadPage extends StatelessWidget {
       ),
       ),
   );
-
-
-
   }
+
+  Widget imageProfile() => Center(
+    child: Stack(
+      children: [
+        const CircleAvatar(
+          radius: 100,
+          // backgroundImage: imaage(),
+        ),
+        Positioned(
+          bottom: 20.0,
+          right: 14.0,
+          child: InkWell(
+            child: const IconWidget(
+                icon: Icons.camera_alt, color: Colors.teal),
+            onTap: () {
+              showModalBottomSheet(
+                context: context,
+                builder: ((builder) => buttonSheet()),
+              );
+            },
+          ),
+        ),
+      ],
+    ),
+  );
+
+  void takePhone(ImageSource source) async {
+    try {
+      final pickedFile = await _piker.getImage(source: source);
+      if (pickedFile == null) return;
+      // setState(() {
+      //   _imageFile = pickedFile;
+      // });
+    } catch (error) {
+      debugPrint(error.toString());
+    }
+  }
+
+  Widget buttonSheet() => Container(
+    height: 100,
+    width: MediaQuery.of(context).size.width,
+    margin: const EdgeInsets.symmetric(
+      horizontal: 20,
+      vertical: 20,
+    ),
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: const [
+            Text(
+              "Choose Profile Photo",
+              style: TextStyle(
+                  fontSize: 18,
+                  fontFamily: "Kurale",
+                  fontWeight: FontWeight.bold),
+            ),
+          ],
+        ),
+        const SizedBox(
+          height: 20,
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            FlatButton.icon(
+                onPressed: () {
+                  takePhone(ImageSource.camera);
+                },
+                icon: const Icon(Icons.camera_alt),
+                label: const Text(
+                  "Camera",
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontFamily: "Kurale",
+                  ),
+                )),
+            FlatButton.icon(
+                onPressed: () {
+                  takePhone(ImageSource.gallery);
+                },
+                icon: const Icon(Icons.image),
+                label: const Text(
+                  "Image",
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontFamily: "Kurale",
+                  ),
+                )),
+          ],
+        ),
+      ],
+    ),
+  );
+
+
 }

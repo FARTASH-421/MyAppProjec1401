@@ -20,11 +20,14 @@ class _FavoriteState extends State<Favorite> {
           ),
         ),
       ),
-      body: const Text("Favorite",
-        style: TextStyle(
-          fontSize: 50
+      body: const Center(
+        child: Text("For Future :)",
+          style: TextStyle(
+              fontSize: 50,
+            fontFamily: "Kurale"
+          ),
         ),
-      ),
+      )
     );
   }
 }

@@ -21,8 +21,8 @@ class _MoreSportsState extends State<MoreSports> {
 
   @override
   Widget build(BuildContext context) {
-    VeiwList list1 = VeiwList(dataSportClots().items);
-     VeiwList list2= VeiwList(dataClots().items);
+    VeiwList list1 = VeiwList(dataClots().items);
+     VeiwList list2= VeiwList(dataSportClots().items);
      VeiwList list3 = VeiwList(dataTravel().items);
 
     if(item.title=='پوشاک ورزشی') {
@@ -34,7 +34,7 @@ class _MoreSportsState extends State<MoreSports> {
         body: list1.build(context),
       );
     }
-    if(item.title=='لوازم ورزشي') {
+    if(item.title == 'لوازم ورزشي') {
       return Scaffold(
           appBar: AppBar(
 

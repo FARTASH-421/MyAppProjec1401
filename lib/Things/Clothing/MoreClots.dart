@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:my_pojects/Things/Clothing/ForChildern.dart';
+import 'package:my_pojects/Things/Clothing/ForWoman.dart';
 
 import '../Sports/ColtsSport.dart';
 import '../Sports/ThaingSport.dart';
 import '../Sports/ThingsTravel.dart';
 import '../ViewList.dart';
-import '../pageKala.dart';
+import '../ShowDetails.dart';
+import 'ForMan.dart';
 
 class MyClots extends StatefulWidget {
   final item;
@@ -25,9 +28,9 @@ class _MyClotsState extends State<MyClots> {
 
   @override
   Widget build(BuildContext context) {
-    VeiwList list1 = VeiwList(dataSportClots().items);
-    VeiwList list2 = VeiwList(dataClots().items);
-    VeiwList list3 = VeiwList(dataTravel().items);
+    VeiwList list1 = VeiwList(DataForWoman().items);
+    VeiwList list2 = VeiwList(DataForMan().items);
+    VeiwList list3 = VeiwList(DataChildren().items);
 
     if (item.title == 'زنانه') {
       return Scaffold(

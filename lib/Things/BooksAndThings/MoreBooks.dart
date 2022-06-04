@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:my_pojects/Things/BooksAndThings/DataForBooks.dart';
+import 'package:my_pojects/Things/BooksAndThings/DataForMusic.dart';
+import 'package:my_pojects/Things/BooksAndThings/DataForProdectHand.dart';
+import 'package:my_pojects/Things/BooksAndThings/DataForThings.dart';
 
 import '../Sports/ColtsSport.dart';
 import '../Sports/ThaingSport.dart';
@@ -23,9 +27,11 @@ class _MyBooksState extends State<MyBooks> {
 
   @override
   Widget build(BuildContext context) {
-    VeiwList list1 = VeiwList(dataSportClots().items);
-    VeiwList list2 = VeiwList(dataClots().items);
-    VeiwList list3 = VeiwList(dataTravel().items);
+    VeiwList list1 = VeiwList(DataForBook().items);
+    VeiwList list2 = VeiwList(DataForThings().items);
+    VeiwList list3 = VeiwList(DataForMusic().items);
+    VeiwList list4 = VeiwList(DataForProdectHand().items);
+
 
     if (item.title == 'كتاب') {
       return Scaffold(
@@ -45,20 +51,20 @@ class _MyBooksState extends State<MyBooks> {
         body: list2.build(context),
       );
     }
-    if (item.title == 'موسیقی') {
+    if (item.title =='موسيقي') {
       return Scaffold(
         appBar: AppBar(
 
           title: Text(item.title),
         ),
-        body: list2.build(context),
+        body: list3.build(context),
       );
     }
     return Scaffold(
       appBar: AppBar(
         title: Text(item.title),
       ),
-      body: list3.build(context),
+      body: list4.build(context),
     );
   }
 }

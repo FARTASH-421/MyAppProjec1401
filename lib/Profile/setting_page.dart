@@ -6,6 +6,7 @@ import 'package:my_pojects/Profile/account_page.dart';
 import 'package:my_pojects/SaveData/Data.dart';
 import 'package:my_pojects/SaveData/SiveInfo.dart';
 import 'package:my_pojects/Things/Tachonology/ComputerAndMobile.dart';
+import 'MyDetital.dart';
 import 'icon_widget.dart';
 
 class SettingPage extends StatefulWidget {
@@ -27,7 +28,7 @@ class _SettingPageState extends State<SettingPage> {
           child: ListView(
             padding: const EdgeInsets.only(left: 8.0, right: 8.0, bottom: 10),
             children: [
-              // buildDark(),
+
               imageProfile(),
               const SizedBox(
                 height: 2,
@@ -38,11 +39,11 @@ class _SettingPageState extends State<SettingPage> {
                   showInfo(),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               SettingsGroup(title: 'سفارش های من', children: [
-                Comp(context).buildContiner(),
+                IconProfile(context).buildContiner(),
               ]),
               buildDarkMode(),
               SettingsGroup(
@@ -163,7 +164,7 @@ class _SettingPageState extends State<SettingPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: const [
-                      Text("0992606715",
+                      Text("09926067519",
                         style: TextStyle(
                           fontSize: 16,
                           color: Colors.orange,

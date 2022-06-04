@@ -150,7 +150,7 @@ class _LongPageState extends State<LongPage> {
              Navigator.of(context).push(
                MaterialPageRoute(
                    builder: (context){
-                     return ShopButtonNavigator();
+                     return const ShopButtonNavigator();
                    }
                ),
              );
@@ -173,7 +173,7 @@ class _LongPageState extends State<LongPage> {
          Navigator.of(context).push(
            MaterialPageRoute(
                builder: (context){
-                 return SingUpPage();
+                 return const SingUpPage();
                }
            ),
          );
@@ -214,7 +214,7 @@ Widget _bulidSocialBtnRow(){
            Navigator.of(context).push(
              MaterialPageRoute(
                  builder: (context){
-                   return ShopButtonNavigator();
+                   return const ShopButtonNavigator();
                  }
              ),
            );
@@ -233,7 +233,7 @@ Widget _bulidSocialBtnRow(){
                ),
              ],
            ),
-           child: Icon(
+           child: const Icon(
            FontAwesomeIcons.google,
              color: Colors.white,
            ),
@@ -254,7 +254,7 @@ Widget _bulidForgitPasswordRow(){
          Navigator.of(context).push(
            MaterialPageRoute(
                builder: (context){
-                 return ShopButtonNavigator();
+                 return const ShopButtonNavigator();
                }
            ),
          );
@@ -266,11 +266,13 @@ Widget _bulidForgitPasswordRow(){
 }
 Widget changeIconsPassword(){
    if(isHidePassword == true){
-   return Icon(
+   return const Icon(
       Icons.visibility
    );
    }
-   else return Icon(Icons.visibility_off);
+   else {
+     return const Icon(Icons.visibility_off);
+   }
 }
   @override
   Widget build(BuildContext context) {

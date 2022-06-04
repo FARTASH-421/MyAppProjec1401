@@ -4,7 +4,10 @@ import 'package:my_pojects/LongPage.dart';
 
 
 class Spalsh extends StatefulWidget {
+ const
+ Spalsh ({Key? key}) : super(key: key);
   @override
+
   State<Spalsh> createState() => _SpalshState();
 }
 
@@ -12,7 +15,7 @@ class _SpalshState extends State<Spalsh> {
   @override
   void initState() {
     super.initState();
-    Timer(const Duration(seconds:2 ),
+    Timer(const Duration(seconds:4 ),
             ()=> Navigator.pushReplacement(context,
             MaterialPageRoute(builder: (context) => const LongPage(),
             ))
@@ -29,7 +32,7 @@ class _SpalshState extends State<Spalsh> {
             begin: Alignment.topRight,
             end: Alignment.bottomRight,
             colors: [
-              Color(0xFFAEEA00),
+              Color(0xFFDDEA71),
               Color(0xFF2E7D32),
             ],
           ),
@@ -38,12 +41,25 @@ class _SpalshState extends State<Spalsh> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
+         Column(
+           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+           children: [
+             Image.asset(
+               'images/newShop.gif',
+               height:200,
+               width: MediaQuery.of(context).size.width,
+             ),
+             Image.asset(
+               'images/PngItem.png',
+               height:200,
+               width: MediaQuery.of(context).size.width,
+             ),
+           ],
+         ),
+
             Column(
-              children: [
-                Image.asset('images/PngItem.png',
-                  width: 360,
-                  height: 360,),
-                const Text("DigiGreen",
+              children: const [
+                Text("DigiGreen",
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     color: Colors.deepOrange,
