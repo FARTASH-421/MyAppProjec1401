@@ -6,15 +6,7 @@ import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:my_pojects/constants.dart';
 import 'package:my_pojects/Profile/icon_widget.dart';
 class Profile extends StatelessWidget {
-  // static const keyLanguage = 'key-language';
-  // static const keyLocation = 'key-location';
-  // static const keyPassword = 'key-password';
-  //   var Language = {
-  //     1: 'English',
-  //     2: 'Persion',
-  //     3: 'Chinese',
-  //     4: 'Hindi'
-  //   };
+
   @override
   Widget build(BuildContext context) {
 

@@ -8,23 +8,15 @@ import '../Things/BooksAndThings/BooksAndThings.dart';
 import '../Things/Tachonology/ComputerAndMobile.dart';
 import 'UploadPage.dart';
 
-class Home extends StatefulWidget {
+class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
-  @override
-  State<Home> createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
-  int add = 4;
 
   @override
   Widget build(BuildContext context) {
-    Colts _colts = Colts(context);
+    Cloths _colts = Cloths(context);
     Comp _comp= Comp(context);
     Spotr _sport= Spotr(context);
     Books_Things _book= Books_Things(context);
-
-
 
     return Scaffold(
       appBar: AppBar(
@@ -59,8 +51,9 @@ class _HomeState extends State<Home> {
             ),
           );
         },
-        child: const Icon(Icons.add),
-        backgroundColor: Colors.blueGrey,
+        child: const Icon(Icons.add,color: Colors.white,
+        size: 30,),
+        backgroundColor: Colors.orange[400],
       ),
     );
   }

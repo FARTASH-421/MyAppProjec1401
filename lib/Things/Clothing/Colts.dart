@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:my_pojects/Things/Clothing/MoreClots.dart';
 
-class Colts {
+class Cloths {
   BuildContext context;
 
-  Colts(this.context);
+  Cloths(this.context);
 
   List<CardItem> items = [
     const CardItem(
@@ -72,17 +72,14 @@ class Colts {
                 ),
               ),
             ),
-            const SizedBox(
-              height: 2,
-            ),
             Text(
               item.title,
-              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
+              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             Text(
               item.subtitle,
               style:
-                  const TextStyle(fontSize: 16, color: Colors.lightBlueAccent),
+              const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
           ],
         ),
@@ -95,14 +92,19 @@ class Colts {
           TextButton(
             onPressed: () {},
             child: const Text(
-              "پوشاک",
+              "  پوشاک",
               style: TextStyle(
-                fontFamily: 'Kurale',
-                fontSize: 20,
-                fontWeight: FontWeight.w600,
-                color: Colors.orange,
+                fontSize: 25,
+                fontWeight: FontWeight.bold,
+                color: Color(0xFFF80D0D),
               ),
+              textAlign: TextAlign.right,
             ),
+          ),
+          Container(
+            height: 3,
+            width: MediaQuery.of(context).size.width,
+            color: Color(0xFFF80D0D),
           ),
           buildContiner(),
         ],

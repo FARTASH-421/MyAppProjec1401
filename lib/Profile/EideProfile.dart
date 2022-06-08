@@ -5,24 +5,19 @@ import 'package:my_pojects/SaveData/Data.dart';
 import 'icon_widget.dart';
 
 class EideProfile extends StatelessWidget {
-  static const keyUserName = 'key-location';
-  static const keyEmail = 'key-location';
-  static const keyNumber = 'key-location';
-  static const keyPassword = 'key';
-  static const keyCompanyName = 'location';
+  static const keyUserName = 'key-UserName';
+  static const keyEmail = 'key-Email';
+  static const keyNumber = 'key-Number';
+  static const keyPassword = 'key-Password';
+  static const keyCompanyName = 'key-CompanyName';
 
   EideProfile({Key? key}) : super(key: key);
-  String userName = "Fartash";
-  String password = "aqqf2425";
-  String nameCompany ="Leaf";
-  String email = "aq.fartash.421@gmail.com";
-  String number = '09926067519';
 
   @override
   Widget build(BuildContext context) => SimpleSettingsTile(
         title: 'Edit Profile',
         subtitle: 'UserName, NumberPhone, Password',
-        leading: IconWidget(
+        leading: const IconWidget(
           icon: Icons.edit,
           color: Colors.black45,
         ),
@@ -30,45 +25,54 @@ class EideProfile extends StatelessWidget {
           title: 'Edit Profile',
           children: [
             buildUserName(),
-            buildPassword(),
+            buildSecurity(context),
             buildEmail(),
             buildNumberPhone(),
             buildNameCompany(),
           ],
         ),
       );
+  Widget buildSecurity(context) =>SimpleSettingsTile(
+    title: 'Security',
+    subtitle: 'Edit Password',
+    leading: IconWidget( icon: Icons.security, color: Colors.red,),
+    onTap: ()=>Text("This Problum"),
+  );
+
 
   Widget buildNumberPhone() => TextInputSettingsTile(
         title: 'Edit NumberPhone',
         settingKey: keyNumber,
-        initialValue: number,
+        initialValue: MyDataInf.getInstance()!.listInfo.last.numberPhone.toString(),
         onChange: (keyNumber) {},
       );
 
   Widget buildPassword() => TextInputSettingsTile(
         title: 'Edit Password',
         settingKey: keyPassword,
-        initialValue: password,
+        initialValue: MyDataInf.getInstance()!.listInfo.last.password.toString(),
         onChange: (keyPassword) {},
       );
 
   Widget buildUserName() => TextInputSettingsTile(
         title: 'Edit UserName',
         settingKey: keyUserName,
-        initialValue: userName,
+        initialValue: MyDataInf.getInstance()!.listInfo.last.userName.toString(),
         onChange: (keyUserName) {},
       );
 
   Widget buildEmail() => TextInputSettingsTile(
         title: 'Edit Email',
         settingKey: keyEmail,
-        initialValue: email,
-        onChange: (keyEmail) {},
+        initialValue: MyDataInf.getInstance()!.listInfo.last.email.toString(),
+        onChange: (value) {
+
+        },
       );
   Widget buildNameCompany() => TextInputSettingsTile(
     title: 'Edit Name Company',
     settingKey: keyCompanyName,
-    initialValue: nameCompany,
+    initialValue: MyDataInf.getInstance()!.listInfo.last.UserAcount.toString(),
     onChange: (keyCompanyName) {},
   );
 }

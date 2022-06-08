@@ -23,6 +23,7 @@ class _SettingPageState extends State<SettingPage> {
 
   @override
   Widget build(BuildContext context) => Scaffold(
+
         // backgroundColor: Color(0x393F8DFF),
         body: SafeArea(
           child: ListView(
@@ -40,7 +41,7 @@ class _SettingPageState extends State<SettingPage> {
                 ],
               ),
               const SizedBox(
-                height: 10,
+                height: 5,
               ),
               SettingsGroup(title: 'سفارش های من', children: [
                 IconProfile(context).buildContiner(),
@@ -151,9 +152,9 @@ class _SettingPageState extends State<SettingPage> {
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Text("Fartash",
-                        style: TextStyle(
+                    children: [
+                      Text(MyDataInf.getInstance()!.listInfo.last.userName.toString(),
+                        style: const TextStyle(
                             fontSize: 30,
                             fontWeight: FontWeight.bold,
                             color: Colors.orange,
@@ -163,9 +164,9 @@ class _SettingPageState extends State<SettingPage> {
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      Text("09926067519",
-                        style: TextStyle(
+                    children: [
+                      Text(MyDataInf.getInstance()!.listInfo.last.numberPhone.toString(),
+                        style: const TextStyle(
                           fontSize: 16,
                           color: Colors.orange,
                         ),
@@ -289,9 +290,11 @@ class Utils {
               child: Text(
                 s,
                 style: const TextStyle(
-                    fontSize: 18,
+                  color: Colors.redAccent,
+                    fontSize: 20,
                     fontFamily: "Kurale",
                     fontWeight: FontWeight.bold),
+                textAlign: TextAlign.center,
               ),
               //
             )),

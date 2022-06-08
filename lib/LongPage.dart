@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:my_pojects/Home/home_page.dart';
+import 'package:my_pojects/SaveData/Data.dart';
 import 'package:my_pojects/ShopButtonNavigator.dart';
 import 'package:my_pojects/SingUp_Page.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
+import 'Profile/setting_page.dart';
 
 class LongPage extends StatefulWidget {
   const LongPage({Key? key}) : super(key: key);
@@ -88,6 +92,7 @@ class _LongPageState extends State<LongPage> {
                _bulidForgitPasswordRow(),
                _bulidLoginButton(),
                _bulidOrRow(),
+               const SizedBox(height: 15,),
                _bulidSocialBtnRow(),
              ],
            ),
@@ -133,6 +138,7 @@ class _LongPageState extends State<LongPage> {
     );
  }
   Widget _bulidLoginButton(){
+
    return Row(
      mainAxisAlignment: MainAxisAlignment.center,
      children: [
@@ -147,6 +153,7 @@ class _LongPageState extends State<LongPage> {
              borderRadius: BorderRadius.circular(30.0),
            ),
            onPressed: () {
+
              Navigator.of(context).push(
                MaterialPageRoute(
                    builder: (context){
@@ -170,7 +177,7 @@ class _LongPageState extends State<LongPage> {
      children: [
        Padding(padding: const EdgeInsets.only(top: 40),
        child: FlatButton( onPressed: (){
-         Navigator.of(context).push(
+         Navigator.of(context).pushReplacement(
            MaterialPageRoute(
                builder: (context){
                  return const SingUpPage();
@@ -210,33 +217,111 @@ Widget _bulidSocialBtnRow(){
      mainAxisAlignment: MainAxisAlignment.center,
      children: [
        GestureDetector(
-         onTap: () {
-           Navigator.of(context).push(
-             MaterialPageRoute(
-                 builder: (context){
-                   return const ShopButtonNavigator();
-                 }
+         onTap: () =>Utils.showSnackBar(context, 'Is Not Active !!!'),
+         child: Row(
+           children: [
+             Column(
+               children: [
+                 Container(
+                   height: 40,
+                   width: 40,
+                   decoration: const BoxDecoration(
+                     shape: BoxShape.circle,
+                     color: Colors.lightBlueAccent,
+                     boxShadow: [
+                       BoxShadow(
+                         color: Colors.black26,
+                         offset: Offset(0,2),
+                         blurRadius: 6.0,
+                       ),
+                     ],
+                   ),
+                   child: const Icon(
+                     FontAwesomeIcons.twitter,
+                     color: Colors.white,
+                   ),
+                 ),
+               ],
              ),
-           );
-         },
-         child: Container(
-           height: 80,
-           width: 60,
-           decoration: const BoxDecoration(
-             shape: BoxShape.circle,
-             color: Colors.black,
-             boxShadow: [
-               BoxShadow(
-                 color: Colors.black26,
-                 offset: Offset(0,2),
-                 blurRadius: 6.0,
-               ),
-             ],
-           ),
-           child: const Icon(
-           FontAwesomeIcons.google,
-             color: Colors.white,
-           ),
+             const SizedBox(
+               width: 10,
+             ),
+             Column(
+               children: [
+                 Container(
+                   height: 40,
+                   width: 40,
+                   decoration: const BoxDecoration(
+                     shape: BoxShape.circle,
+                     color: Colors.deepOrange,
+                     boxShadow: [
+                       BoxShadow(
+                         color: Colors.black26,
+                         offset: Offset(0,2),
+                         blurRadius: 6.0,
+                       ),
+                     ],
+                   ),
+                   child: const Icon(
+                     FontAwesomeIcons.google,
+                     color: Colors.white,
+                   ),
+                 ),
+               ],
+             ),
+             const SizedBox(
+               width: 10,
+             ),
+             Column(
+               children: [
+                 Container(
+                   height: 40,
+                   width: 40,
+                   decoration: const BoxDecoration(
+                     shape: BoxShape.circle,
+                     color: Colors.black,
+                     boxShadow: [
+                       BoxShadow(
+                         color: Colors.black26,
+                         offset: Offset(0,2),
+                         blurRadius: 6.0,
+                       ),
+                     ],
+                   ),
+                   child: const Icon(
+                     FontAwesomeIcons.github,
+                     color: Colors.white,
+                   ),
+                 ),
+               ],
+             ),
+             const SizedBox(
+               width: 10,
+             ),
+             Column(
+               children: [
+                 Container(
+                   height: 40,
+                   width: 40,
+                   decoration: const BoxDecoration(
+                     shape: BoxShape.circle,
+                     color: Colors.blueAccent,
+                     boxShadow: [
+                       BoxShadow(
+                         color: Colors.black26,
+                         offset: Offset(0,2),
+                         blurRadius: 6.0,
+                       ),
+                     ],
+                   ),
+                   child: const Icon(
+                     FontAwesomeIcons.facebookF,
+                     color: Colors.white,
+                   ),
+                 ),
+               ],
+             ),
+           ],
          ),
        )
      ],

@@ -67,17 +67,14 @@ class Comp {
                 ),
               ),
             ),
-            const SizedBox(
-              height: 2,
-            ),
             Text(
               item.title,
-              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
+              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             Text(
               item.subtitle,
               style:
-              const TextStyle(fontSize: 16, color: Colors.lightBlueAccent),
+              const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
           ],
         ),
@@ -91,14 +88,21 @@ class Comp {
           TextButton(
             onPressed: () {},
             child: const Text(
-              "کالای دیجیتال",
+              "    کالای دیجیتال"
+                  ,
               style: TextStyle(
                 // fontFamily: 'Nas',
-                fontSize: 20,
-                fontWeight: FontWeight.w600,
-                color: Colors.orange,
+                fontSize: 25,
+                fontWeight: FontWeight.bold,
+                color: Color(0xFFF80D0D),
               ),
+              textAlign: TextAlign.right,
             ),
+          ),
+          Container(
+            height: 3,
+            width: MediaQuery.of(context).size.width,
+            color: Color(0xFFF80D0D),
           ),
           buildContiner(),
         ],

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_pojects/Basket_Shoping/MyBasket.dart';
+import 'package:my_pojects/Basket_Shoping/MyFavorite.dart';
 import 'package:my_pojects/Things/Data.dart';
 import 'package:my_pojects/Things/ViewList.dart';
 
@@ -47,7 +48,7 @@ class _BasketShopingState extends State<BasketShoping> {
         ),
       );
     } else {
-      print(MyBasket.getInstance()!.listBasket.length);
+
       VeiwList list1 = VeiwList(MyBasket.getInstance()!.listBasket);
       return Scaffold(
         appBar: AppBar(
@@ -68,7 +69,7 @@ class _BasketShopingState extends State<BasketShoping> {
             )
           ],
         ),
-        body: list1.build(context),
+        body: list1,
       );
     }
   }

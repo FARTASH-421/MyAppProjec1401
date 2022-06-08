@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_pojects/Things/Tachonology/DataCamera.dart';
 import 'package:my_pojects/Things/Tachonology/DataComputer.dart';
 import 'package:my_pojects/Things/Tachonology/DataMobile.dart';
-import 'package:my_pojects/Things/ShowDetails.dart';
+import 'package:my_pojects/Things/ShowDetails/ShowDetails.dart';
 
 import '../Sports/ColtsSport.dart';
 import '../Sports/ThaingSport.dart';
@@ -37,7 +37,7 @@ class _MyTachoNaState extends State<MyTachoNa> {
 
           title: Text(item.title),
         ),
-        body: list.build(context),
+        body: list,
       );
     }
     if(item.title=='لپ تاپ') {
@@ -46,14 +46,14 @@ class _MyTachoNaState extends State<MyTachoNa> {
 
           title: Text(item.title),
         ),
-        body: list2.build(context),
+        body: list2,
       );
     }
     return Scaffold(
       appBar: AppBar(
         title: Text(item.title),
       ),
-      body: list3.build(context),
+      body: list3,
     );
   }
 }

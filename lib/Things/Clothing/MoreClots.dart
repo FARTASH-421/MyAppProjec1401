@@ -6,7 +6,7 @@ import '../Sports/ColtsSport.dart';
 import '../Sports/ThaingSport.dart';
 import '../Sports/ThingsTravel.dart';
 import '../ViewList.dart';
-import '../ShowDetails.dart';
+import '../ShowDetails/ShowDetails.dart';
 import 'ForMan.dart';
 
 class MyClots extends StatefulWidget {
@@ -28,9 +28,9 @@ class _MyClotsState extends State<MyClots> {
 
   @override
   Widget build(BuildContext context) {
-    VeiwList list1 = VeiwList(DataForWoman().items);
-    VeiwList list2 = VeiwList(DataForMan().items);
-    VeiwList list3 = VeiwList(DataChildren().items);
+    // VeiwListState list1 =  VeiwListState(DataForWoman().items);
+    // VeiwListState list2 = VeiwListState(DataForWoman().items);
+    // VeiwListState list3 = VeiwListState(DataForWoman().items);
 
     if (item.title == 'زنانه') {
       return Scaffold(
@@ -38,7 +38,7 @@ class _MyClotsState extends State<MyClots> {
 
           title: Text(item.title),
         ),
-        body: list1.build(context),
+        body:  VeiwList(DataForWoman().items),
       );
     }
     if (item.title == 'مردانه') {
@@ -47,14 +47,14 @@ class _MyClotsState extends State<MyClots> {
 
           title: Text(item.title),
         ),
-        body: list2.build(context),
+        body:  VeiwList(DataForMan().items),
       );
     }
     return Scaffold(
       appBar: AppBar(
         title: Text(item.title),
       ),
-      body: list3.build(context),
+      body:  VeiwList(DataChildren().items),
     );
   }
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../ShowDetails.dart';
+import '../ShowDetails/ShowDetails.dart';
 import 'MoreBooks.dart';
 
 class Books_Things {
@@ -84,12 +84,12 @@ class Books_Things {
             ),
             Text(
               item.title,
-              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.w400),
+              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
             Text(
               item.subtitle,
               style:
-                  const TextStyle(fontSize: 16, color: Colors.lightBlueAccent),
+                  const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
           ],
         ),
@@ -102,14 +102,20 @@ class Books_Things {
           TextButton(
             onPressed: () {},
             child: const Text(
-              " كتاب و لوازم التحرير",
+              "كتاب و لوازم التحرير ",
               style: TextStyle(
                 fontFamily: 'Kurale',
-                fontSize: 20,
+                fontSize: 25,
                 fontWeight: FontWeight.w600,
-                color: Colors.orange,
+                color: Color(0xFFF80D0D),
               ),
+              textAlign: TextAlign.right,
             ),
+          ),
+          Container(
+            height: 3,
+            width: MediaQuery.of(context).size.width,
+            color: Color(0xFFF80D0D),
           ),
           buildContiner(),
         ],

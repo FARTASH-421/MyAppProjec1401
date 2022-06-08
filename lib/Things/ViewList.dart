@@ -1,17 +1,28 @@
 import 'package:flutter/material.dart';
-import 'ShowDetails.dart';
+import 'ShowDetails/ShowDetails.dart';
+class VeiwList extends StatefulWidget {
+    final  List Myitem;
+  const VeiwList(
+      this.Myitem,
+      {Key? key}) : super(key: key);
 
-class VeiwList {
+  @override
+  State<VeiwList> createState() => _VeiwListState(Myitem);
+}
+
+class _VeiwListState extends State<VeiwList> {
   List Myitems;
-  VeiwList(this.Myitems);
+  _VeiwListState(this.Myitems);
+
+
 
   Widget build(BuildContext context) => ListView.builder(
-      // scrollDirection: Axis.vertical,
+
       itemCount: Myitems.length,
       itemBuilder: (context, index) {
         return Card(
           shape: const RoundedRectangleBorder(
-              borderRadius: BorderRadius.all(const Radius.circular(20)),
+            borderRadius: BorderRadius.all(const Radius.circular(20)),
           ),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -25,9 +36,10 @@ class VeiwList {
                         child: Text(
                           Myitems[index].title,
                           style: const TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.lightBlueAccent),
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Color(0xFFAF3636),
+                          ),
                         ),
                       ),
                     ],
@@ -51,31 +63,30 @@ class VeiwList {
                 ],
               ),
               Padding(
-                  padding:  EdgeInsets.only(right: 2),
+                padding: EdgeInsets.only(right: 2),
                 child: Ink.image(
                   image: NetworkImage(Myitems[index].urlImage),
                   height: 150,
                   width: 150,
                   fit: BoxFit.fill,
                   alignment: Alignment.centerRight,
-                  child:InkWell(
+                  child: InkWell(
                     onTap: () => Navigator.push(
                       context,
                       MaterialPageRoute(
-                        builder: (context) =>ShoePage(
-                          item:Myitems[index],
+                        builder: (context) => ShoePage(
+                          item: Myitems[index],
                         ),
                       ),
                     ),
                   ),
                 ),
-
               ),
-
             ],
           ),
-          elevation: 1,
-         color: Colors.white70,
+          elevation: 5,
+          color: Colors.white38,
         );
       });
 }
+

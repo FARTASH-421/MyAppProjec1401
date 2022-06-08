@@ -38,16 +38,18 @@ class _ShopButtonNavigatorState extends State<ShopButtonNavigator> {
                   scaffoldBackgroundColor: Color(0xFF041E34),
                   canvasColor: Color(0xFF05182C),
                 )
-              : ThemeData.light().copyWith(accentColor: Colors.black),
+              : ThemeData.light().copyWith(accentColor: Colors.black,
+            scaffoldBackgroundColor: Color(0xFFA5C2E0),
+            canvasColor: Color(0xFF9DBDCE),
+          ),
           home: Scaffold(
             body: scrrens[currentIndex],
+
             bottomNavigationBar: BottomNavigationBar(
+
               type: BottomNavigationBarType.fixed,
-              // backgroundColor: Colors.grey,
-              // selectedItemColor: Colors.black,
-              //   unselectedItemColor: Colors.black38,
               selectedFontSize: 16,
-              unselectedFontSize: 14,
+              unselectedFontSize: 13,
               showUnselectedLabels: false,
               elevation: 10,
               onTap: (index) => setState(() => currentIndex = index),

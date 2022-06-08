@@ -27,10 +27,10 @@ class _MyBooksState extends State<MyBooks> {
 
   @override
   Widget build(BuildContext context) {
-    VeiwList list1 = VeiwList(DataForBook().items);
-    VeiwList list2 = VeiwList(DataForThings().items);
-    VeiwList list3 = VeiwList(DataForMusic().items);
-    VeiwList list4 = VeiwList(DataForProdectHand().items);
+    // VeiwList list1 = VeiwList(DataForBook().items);
+    // VeiwList list2 = VeiwList(DataForBook().items);
+    // VeiwListStat list3 = VeiwList(DataForBook().items);
+    // VeiwListState list4 = VeiwListState(DataForBook().items);
 
 
     if (item.title == 'كتاب') {
@@ -39,7 +39,7 @@ class _MyBooksState extends State<MyBooks> {
 
           title: Text(item.title),
         ),
-        body: list1.build(context),
+        body:VeiwList(DataForBook().items),
       );
     }
     if (item.title == 'لوازم التحرير') {
@@ -48,7 +48,7 @@ class _MyBooksState extends State<MyBooks> {
 
           title: Text(item.title),
         ),
-        body: list2.build(context),
+        body:VeiwList(DataForThings().items),
       );
     }
     if (item.title =='موسيقي') {
@@ -57,14 +57,14 @@ class _MyBooksState extends State<MyBooks> {
 
           title: Text(item.title),
         ),
-        body: list3.build(context),
+        body: VeiwList(DataForMusic().items),
       );
     }
     return Scaffold(
       appBar: AppBar(
         title: Text(item.title),
       ),
-      body: list4.build(context),
+      body: VeiwList(DataForProdectHand().items),
     );
   }
 }
