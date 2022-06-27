@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_settings_screens/flutter_settings_screens.dart';
+import 'package:my_pojects/LongPage.dart';
 import 'package:my_pojects/SaveData/Data.dart';
+import 'package:my_pojects/SaveData/SiveInfo.dart';
 
+import '../Home/home_page.dart';
 import 'icon_widget.dart';
 
 class EideProfile extends StatelessWidget {
+  Information myList= MyDataInf.getInstance()!.listInfo.last;
   static const keyUserName = 'key-UserName';
   static const keyEmail = 'key-Email';
   static const keyNumber = 'key-Number';
@@ -25,18 +29,28 @@ class EideProfile extends StatelessWidget {
           title: 'Edit Profile',
           children: [
             buildUserName(),
+            SizedBox(height: 5,),
             buildSecurity(context),
+            SizedBox(height: 5,),
             buildEmail(),
+            SizedBox(height: 5,),
             buildNumberPhone(),
+            SizedBox(height: 5,),
             buildNameCompany(),
           ],
         ),
       );
   Widget buildSecurity(context) =>SimpleSettingsTile(
     title: 'Security',
-    subtitle: 'Edit Password',
+    subtitle: 'Edit password',
     leading: IconWidget( icon: Icons.security, color: Colors.red,),
-    onTap: ()=>Text("This Problum"),
+    onTap:() {
+      Navigator.of(context).push(
+        MaterialPageRoute(builder: (context) {
+          return buildPassword();
+        }),
+      );
+    },
   );
 
 

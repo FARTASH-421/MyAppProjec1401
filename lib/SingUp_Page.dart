@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:my_pojects/LongPage.dart';
 import 'package:my_pojects/SaveData/Data.dart';
 import 'package:my_pojects/SaveData/SiveInfo.dart';
 import 'ShopButtonNavigator.dart';
@@ -19,8 +20,7 @@ class _SingUpPageState extends State<SingUpPage> {
   final nameCompany = TextEditingController();
   final email = TextEditingController();
 
-
-  Widget _bulidLoge() {
+  Widget _bulidTextWelcome() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
@@ -32,7 +32,7 @@ class _SingUpPageState extends State<SingUpPage> {
               fontFamily: "Kurale",
               fontSize: MediaQuery.of(context).size.height / 25,
               fontWeight: FontWeight.bold,
-              color: Colors.lightBlue,
+              color: Colors.purpleAccent,
             ),
           ),
         ),
@@ -64,15 +64,18 @@ class _SingUpPageState extends State<SingUpPage> {
                       style: TextStyle(
                           fontSize: MediaQuery.of(context).size.height / 30,
                           fontWeight: FontWeight.bold,
+                          color: Colors.black,
                           fontFamily: "Kurale"),
                     ),
                   ],
                 ),
-                _bulidUserName(),
-                _bulidPhoneNumber(),
-                _bulidPassword(),
-                _bulidUserAcount(),
-                _bulidEmail(),
+                _bulidTextFiled("User Name*", userName, "Enter user name"),
+                _bulidTextFiled(
+                    "NumberPhone*", numberPhone, "Enter number phone"),
+                _bulidTextFiled("Password*", password, "Enter password"),
+                _bulidTextFiled(
+                    "Name Company/Salary", nameCompany, "Enter name company"),
+                _bulidTextFiled(" E-mail ", email, "Enter E-mail address"),
                 _bulidAdd(),
               ],
             ),
@@ -82,115 +85,24 @@ class _SingUpPageState extends State<SingUpPage> {
     );
   }
 
-  Widget _bulidUserName() {
+  Widget _bulidTextFiled(
+      String title, TextEditingController Mycontroller, String myHintText) {
     return Padding(
-      padding: const EdgeInsets.all(15),
-      child: TextFormField(
-        controller: userName,
-        keyboardType: TextInputType.emailAddress,
-        decoration: const InputDecoration(
-          labelText: "*نام و نام خانوادگی",
-          contentPadding: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
-          enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: Colors.grey,
-            ),
-          ),
-          border: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.grey),
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _bulidPhoneNumber() {
-    return Padding(
-      padding: const EdgeInsets.all(15),
+      padding: EdgeInsets.all(15),
       child: TextField(
-        controller: numberPhone,
-        keyboardType: TextInputType.number,
+        controller: Mycontroller,
         onChanged: (value) {},
-        decoration: const InputDecoration(
-          labelText: "*شماره تماس",
-          contentPadding: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
+        decoration: InputDecoration(
+          labelText: title,
+          hintText: myHintText,
+          contentPadding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(
-              color: Colors.grey,
+              color: Colors.purpleAccent,
             ),
           ),
           border: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.grey),
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _bulidPassword() {
-    return Padding(
-      padding: const EdgeInsets.all(15),
-      child: TextFormField(
-        keyboardType: TextInputType.visiblePassword,
-        controller: password,
-        onChanged: (value) {},
-        decoration: const InputDecoration(
-          labelText: "*رمز عبور",
-          // errorMaxLines:
-          contentPadding: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
-          enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: Colors.grey,
-            ),
-          ),
-          border: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.grey),
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _bulidEmail() {
-    return Padding(
-      padding: const EdgeInsets.all(15),
-      child: TextFormField(
-        keyboardType: TextInputType.emailAddress,
-        controller: email,
-        onChanged: (value) {},
-        decoration: const InputDecoration(
-          labelText: "ایمیل",
-          contentPadding: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
-          enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: Colors.grey,
-            ),
-          ),
-          border: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.grey),
-          ),
-        ),
-      ),
-    );
-  }
-
-  Widget _bulidUserAcount() {
-    return Padding(
-      padding: const EdgeInsets.all(15),
-      child: TextFormField(
-        keyboardType: TextInputType.text,
-        controller: nameCompany,
-        onChanged: (value) {},
-        decoration: const InputDecoration(
-          labelText: "نام فروشند/فروشگاه",
-          contentPadding: EdgeInsets.symmetric(vertical: 8, horizontal: 10),
-          enabledBorder: OutlineInputBorder(
-            borderSide: BorderSide(
-              color: Colors.grey,
-            ),
-          ),
-          border: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.grey),
+            borderSide: BorderSide(color: Colors.black45),
           ),
         ),
       ),
@@ -203,7 +115,7 @@ class _SingUpPageState extends State<SingUpPage> {
       children: [
         Center(
           child: FloatingActionButton(
-            backgroundColor: Colors.orange,
+            backgroundColor: Colors.lightBlueAccent,
             onPressed: () {
               Navigator.of(context).push(
                 MaterialPageRoute(builder: (context) {
@@ -219,7 +131,7 @@ class _SingUpPageState extends State<SingUpPage> {
             child: const Icon(
               Icons.playlist_add,
               color: Colors.black,
-              size: 50,
+              size: 45,
             ),
           ),
         ),
@@ -230,32 +142,35 @@ class _SingUpPageState extends State<SingUpPage> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-        child: Scaffold(
-      resizeToAvoidBottomInset: false,
-      backgroundColor: const Color(0xfff2f3f7),
-      body: Stack(
-        children: [
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.8,
-            width: MediaQuery.of(context).size.width,
-            child: Container(
-              decoration: const BoxDecoration(
-                  color: Colors.greenAccent,
-                  borderRadius: BorderRadius.only(
-                    bottomLeft: Radius.circular(70),
-                    bottomRight: Radius.circular(70),
-                  )),
+      child: Scaffold(
+          body: SingleChildScrollView(
+        child: Stack(
+          children: [
+            SizedBox(
+              height: MediaQuery.of(context).size.height * 0.8,
+              width: MediaQuery.of(context).size.width,
+              child: Container(
+                decoration: const BoxDecoration(
+                    color: Colors.lightBlueAccent,
+                    borderRadius: BorderRadius.only(
+                      bottomLeft: Radius.circular(70),
+                      bottomRight: Radius.circular(70),
+                    )),
+              ),
             ),
-          ),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              _bulidLoge(),
-              _bulidContianer(),
-            ],
-          )
-        ],
-      ),
-    ));
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  height: 60,
+                ),
+                _bulidTextWelcome(),
+                _bulidContianer(),
+              ],
+            )
+          ],
+        ),
+      )),
+    );
   }
 }

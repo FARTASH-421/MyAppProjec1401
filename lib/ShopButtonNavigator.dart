@@ -14,6 +14,7 @@ class ShopButtonNavigator extends StatefulWidget {
 }
 
 class _ShopButtonNavigatorState extends State<ShopButtonNavigator> {
+
   late Colors color;
   final scrrens = [
     Profiles(),
@@ -28,7 +29,7 @@ class _ShopButtonNavigatorState extends State<ShopButtonNavigator> {
         cacheKey: HeaderPage.keyDarkMode,
         defaultValue: true,
         builder: (_, isDarkMode, __) => MaterialApp(
-          title: 'Stores',
+          title: 'Digi Green',
           color: Colors.lightGreen,
           debugShowCheckedModeBanner: false,
           theme: isDarkMode

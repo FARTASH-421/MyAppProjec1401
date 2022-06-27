@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_settings_screens/flutter_settings_screens.dart';
 import 'package:my_pojects/Profile/setting_page.dart';
 
+import '../LongPage.dart';
 import 'icon_widget.dart';
 
 class Page extends StatelessWidget {
@@ -84,7 +85,7 @@ class Page extends StatelessWidget {
     title: 'AccountInfo',
     subtitle: '',
     leading: IconWidget( icon: Icons.info, color: Colors.purple,),
-    onTap: ()=> Utils.showSnackBar(context,'Clicked AccountInfo'),
+    onTap: ()=> LongPage(),
   );
 
 }

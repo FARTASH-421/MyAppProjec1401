@@ -42,13 +42,8 @@ class _SpalshState extends State<Spalsh> {
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
          Column(
-           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+
            children: [
-             Image.asset(
-               'images/newShop.gif',
-               height:200,
-               width: MediaQuery.of(context).size.width,
-             ),
              Image.asset(
                'images/PngItem.png',
                height:200,
@@ -71,6 +66,7 @@ class _SpalshState extends State<Spalsh> {
             ),
             const CircularProgressIndicator(
               color: Colors.black,
+
             ),
           ],
         ),

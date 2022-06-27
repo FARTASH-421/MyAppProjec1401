@@ -9,9 +9,6 @@ static const keyDarkMode = 'key-dark-mode';
 @override
   Widget build(BuildContext context)=> Column(
     children: [
-      buildHeader(),
-      const SizedBox(height:  32,),
-      buildUser(context),
       buildDarkMode(),
     ],
   );
@@ -23,13 +20,4 @@ static const keyDarkMode = 'key-dark-mode';
       onChange: (_){ },
   );
 
- Widget buildHeader()=> Center(
-   child: Text(
-     'Settings',
-
-   ),
- );
-
-Widget buildUser(BuildContext context) => Center(
-);
 }

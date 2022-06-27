@@ -21,27 +21,25 @@ class _FavoriteState extends State<Favorite> {
       body: Padding(
         padding: const EdgeInsets.all(10),
         child: GridView.count(
-          
           crossAxisCount: 2,
           crossAxisSpacing: 3,
           children: List.generate(add, (int postion) {
             setState(() {
-                add = Myitems.length;
+              add = Myitems.length;
             });
-            return generateItem(Myitems,add);
+            return generateItem(Myitems, add);
           }),
         ),
       ),
     );
   }
 
-  Card generateItem(items,int add) {
-    List item= items;
+  Card generateItem(items, int add) {
+    List item = items;
 
-
-      return Card(
-          shape: const RoundedRectangleBorder(borderRadius: const BorderRadius.all(Radius.circular(30))
-          ),
+    return Card(
+      shape: const RoundedRectangleBorder(
+          borderRadius: const BorderRadius.all(Radius.circular(30))),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
@@ -53,32 +51,8 @@ class _FavoriteState extends State<Favorite> {
                 Container(
                   height: 120,
                   width: 150,
-                  child:  Image.network(item[add-1].urlImage),
+                  child: Image.network(item[add - 1].urlImage),
                 )
-              ],
-            ),
-          ),
-          Center(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Center(
-                  child: Text(item[add-1].title,
-                    style: const TextStyle(
-                        fontSize: 20,
-                        fontFamily: "Nas",
-                        color: Colors.purple
-                    ),
-                  ),
-                ),
-                Column(
-                  children: const [
-                    Icon(Icons.favorite,size: 40,
-                    color: Colors.red,
-                    ),
-                  ],
-                )
-
               ],
             ),
           ),
@@ -88,13 +62,35 @@ class _FavoriteState extends State<Favorite> {
               children: [
                 Center(
                   child: Text(
-                    item[add-1].price,
+                    item[add - 1].title,
+                    style: const TextStyle(
+                        fontSize: 20, fontFamily: "Nas", color: Colors.purple),
+                  ),
+                ),
+                Column(
+                  children: const [
+                    Icon(
+                      Icons.favorite,
+                      size: 40,
+                      color: Colors.red,
+                    ),
+                  ],
+                )
+              ],
+            ),
+          ),
+          Center(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Center(
+                  child: Text(
+                    item[add - 1].price,
                     style: const TextStyle(
                         fontFamily: "Kurale",
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
-                        color: Colors.black
-                    ),
+                        color: Colors.black),
                   ),
                 ),
               ],
@@ -105,7 +101,5 @@ class _FavoriteState extends State<Favorite> {
       elevation: 4,
       color: Colors.white54,
     );
-
   }
-
 }

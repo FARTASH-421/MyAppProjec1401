@@ -21,7 +21,7 @@ class _StoreState extends State<Store> {
   final isDarkMode = Settings.getValue<bool>(HeaderPage.keyDarkMode, true);
   @override
   Widget build(BuildContext context) => const MaterialApp(
-        title: 'Stores',
+        title: 'Digi Green',
         color: Colors.blue,
         debugShowCheckedModeBanner: false,
         home: Spalsh(),

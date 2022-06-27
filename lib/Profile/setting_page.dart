@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_settings_screens/flutter_settings_screens.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:my_pojects/LongPage.dart';
 import 'package:my_pojects/Profile/EideProfile.dart';
 import 'package:my_pojects/Profile/account_page.dart';
 import 'package:my_pojects/SaveData/Data.dart';
@@ -20,20 +21,14 @@ class _SettingPageState extends State<SettingPage> {
   static const keyDarkMode = 'key-dark-mode';
   String imagePath = "images/Profile.jpg";
 
-
   @override
   Widget build(BuildContext context) => Scaffold(
-
         // backgroundColor: Color(0x393F8DFF),
         body: SafeArea(
           child: ListView(
             padding: const EdgeInsets.only(left: 8.0, right: 8.0, bottom: 10),
             children: [
-
               imageProfile(),
-              const SizedBox(
-                height: 2,
-              ),
               SettingsGroup(
                 title: '',
                 children: [
@@ -59,14 +54,23 @@ class _SettingPageState extends State<SettingPage> {
           ),
         ),
       );
+
   Widget buildLogOut() => SimpleSettingsTile(
         title: 'Logout',
-        leading: const IconWidget(
+        leading: IconWidget(
           icon: Icons.logout,
           color: Colors.blueAccent,
         ),
         subtitle: '',
-        onTap: () => Utils.showSnackBar(context, 'Clicked Logout'),
+        onTap: () {
+          showDialog(
+            context: context,
+            builder: (BuildContext context) {
+              return BuildAlertDialog(
+                  "Log out?", "Are you sure want to log out?", context);
+            },
+          );
+        },
       );
 
   Widget bulidAccount() => SimpleSettingsTile(
@@ -110,7 +114,7 @@ class _SettingPageState extends State<SettingPage> {
         child: Stack(
           children: [
             CircleAvatar(
-              radius: 100.0,
+              radius: 110.0,
               backgroundImage: imaage(),
             ),
             Positioned(
@@ -153,26 +157,38 @@ class _SettingPageState extends State<SettingPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(MyDataInf.getInstance()!.listInfo.last.userName.toString(),
+                      Text(
+                        MyDataInf.getInstance()!
+                            .listInfo
+                            .last
+                            .userName
+                            .toString(),
                         style: const TextStyle(
-                            fontSize: 30,
+                            fontSize: 35,
                             fontWeight: FontWeight.bold,
                             color: Colors.orange,
                             fontFamily: "Kurale"),
                       ),
                     ],
                   ),
+                  SizedBox(height: 7,),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      Text(MyDataInf.getInstance()!.listInfo.last.numberPhone.toString(),
+                      Text(
+                        MyDataInf.getInstance()!
+                            .listInfo
+                            .last
+                            .numberPhone
+                            .toString(),
                         style: const TextStyle(
-                          fontSize: 16,
+                          fontSize: 18,
                           color: Colors.orange,
                         ),
                       ),
                     ],
                   ),
+                  SizedBox(height: 7,),
                 ],
               ),
             ),
@@ -267,6 +283,7 @@ class _SettingPageState extends State<SettingPage> {
           ],
         ),
       );
+
   AssetImage imaage() {
     AssetImage n = AssetImage(imagePath);
     if (_imageFile != null) {
@@ -274,6 +291,83 @@ class _SettingPageState extends State<SettingPage> {
       return n;
     }
     return n;
+  }
+
+  Widget BuildAlertDialog(String title, String content, BuildContext context) {
+    return Dialog(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+      child: Stack(
+        overflow: Overflow.visible,
+        alignment: Alignment.topCenter,
+        children: [
+          Container(
+            height: 160,
+            width: MediaQuery.of(context).size.width * 0.8,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(height: 15,),
+                Text(
+                  title,
+                  style: const TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontFamily: "Kurale",
+                    fontSize: 22,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(
+                  height: 5,
+                ),
+                Text(
+                  content,
+                  style: const TextStyle(
+                    fontFamily: "Kurale",
+                    fontSize: 18,
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(
+                  height: 5,
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    RaisedButton(
+                      color: Colors.lightBlueAccent,
+                      onPressed: () => Navigator.of(context).pop(
+                        Material()
+                      ),
+                      child: Text("No",style: TextStyle(fontSize: 16,color: Colors.white),),
+                    ),
+                    RaisedButton(
+                      color: Colors.lightBlueAccent,
+                      onPressed: () => Navigator.popUntil(
+                        context,
+                        (route) =>route.isFirst
+                      ),
+                      child: Text("Yes",style: TextStyle(fontSize: 16,color: Colors.white)),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          Positioned(
+            child: CircleAvatar(
+              backgroundColor: Colors.lightBlueAccent,
+              radius: 30,
+              child: Icon(
+                Icons.logout,
+                color: Colors.white,
+                size: 35,
+              ),
+            ),
+            top: -35,
+          ),
+        ],
+      ),
+    );
   }
 }
 
@@ -290,7 +384,7 @@ class Utils {
               child: Text(
                 s,
                 style: const TextStyle(
-                  color: Colors.redAccent,
+                    color: Colors.redAccent,
                     fontSize: 20,
                     fontFamily: "Kurale",
                     fontWeight: FontWeight.bold),
@@ -298,5 +392,5 @@ class Utils {
               ),
               //
             )),
-  );
+      );
 }
