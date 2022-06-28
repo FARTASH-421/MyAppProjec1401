@@ -20,19 +20,18 @@ class Body extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
 
     return SingleChildScrollView(
-      child:  Column(
+      child: Column(
         children: [
-          HeadrWithSearchBox( size:size,),
-      ListView(
-          scrollDirection: Axis.vertical,
-          children: [
-            _comp.build(context),
-            _colts.build(context),
-            _book.build(context),
-            _sport.build(context),
-
-          ],
-        ),
+          HeadrWithSearchBox(
+            size: size,
+          ),
+          SizedBox(
+            height: 14,
+          ),
+          _comp.build(context),
+          _colts.build(context),
+          _book.build(context),
+          _sport.build(context),
         ],
       ),
     );

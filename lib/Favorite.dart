@@ -16,14 +16,22 @@ class _FavoriteState extends State<Favorite> {
     int add = Myitems.length;
     return Scaffold(
       appBar: AppBar(
-        title: const Text("MyFavorte"),
+        title: const Text("My Favorite Products",
+          style: TextStyle(
+              fontFamily: "Nas",
+            fontWeight: FontWeight.bold,
+            fontSize: 24
+          ), ),
       ),
-      body: Padding(
+
+      body:Myitems.isEmpty?
+      buildShowIsEmpty() :
+      Padding(
         padding: const EdgeInsets.all(10),
         child: GridView.count(
           crossAxisCount: 2,
           crossAxisSpacing: 3,
-          children: List.generate(add, (int postion) {
+          children: List.generate(add, (int position) {
             setState(() {
               add = Myitems.length;
             });
@@ -102,4 +110,30 @@ class _FavoriteState extends State<Favorite> {
       color: Colors.white54,
     );
   }
+
+
+  Widget buildShowIsEmpty() => Center(
+      child:Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            alignment: Alignment.bottomCenter,
+            height: 200,
+            width: 200,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(30),
+            ),
+            child: Icon(Icons.favorite_outline_outlined,color: Colors.red,size: 150,)
+          ),
+          SizedBox(height: 40,),
+          Text("Favorite is Empty :(",style: TextStyle(
+              fontSize: 45,
+              fontFamily: "Nas",
+              fontWeight: FontWeight.bold
+          ),)
+        ],
+      )
+
+  );
+
 }

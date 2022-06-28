@@ -55,6 +55,8 @@ class IconProfile {
                       image: NetworkImage(item.urlImage),
                       fit: BoxFit.cover,
                       child: const InkWell(
+                        // for page .....
+
                         // onTap: () => Navigator.push(
                         //   context,
                         //   MaterialPageRoute(

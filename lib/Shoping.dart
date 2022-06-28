@@ -14,65 +14,48 @@ class BasketShoping extends StatefulWidget {
 class _BasketShopingState extends State<BasketShoping> {
   @override
   Widget build(BuildContext context) {
+    VeiwList list1 = VeiwList(MyBasket.getInstance()!.listBasket);
 
-
-    if (MyBasket.getInstance()!.listBasket.isEmpty) {
-      return Scaffold(
-        appBar: AppBar(
-          actions: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  children: const [
-                    Text(
-                      'سبد خرید',
-                      style: TextStyle(
-                          fontFamily: "Nas", fontSize: 24, color: Colors.black),
-                    ),
-                  ],
-                ),
-              ],
-            )
-          ],
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(
+          'Basket Products',
+          style:
+              TextStyle(fontFamily: "Nas", fontSize: 24,fontWeight: FontWeight.bold),
         ),
-        body: const Center(
-          child: Text(
-            "سبد خرید تون خالی است",
-            style: TextStyle(
-                fontSize: 40,
-                color: Colors.blueAccent,
-                fontWeight: FontWeight.bold,
-                fontFamily: "Nas"),
-          ),
-        ),
-      );
-    } else {
-
-      VeiwList list1 = VeiwList(MyBasket.getInstance()!.listBasket);
-      return Scaffold(
-        appBar: AppBar(
-          actions: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  children: const [
-                    Text(
-                      'سبد خرید',
-                      style: TextStyle(
-                          fontFamily: "Nas", fontSize: 24, color: Colors.black),
-                    ),
-                  ],
-                ),
-              ],
-            )
-          ],
-        ),
-        body: list1,
-      );
-    }
+      ),
+      body: MyBasket.getInstance()!.listBasket.isEmpty
+          ? buildShowIsEmpty()
+          : list1,
+    );
   }
+
+  Widget buildShowIsEmpty() => Center(
+        child:Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              alignment: Alignment.bottomCenter,
+              height: 300,
+              width: 300,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(30),
+              ),
+              child: Image.network(
+                "https://images.milledcdn.com/2021-10-20/3_2RlBZMiqaXHNjQ/9Ms9IRESGQuO.gif"
+                , alignment: Alignment.center,
+              ),
+            ),
+            SizedBox(height: 40,),
+            Text("Basket  is  Empty :(",style: TextStyle(
+              fontSize: 45,
+              fontFamily: "Nas",
+              fontWeight: FontWeight.bold
+            ),)
+          ],
+        )
+
+      );
 }
 
 class Empty extends StatefulWidget {

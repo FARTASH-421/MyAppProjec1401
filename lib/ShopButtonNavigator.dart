@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_settings_screens/flutter_settings_screens.dart';
 import 'package:my_pojects/Favorite.dart';
+import 'package:my_pojects/Home/headrWithSearchBox.dart';
 import 'package:my_pojects/Shoping.dart';
 import 'package:my_pojects/Home/home_page.dart';
 import 'Profile/Header_page.dart';
@@ -14,7 +15,6 @@ class ShopButtonNavigator extends StatefulWidget {
 }
 
 class _ShopButtonNavigatorState extends State<ShopButtonNavigator> {
-
   late Colors color;
   final scrrens = [
     Profiles(),
@@ -35,19 +35,21 @@ class _ShopButtonNavigatorState extends State<ShopButtonNavigator> {
           theme: isDarkMode
               ? ThemeData.dark().copyWith(
                   primaryColor: Colors.teal,
+                  appBarTheme: AppBarTheme(
+                      backgroundColor: Color(0xFF204375)),
                   accentColor: Colors.white,
                   scaffoldBackgroundColor: Color(0xFF041E34),
                   canvasColor: Color(0xFF05182C),
                 )
-              : ThemeData.light().copyWith(accentColor: Colors.black,
-            scaffoldBackgroundColor: Color(0xFFA5C2E0),
-            canvasColor: Color(0xFF9DBDCE),
-          ),
+              : ThemeData.light().copyWith(
+                  accentColor: Colors.black,
+                  appBarTheme: AppBarTheme(backgroundColor: kPrimaryColor),
+                  scaffoldBackgroundColor: Color(0xFFA5C2E0),
+                  canvasColor: Color(0xFF9DBDCE),
+                ),
           home: Scaffold(
             body: scrrens[currentIndex],
-
             bottomNavigationBar: BottomNavigationBar(
-
               type: BottomNavigationBarType.fixed,
               selectedFontSize: 16,
               unselectedFontSize: 13,
@@ -68,7 +70,7 @@ class _ShopButtonNavigatorState extends State<ShopButtonNavigator> {
                     Icons.add_shopping_cart,
                     size: 30,
                   ),
-                  label: 'Shoping',
+                  label: 'MyBasket',
                 ),
                 BottomNavigationBarItem(
                   icon: Icon(
@@ -78,7 +80,10 @@ class _ShopButtonNavigatorState extends State<ShopButtonNavigator> {
                   label: 'Favorite',
                 ),
                 BottomNavigationBarItem(
-                  icon: Icon(Icons.home, size: 30,),
+                  icon: Icon(
+                    Icons.home,
+                    size: 30,
+                  ),
                   label: 'Home',
                 ),
               ],
