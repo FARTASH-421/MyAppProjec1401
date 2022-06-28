@@ -1,16 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:my_pojects/Home/home_page.dart';
-import 'package:my_pojects/Profile/MyDetital.dart';
 import 'package:my_pojects/Profile/icon_widget.dart';
 import 'package:my_pojects/SaveData/Data.dart';
 import 'package:my_pojects/ShopButtonNavigator.dart';
 import 'package:my_pojects/SingUp_Page.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import 'Profile/setting_page.dart';
 
 class LongPage extends StatefulWidget {
   const LongPage({Key? key}) : super(key: key);

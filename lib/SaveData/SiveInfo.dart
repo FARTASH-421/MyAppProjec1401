@@ -1,10 +1,10 @@
 class Information {
   var userName;
-  var numberPhone;
+  var number;
   var password;
   var UserAcount;
   var email;
 
-  Information(this.userName, this.numberPhone, this.password, this.UserAcount,
+  Information(this.userName, this.number, this.password, this.UserAcount,
       this.email);
 }

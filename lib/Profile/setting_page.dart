@@ -179,7 +179,7 @@ class _SettingPageState extends State<SettingPage> {
                         MyDataInf.getInstance()!
                             .listInfo
                             .last
-                            .numberPhone
+                            .number
                             .toString(),
                         style: const TextStyle(
                           fontSize: 18,

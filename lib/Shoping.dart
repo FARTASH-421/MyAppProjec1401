@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:my_pojects/Basket_Shoping/MyBasket.dart';
-import 'package:my_pojects/Basket_Shoping/MyFavorite.dart';
-import 'package:my_pojects/Things/Data.dart';
 import 'package:my_pojects/Things/ViewList.dart';
 
 class BasketShoping extends StatefulWidget {

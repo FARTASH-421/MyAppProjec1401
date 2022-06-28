@@ -57,7 +57,7 @@ class EideProfile extends StatelessWidget {
   Widget buildNumberPhone() => TextInputSettingsTile(
         title: 'Edit NumberPhone',
         settingKey: keyNumber,
-        initialValue: MyDataInf.getInstance()!.listInfo.last.numberPhone.toString(),
+        initialValue: MyDataInf.getInstance()!.listInfo.last.number.toString(),
         onChange: (keyNumber) {},
       );
 
