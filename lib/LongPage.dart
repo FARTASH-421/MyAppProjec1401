@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -6,6 +8,8 @@ import 'package:my_pojects/SaveData/Data.dart';
 import 'package:my_pojects/ShopButtonNavigator.dart';
 import 'package:my_pojects/SingUp_Page.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import 'SaveData/SiveInfo.dart';
 
 
 class LongPage extends StatefulWidget {
@@ -107,7 +111,7 @@ class _LongPageState extends State<LongPage> {
         autofocus: true,
         // keyboardType: TextInputType.number,
         controller: numberPhone,
-        onChanged: (value) {},
+        keyboardType: TextInputType.phone,
         decoration: const InputDecoration(
           prefixIcon: Icon(
             Icons.phone,
@@ -159,7 +163,7 @@ class _LongPageState extends State<LongPage> {
             onPressed: () {
               List inf = MyDataInf.getInstance()!.listInfo;
               for (int i = 0; i < inf.length; i++) {
-                if (inf[i].numberPhone == numberPhone.value.text &&
+                if (inf[i].number == numberPhone.value.text &&
                     inf[i].password == password.value.text) {
                   checkLogin = true;
                   Navigator.of(context)
@@ -425,4 +429,6 @@ class _LongPageState extends State<LongPage> {
       ),
     );
   }
+
+
 }

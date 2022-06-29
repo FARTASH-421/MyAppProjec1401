@@ -342,10 +342,10 @@ class _SettingPageState extends State<SettingPage> {
                     ),
                     RaisedButton(
                       color: Colors.lightBlueAccent,
-                      onPressed: () => Navigator.popUntil(
-                        context,
-                        (route) =>route.isFirst
-                      ),
+                      onPressed: () => Navigator.of(context)
+                          .pushAndRemoveUntil(MaterialPageRoute(
+                          builder: (context) => LongPage()),(route)=> false),
+
                       child: Text("Yes",style: TextStyle(fontSize: 16,color: Colors.white)),
                     ),
                   ],

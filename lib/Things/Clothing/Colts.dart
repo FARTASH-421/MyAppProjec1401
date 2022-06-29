@@ -63,7 +63,9 @@ class Cloths {
                         onTap: () => Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => MyClots(item: item,),
+                            builder: (context) => MyClots(
+                              item: item,
+                            ),
                           ),
                         ),
                       ),
@@ -78,8 +80,7 @@ class Cloths {
             ),
             Text(
               item.subtitle,
-              style:
-              const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
           ],
         ),
@@ -88,6 +89,7 @@ class Cloths {
   Widget build(BuildContext context) => Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
+        textDirection: TextDirection.rtl,
         children: [
           TextButton(
             onPressed: () {},

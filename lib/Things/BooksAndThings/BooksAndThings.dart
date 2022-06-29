@@ -70,7 +70,7 @@ class Books_Things {
                         onTap: () => Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => MyBooks( item: item),
+                            builder: (context) => MyBooks(item: item),
                           ),
                         ),
                       ),
@@ -88,8 +88,7 @@ class Books_Things {
             ),
             Text(
               item.subtitle,
-              style:
-                  const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
           ],
         ),
@@ -98,6 +97,7 @@ class Books_Things {
   Widget build(BuildContext context) => Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
+        textDirection: TextDirection.rtl,
         children: [
           TextButton(
             onPressed: () {},

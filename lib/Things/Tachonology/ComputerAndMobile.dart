@@ -8,19 +8,21 @@ class Comp {
 
   List<CardItem> items = [
     const CardItem(
-      title:'موبايل',
+      title: 'موبايل',
       urlImage:
-    'https://media.4rgos.it/i/Argos/3321-m007-25-01-7835216-motorola-simfreemobile?maxW=768&qlt=75&fmt.jpeg.interlaced=true',
+          'https://media.4rgos.it/i/Argos/3321-m007-25-01-7835216-motorola-simfreemobile?maxW=768&qlt=75&fmt.jpeg.interlaced=true',
       subtitle: '1900 کالا',
     ),
     const CardItem(
       title: 'لپ تاپ',
-      urlImage: 'https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/dell-client-products/notebooks/latitude-notebooks/13-3320/media-gallery/peripherals_laptop_latitude_3320_gallery_1.psd?fmt=pjpg&pscan=auto&scl=1&wid=3337&hei=2417&qlt=100,0&resMode=sharp2&size=3337,2417',
+      urlImage:
+          'https://i.dell.com/is/image/DellContent//content/dam/ss2/product-images/dell-client-products/notebooks/latitude-notebooks/13-3320/media-gallery/peripherals_laptop_latitude_3320_gallery_1.psd?fmt=pjpg&pscan=auto&scl=1&wid=3337&hei=2417&qlt=100,0&resMode=sharp2&size=3337,2417',
       subtitle: '1600 کالا',
     ),
     const CardItem(
       title: 'دوربین',
-      urlImage: 'https://play-lh.googleusercontent.com/sqiNB2XdmvHJWcmbhsf6DcCZiTNayIvEeGjDkcmO6v9nlKFsITjnaBfC1wwZ6onLQQ',
+      urlImage:
+          'https://play-lh.googleusercontent.com/sqiNB2XdmvHJWcmbhsf6DcCZiTNayIvEeGjDkcmO6v9nlKFsITjnaBfC1wwZ6onLQQ',
       subtitle: '1400 کالا',
     ),
   ];
@@ -39,27 +41,27 @@ class Comp {
         ),
       );
 
-  Widget buildCard({ required item,}) {
-    return
-      SizedBox(
-        width: 200,
-        child: Column(
-          children: [
-            Expanded(
-              child: AspectRatio(
-                aspectRatio: 10,
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(20),
-                  child: Material(
-                    child: Ink.image(
-                      image: NetworkImage(item.urlImage),
-                      fit: BoxFit.cover,
-                      child: InkWell(
-                        onTap: () => Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => MyTachoNa(item: item),
-                          ),
+  Widget buildCard({
+    required item,
+  }) {
+    return SizedBox(
+      width: 200,
+      child: Column(
+        children: [
+          Expanded(
+            child: AspectRatio(
+              aspectRatio: 10,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Material(
+                  child: Ink.image(
+                    image: NetworkImage(item.urlImage),
+                    fit: BoxFit.cover,
+                    child: InkWell(
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => MyTachoNa(item: item),
                         ),
                       ),
                     ),
@@ -67,29 +69,29 @@ class Comp {
                 ),
               ),
             ),
-            Text(
-              item.title,
-              style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-            ),
-            Text(
-              item.subtitle,
-              style:
-              const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-            ),
-          ],
-        ),
-      );
-
+          ),
+          Text(
+            item.title,
+            style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          ),
+          Text(
+            item.subtitle,
+            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+          ),
+        ],
+      ),
+    );
   }
+
   Widget build(BuildContext context) => Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
+        textDirection: TextDirection.rtl,
         children: [
           TextButton(
             onPressed: () {},
             child: const Text(
-              "    کالای دیجیتال"
-                  ,
+              "   کالای دیجیتال",
               style: TextStyle(
                 // fontFamily: 'Nas',
                 fontSize: 25,

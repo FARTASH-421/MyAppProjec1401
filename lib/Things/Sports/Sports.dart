@@ -63,12 +63,12 @@ class Spotr {
                         item.urlImage,
                       ),
                       fit: BoxFit.cover,
-                      child:InkWell(
+                      child: InkWell(
                         onTap: () => Navigator.push(
                           context,
                           MaterialPageRoute(
                             builder: (context) => MoreSports(
-                              item:item,
+                              item: item,
                             ),
                           ),
                         ),
@@ -87,8 +87,9 @@ class Spotr {
             ),
             Text(
               item.subtitle,
-              style:
-                  const TextStyle(fontSize: 16,),
+              style: const TextStyle(
+                fontSize: 16,
+              ),
             ),
           ],
         ),
@@ -97,6 +98,7 @@ class Spotr {
   Widget build(BuildContext context) => Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
+        textDirection: TextDirection.rtl,
         children: [
           TextButton(
             onPressed: () {},
