@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_pojects/Home/headrWithSearchBox.dart';
 import 'ShowDetails/ShowDetails.dart';
+import 'dart:math';
 
 class VeiwList extends StatefulWidget {
   final List Myitem;
@@ -14,8 +15,28 @@ class VeiwList extends StatefulWidget {
 
 class _VeiwListState extends State<VeiwList> {
   List Myitems;
+  Random random = Random();
 
   _VeiwListState(this.Myitems);
+
+  var randomNumber;
+
+  Widget buildPositoned() {
+    randomNumber = random.nextInt(80);
+
+    return Positioned(
+      child: CircleAvatar(
+        backgroundColor: Colors.red,
+        radius: 18,
+        child: Text(
+          randomNumber.toString() + "%",
+          style: TextStyle(fontSize: 16),
+        ),
+      ),
+      top: 0,
+      left: 12,
+    );
+  }
 
   Widget build(BuildContext context) => ListView.builder(
       itemCount: Myitems.length,
@@ -29,23 +50,32 @@ class _VeiwListState extends State<VeiwList> {
             children: [
               Center(
                   child: SizedBox(
-                height: 136,
+                height: 140,
                 width: MediaQuery.of(context).size.width - 177,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Padding(
-                      padding:
-                          EdgeInsets.symmetric(horizontal: kDefaultPadding * 1.5),
-                      child:  Text(
+                      padding: EdgeInsets.symmetric(
+                          horizontal: kDefaultPadding * 1.5),
+                      child: Text(
                         Myitems[index].title,
                         style: const TextStyle(
-                          fontSize: 18,
+                          fontSize: 17,
                           fontWeight: FontWeight.bold,
                           color: Color(0xFF06AFEF),
                         ),
-                          // style: Theme.of(context).textTheme.button
+                        // style: Theme.of(context).textTheme.button
+                      ),
+                    ),
+                    Spacer(),
+                    Padding(
+                      padding: EdgeInsets.only(
+                        left: 20,
+                      ),
+                      child: Stack(
+                        clipBehavior: Clip.none, children: [Icon(Icons.circle), buildPositoned()],
                       ),
                     ),
                     Spacer(),
@@ -61,7 +91,7 @@ class _VeiwListState extends State<VeiwList> {
                               borderRadius: BorderRadius.only(
                                   bottomLeft: Radius.circular(22),
                                   topRight: Radius.circular(22))),
-                          child:  Text(
+                          child: Text(
                             Myitems[index].price,
                             style: const TextStyle(
                                 fontFamily: "Kurale",
@@ -72,32 +102,45 @@ class _VeiwListState extends State<VeiwList> {
                         ),
                         Spacer(),
                         Container(
-                          padding: EdgeInsets.symmetric(
-                              horizontal: kDefaultPadding-4,
-                              vertical: kDefaultPadding ),
-                          child:Column(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Row(
-                                children: [
-                                  Icon(Icons.star,color: Colors.yellowAccent,),
-                                  Icon(Icons.star,color: Colors.yellowAccent,),
-                                ],
-                              ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                children: [
-                                  Icon(Icons.star,color: Colors.yellowAccent,),
-                                  Icon(Icons.star_half,color: Colors.yellowAccent,),
-                                  Icon(Icons.star_outline_sharp,color: Colors.black45),
-                                ],
-                              )
-                            ],
-                          )
-                        )
+                            padding: EdgeInsets.symmetric(
+                              horizontal: kDefaultPadding - 4,
+                              // vertical: kDefaultPadding
+                            ),
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Row(
+                                  children: [
+                                    Icon(
+                                      Icons.star,
+                                      color: Colors.yellowAccent,
+                                    ),
+                                    Icon(
+                                      Icons.star,
+                                      color: Colors.yellowAccent,
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Icon(
+                                      Icons.star,
+                                      color: Colors.yellowAccent,
+                                    ),
+                                    Icon(
+                                      Icons.star_half,
+                                      color: Colors.yellowAccent,
+                                    ),
+                                    Icon(Icons.star_outline_sharp,
+                                        color: Colors.black45),
+                                  ],
+                                )
+                              ],
+                            ))
                       ],
                     )
-
                   ],
                 ),
               )),

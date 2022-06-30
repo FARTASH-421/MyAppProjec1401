@@ -1,10 +1,10 @@
 import '../Things/Data.dart';
 
-class MyBasket {
-  static MyBasket? _instance = null;
+class BasketList {
+  static BasketList? _instance = null;
   static late List<MyData> _listBasket;
 
-  MyBasket(){
+  BasketList(){
    _listBasket =[];
   }
 
@@ -14,9 +14,9 @@ class MyBasket {
     _listBasket = value;
   }
 
-  static MyBasket? getInstance (){
+  static BasketList? getInstance (){
     if (_instance == null) {
-      _instance = MyBasket();
+      _instance = BasketList();
     }
     return _instance;
   }

@@ -12,8 +12,10 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Cloths _colts = Cloths(context);
+
+
     Comp _comp = Comp(context);
+    Clothing _colts = Clothing(context);
     Spotr _sport = Spotr(context);
     Books_Things _book = Books_Things(context);
 

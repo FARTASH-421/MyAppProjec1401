@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'ColtsSport.dart';
 import '../ViewList.dart';
 import 'ThaingSport.dart';
@@ -21,33 +20,51 @@ class _MoreSportsState extends State<MoreSports> {
 
   @override
   Widget build(BuildContext context) {
-    // VeiwList list1 = VeiwList(dataClots().items);
-    //  VeiwList list2= VeiwList(dataSportClots().items);
-    //  VeiwList list3 = VeiwList(dataTravel().items);
+    VeiwList result;
+    bool list1 = item.title == 'پوشاک ورزشی';
+    bool list2 = item.title == 'لوازم ورزشي';
+    if (list1) {
+      result = VeiwList(dataClots().items);
+    } else if (list2) {
+      result = VeiwList(dataSportClots().items);
+    } else
+      result = VeiwList(dataTravel().items);
 
-    if(item.title=='پوشاک ورزشی') {
-      return Scaffold(
-        appBar: AppBar(
-
-          title: Text(item.title),
-        ),
-        body: VeiwList(dataClots().items),
-      );
-    }
-    if(item.title == 'لوازم ورزشي') {
-      return Scaffold(
-          appBar: AppBar(
-
-            title: Text(item.title),
-          ),
-          body:VeiwList(dataSportClots().items),
-      );
-    }
     return Scaffold(
       appBar: AppBar(
         title: Text(item.title),
+        actions: [
+          Padding(
+            padding: EdgeInsets.only(right: 10),
+            child: Row(
+              textDirection: TextDirection.rtl,
+              children: [
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.tune,
+                  ),
+                ),
+                Text(
+                  "Filters",
+                  style: TextStyle(fontWeight: FontWeight.w400),
+                ),
+                IconButton(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.sort,
+                  ),
+                ),
+                Text(
+                  "Sort",
+                  style: TextStyle(fontWeight: FontWeight.w400),
+                ),
+              ],
+            ),
+          )
+        ],
       ),
-      body: VeiwList(dataTravel().items),
+      body: result,
     );
   }
 }

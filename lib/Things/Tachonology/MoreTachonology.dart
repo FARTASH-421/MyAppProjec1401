@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_pojects/Things/Tachonology/DataCamera.dart';
 import 'package:my_pojects/Things/Tachonology/DataComputer.dart';
@@ -27,33 +28,46 @@ class _MyTachoNaState extends State<MyTachoNa> {
 
   @override
   Widget build(BuildContext context) {
-    VeiwList list = VeiwList(DataMobile().items);
-    VeiwList list2= VeiwList(DataComputer().items);
-    VeiwList list3 = VeiwList(DataCamera().items);
+    // VeiwList list = VeiwList(DataMobile().items);
+    // VeiwList list2= VeiwList(DataComputer().items);
+    // VeiwList list3 = VeiwList(DataCamera().items);
+    //
+    // String title="";
+    VeiwList result;
+    bool checkList= item.title == 'موبايل';
+    bool checkList2 = item.title=='لپ تاپ';
+    if(checkList){
+      result= VeiwList(DataMobile().items);
+    }else if( checkList2){
+      result =  VeiwList(DataComputer().items);
+    }else
+      result = VeiwList(DataCamera().items);
 
-    if(item.title == 'موبايل') {
+
       return Scaffold(
         appBar: AppBar(
-
           title: Text(item.title),
-        ),
-        body: list,
-      );
-    }
-    if(item.title=='لپ تاپ') {
-      return Scaffold(
-        appBar: AppBar(
+          actions: [
+            Padding(padding: EdgeInsets.only(right: 10),
+            child: Row(
+              textDirection: TextDirection.rtl,
+              children: [
 
-          title: Text(item.title),
+                IconButton(onPressed: (){},
+                  icon:Icon(Icons.tune,),
+                ),
+                Text("Filters",style: TextStyle(fontWeight: FontWeight.w400),),
+                IconButton(onPressed: (){},
+                  icon:Icon(Icons.sort,),
+                ),
+                Text("Sort",style: TextStyle(fontWeight: FontWeight.w400),),
+              ],
+            ),
+            )
+          ],
         ),
-        body: list2,
+        body: result
       );
-    }
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(item.title),
-      ),
-      body: list3,
-    );
+
   }
 }

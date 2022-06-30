@@ -1,4 +1,3 @@
-import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -8,9 +7,6 @@ import 'package:my_pojects/SaveData/Data.dart';
 import 'package:my_pojects/ShopButtonNavigator.dart';
 import 'package:my_pojects/SingUp_Page.dart';
 import 'package:url_launcher/url_launcher.dart';
-
-import 'SaveData/SiveInfo.dart';
-
 
 class LongPage extends StatefulWidget {
   const LongPage({Key? key}) : super(key: key);
@@ -82,8 +78,8 @@ class _LongPageState extends State<LongPage> {
                     Text(
                       'Login',
                       style: TextStyle(
-                          fontSize: MediaQuery.of(context).size.height / 30,fontWeight: FontWeight.bold
-                      ),
+                          fontSize: MediaQuery.of(context).size.height / 30,
+                          fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
@@ -166,12 +162,12 @@ class _LongPageState extends State<LongPage> {
                 if (inf[i].number == numberPhone.value.text &&
                     inf[i].password == password.value.text) {
                   checkLogin = true;
-                  Navigator.of(context)
-                      .pushAndRemoveUntil(MaterialPageRoute(
-                      builder: (context) => ShopButtonNavigator()),(route)=> false);
+                  Navigator.of(context).pushAndRemoveUntil(
+                      MaterialPageRoute(
+                          builder: (context) => ShopButtonNavigator()),
+                      (route) => false);
                 }
-              }
-              ;
+              };
               if (!checkLogin) {
                 showDialog(
                   context: context,
@@ -185,8 +181,9 @@ class _LongPageState extends State<LongPage> {
             },
             child: Text(
               "Login",
-              style:
-                  TextStyle(fontSize: MediaQuery.of(context).size.height / 40,fontWeight: FontWeight.bold),
+              style: TextStyle(
+                  fontSize: MediaQuery.of(context).size.height / 40,
+                  fontWeight: FontWeight.bold),
             ),
           ),
         ),
@@ -253,7 +250,7 @@ class _LongPageState extends State<LongPage> {
           width: 13,
         ),
         GestureDetector(
-          onTap:() async {
+          onTap: () async {
             final url = 'https://www.facebook.com/';
 
             if (await canLaunch(url)) {
@@ -269,7 +266,7 @@ class _LongPageState extends State<LongPage> {
           width: 13,
         ),
         GestureDetector(
-          onTap:() async {
+          onTap: () async {
             final url = 'https://github.com/';
 
             if (await canLaunch(url)) {
@@ -285,7 +282,7 @@ class _LongPageState extends State<LongPage> {
           width: 13,
         ),
         GestureDetector(
-          onTap:() async {
+          onTap: () async {
             final url = 'https://www.linkedin.com/login';
 
             if (await canLaunch(url)) {
@@ -314,7 +311,13 @@ class _LongPageState extends State<LongPage> {
               }),
             );
           },
-          child: const Text("Forget Password",style: TextStyle(color: Colors.lightGreen,fontSize: 15,fontWeight: FontWeight.bold),),
+          child: const Text(
+            "Forget Password",
+            style: TextStyle(
+                color: Colors.lightGreen,
+                fontSize: 15,
+                fontWeight: FontWeight.bold),
+          ),
         ),
       ],
     );
@@ -380,7 +383,9 @@ class _LongPageState extends State<LongPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(height: 17,),
+                SizedBox(
+                  height: 17,
+                ),
                 Text(
                   title + " !",
                   style: const TextStyle(
@@ -406,9 +411,10 @@ class _LongPageState extends State<LongPage> {
                 ),
                 RaisedButton(
                   onPressed: () => Navigator.of(context).pop(),
-                  child: Text("Okey",style: TextStyle(
-                      fontSize: 16
-                      ,fontWeight: FontWeight.bold),),
+                  child: Text(
+                    "Okey",
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
                 ),
               ],
             ),
@@ -429,6 +435,4 @@ class _LongPageState extends State<LongPage> {
       ),
     );
   }
-
-
 }

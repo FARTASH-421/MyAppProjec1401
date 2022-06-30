@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:my_pojects/Things/Clothing/MoreClots.dart';
 
-class Cloths {
+class Clothing {
   BuildContext context;
 
-  Cloths(this.context);
+  Clothing(this.context);
 
   List<CardItem> items = [
     const CardItem(

@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import '../../Basket_Shoping/MyBasket.dart';
 import '../../Basket_Shoping/MyFavorite.dart';
 import '../../Favorite.dart';
+import '../../Shoping.dart';
 import '../Data.dart';
 
 class ShoePage extends StatefulWidget {
@@ -15,13 +17,16 @@ class ShoePage extends StatefulWidget {
 }
 
 class _ShoePageState extends State<ShoePage> {
-  int numOfItem = MyBasket.getInstance()!.listBasket.length;
+  int numOfItem = BasketList.getInstance()!.listBasket.length;
+  int numFavorite = MyFavorite.getInstance()!.listFavorite.length;
+  var star ="3";
   final item;
-  bool checkAddOrRemove = true;
 
   _ShoePageState({required this.item});
 
+  bool checkBuy = true;
   bool check = true;
+  bool chooseIcon = true;
 
   @override
   Widget build(BuildContext context) {
@@ -29,26 +34,49 @@ class _ShoePageState extends State<ShoePage> {
       appBar: AppBar(
         actions: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.stretch,
+            mainAxisAlignment: MainAxisAlignment.end,
+            crossAxisAlignment: CrossAxisAlignment.end,
+            textDirection: TextDirection.rtl,
             children: [
-              IconButton(
-                  onPressed: () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const Favorite()),
-                      ),
-                  icon: Icon(
-                    Icons.favorite_outline_outlined,
-                    size: 30,
-                    // color: addColor,
-                  )),
+              Stack(
+                overflow: Overflow.visible,
+                children: [
+                  IconButton(
+                      onPressed: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const Favorite()),
+                          ),
+                      icon: Icon(
+                        Icons.favorite_outline_outlined,
+                        size: 30,
+                        // color: addColor,
+                      )),
+                  buildCount(numFavorite.toString()),
+                ],
+              ),
+              Stack(
+                children: [
+                  IconButton(
+                      onPressed: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => BasketShoping()),
+                          ),
+                      icon: Icon(
+                        Icons.shopping_cart_outlined,
+                        size: 30,
+                        // color: addColor,
+                      )),
+                  buildCount(numOfItem.toString()),
+                ],
+              )
             ],
           ),
         ],
       ),
       body: Padding(
-        padding: const EdgeInsets.only(bottom: 5, top: 2),
+        padding: const EdgeInsets.only(bottom: 2, top: 2),
         child: Column(
           children: [
             AspectRatio(
@@ -59,7 +87,7 @@ class _ShoePageState extends State<ShoePage> {
               ),
             ),
             Container(
-                height: 83,
+                height: 100,
                 width: MediaQuery.of(context).size.width,
                 child: Column(
                   children: [
@@ -68,7 +96,6 @@ class _ShoePageState extends State<ShoePage> {
                       width: double.infinity,
                       color: Colors.white60,
                     ),
-                    Spacer(),
                     Padding(
                       padding: EdgeInsets.only(
                         left: 8,
@@ -86,43 +113,140 @@ class _ShoePageState extends State<ShoePage> {
                         ],
                       ),
                     ),
-                    Spacer(),
+                    Container(
+                      height: 35,
+                      child:  Padding(
+                        padding: EdgeInsets.only(left: 8, right: 8),
+                        child: Row(
+                          textDirection: TextDirection.rtl,
+                          children: [
+                            Icon(Icons.more_vert),
+                            TextButton(
+                              onPressed: () {},
+                              child: Text(
+                                "دیدگاه کاربران(12) ",
+                                style: TextStyle(),
+                              ),
+                            ),
+                            TextButton(
+                              onPressed: () {},
+                              child: Text(
+                                "پرسش و پاسخ(5) ",
+                                style: TextStyle(),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+
                     Padding(
-                      padding: EdgeInsets.only(left: 8, right: 8),
+                      padding:EdgeInsets.only(left: 8,right: 8),
                       child: Row(
                         textDirection: TextDirection.rtl,
                         children: [
-                          IconButton(
-                            icon: Icon(
+                          RatingBar.builder(
+                            initialRating:3,
+                            minRating: 1,
+                            direction: Axis.horizontal,
+                            allowHalfRating: true,
+                            itemCount: 5,
+                            itemSize: 20,
+                            itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
+                            itemBuilder: (context, _) => Icon(
                               Icons.star,
-                              color: Colors.yellow,
+                              color: Colors.amber,
                             ),
-                            onPressed: () {},
+                            onRatingUpdate: (rating) {
+                              setState(() {
+                                star = rating.toString();
+                              });
+                              print(rating);
+                            },
                           ),
-                          TextButton(
-                            onPressed: () {},
-                            child: Text(
-                              "دیدگاه کاربران(12) ",
-                              style: TextStyle(),
-                            ),
-                          ),
-                          TextButton(
-                            onPressed: () {},
-                            child: Text(
-                              "پرسش و پاسخ(5) ",
-                              style: TextStyle(),
-                            ),
-                          ),
+                          Text("("+star.toString()+")")
                         ],
                       ),
                     ),
+
                     Container(
-                      height: 2,
+                      height: 1.5,
                       width: MediaQuery.of(context).size.width,
                       color: Colors.white60,
                     ),
                   ],
                 )),
+
+            Container(
+              child:Padding(
+                padding: EdgeInsets.only(left: 8, right: 8),
+                child: Container(
+                  child: Row(
+                    children: [
+                      Text(
+                        "Color: ",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                      IconButton(
+                        onPressed: () {
+                          setState(() {});
+                        },
+                        icon: chooseIcon
+                            ? Icon(Icons.circle,
+                            color: Colors.blueAccent, size: 30)
+                            : Icon(
+                          Icons.check_circle,
+                          color: Colors.blueAccent,
+                          size: 30,
+                        ),
+                      ),
+                      IconButton(
+                        onPressed: () {
+                          setState(() {});
+                        },
+                        icon: chooseIcon
+                            ? Icon(Icons.circle, color: Colors.black, size: 30)
+                            : Icon(
+                          Icons.check_circle,
+                          color: Colors.black,
+                          size: 30,
+                        ),
+                      ),
+                      IconButton(
+                        onPressed: () {
+                          setState(() {
+                            chooseIcon = !chooseIcon;
+                          });
+                        },
+                        icon: chooseIcon
+                            ? Icon(Icons.circle, color: Colors.red, size: 30)
+                            : Icon(
+                          Icons.check_circle,
+                          color: Colors.red,
+                          size: 30,
+                        ),
+                      ),
+                      IconButton(
+                        onPressed: () {
+                          setState(() {
+                            chooseIcon = !chooseIcon;
+                          });
+                        },
+                        icon: chooseIcon
+                            ? Icon(Icons.circle, color: Colors.green, size: 30)
+                            : Icon(
+                          Icons.check_circle,
+                          color: Colors.green,
+                          size: 30,
+                        ),
+                      ),
+                      Spacer()
+                    ],
+                  ),
+                ),
+              ),
+            ),
+
             const SizedBox(
               height: 15,
             ),
@@ -148,7 +272,7 @@ class _ShoePageState extends State<ShoePage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                 Added_toBasket(),
+                  Added_toBasket(),
                   Container(
                     alignment: Alignment.topLeft,
                     height: 36,
@@ -156,32 +280,41 @@ class _ShoePageState extends State<ShoePage> {
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                     ),
-                    child: check ?  IconButton(
-                      onPressed: () {
-                        setState(() {
-                          check = !check;
-                        });
-                        MyFavorite.getInstance()!.listFavorite.add(item);
-                      },
-                      icon: const Icon(
-                        Icons.favorite_outline_rounded,
-                        color: Colors.white,
-                        size: 35,
-                      ),
-                    ): IconButton(
-                      onPressed: () {
-                        setState(() {
-                          check = !check;
-                        });
-                        MyFavorite.getInstance()!.listFavorite.remove(item);
-                      },
-                      icon: const Icon(
-                        Icons.favorite,
-                        color:Colors.red,
-                        size: 35,
-                      ),
-                    ),
-
+                    child: check
+                        ? IconButton(
+                            onPressed: () {
+                              MyFavorite.getInstance()!.listFavorite.add(item);
+                              setState(() {
+                                check = !check;
+                                numFavorite = MyFavorite.getInstance()!
+                                    .listFavorite
+                                    .length;
+                              });
+                            },
+                            icon: const Icon(
+                              Icons.favorite_outline_rounded,
+                              color: Colors.white,
+                              size: 35,
+                            ),
+                          )
+                        : IconButton(
+                            onPressed: () {
+                              MyFavorite.getInstance()!
+                                  .listFavorite
+                                  .remove(item);
+                              setState(() {
+                                check = !check;
+                                numFavorite = MyFavorite.getInstance()!
+                                    .listFavorite
+                                    .length;
+                              });
+                            },
+                            icon: const Icon(
+                              Icons.favorite,
+                              color: Colors.red,
+                              size: 35,
+                            ),
+                          ),
                   )
                 ],
               ),
@@ -190,18 +323,20 @@ class _ShoePageState extends State<ShoePage> {
                 child: Align(
               child: Padding(
                 padding: const EdgeInsets.only(left: 10),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    buildRemoveNow(),
-                    // checkAddOrRemove ? buildByNow() : buildRemoveNow(),
-                    InkWell(
-                      onTap: _toggleAddOrRemove,
-                      child: changeAddOrRemove(),
-                    ),
-                  ],
-                ),
+                child: checkBuy
+                    ? Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: [buildPrice(), buildByNow()],
+                      )
+                    : Stack(
+                        overflow: Overflow.visible,
+                        alignment: Alignment.bottomCenter,
+                        children: [
+                          buildCancelByNow(),
+                          buildCancelIcon(),
+                        ],
+                      ),
               ),
               alignment: Alignment.bottomCenter,
             )),
@@ -211,24 +346,38 @@ class _ShoePageState extends State<ShoePage> {
     );
   }
 
+  Widget buildCount(String count) {
+    return Positioned(
+      child: CircleAvatar(
+        backgroundColor: Colors.red,
+        radius: 9,
+        child: Text(
+          count,
+          style: TextStyle(fontSize: 14),
+        ),
+      ),
+      top: 0,
+      left: 22,
+    );
+  }
 
-  Widget Added_toBasket(){
+  Widget Added_toBasket() {
     setState(() {
-      numOfItem = MyBasket.getInstance()!.listBasket.length;
+      numOfItem = BasketList.getInstance()!.listBasket.length;
     });
-    return  Row(
+    return Row(
       children: [
         buildOutlineButton(
             icon: Icons.remove,
             press: () {
               setState(() {
                 if (numOfItem > 0) {
-                  MyBasket.getInstance()!
+                  BasketList.getInstance()!
                       .listBasket
-                      .remove(MyBasket.getInstance()!.listBasket.last);
+                      .remove(BasketList.getInstance()!.listBasket.last);
                 }
                 numOfItem =
-                    numOfItem = MyBasket.getInstance()!.listBasket.length;
+                    numOfItem = BasketList.getInstance()!.listBasket.length;
               });
             }),
         Padding(
@@ -240,14 +389,13 @@ class _ShoePageState extends State<ShoePage> {
             icon: Icons.add,
             press: () {
               setState(() {
-                MyData add = MyBasket.getInstance()!.listBasket.last;
-                MyBasket.getInstance()!.listBasket.add(add);
-                numOfItem = MyBasket.getInstance()!.listBasket.length;
+                MyData add = BasketList.getInstance()!.listBasket.last;
+                BasketList.getInstance()!.listBasket.add(add);
+                numOfItem = BasketList.getInstance()!.listBasket.length;
               });
             }),
       ],
     );
-
   }
 
   SizedBox buildOutlineButton({required IconData icon, required press}) {
@@ -257,33 +405,19 @@ class _ShoePageState extends State<ShoePage> {
       child: OutlineButton(
           padding: EdgeInsets.zero,
           shape:
-          RoundedRectangleBorder(borderRadius: BorderRadius.circular(13)),
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(13)),
           onPressed: press,
           child: Icon(icon)),
     );
   }
 
-  Widget changeAddOrRemove() {
-    if (checkAddOrRemove == true) {
-      return buildByNow();
-    } else {
-      return buildRemoveNow();
-    }
-  }
-
-  void _toggleAddOrRemove() {
-    setState(() {
-      checkAddOrRemove = !checkAddOrRemove;
-    });
-  }
-
   Widget buildByNow() {
     return TextButton(
       onPressed: () {
-
-        MyBasket.getInstance()!.listBasket.add(item);
+        BasketList.getInstance()!.listBasket.add(item);
         setState(() {
-          numOfItem = MyBasket.getInstance()!.listBasket.length;
+          checkBuy = !checkBuy;
+          numOfItem = BasketList.getInstance()!.listBasket.length;
         });
       },
       child: Container(
@@ -307,10 +441,10 @@ class _ShoePageState extends State<ShoePage> {
     );
   }
 
-  Widget buildRemoveNow() {
+  Widget buildPrice() {
     return TextButton(
       onPressed: () {
-        MyBasket.getInstance()!.listBasket.add(item);
+        BasketList.getInstance()!.listBasket.add(item);
       },
       child: Container(
           child: Center(
@@ -329,6 +463,57 @@ class _ShoePageState extends State<ShoePage> {
           decoration: const BoxDecoration(
             color: Colors.blueAccent,
             borderRadius: BorderRadius.all(Radius.circular(20)),
+          )),
+    );
+  }
+
+  Widget buildCancelIcon() {
+    return Positioned(
+      child: IconButton(
+        onPressed: () {
+          BasketList.getInstance()!.listBasket.remove(item);
+          setState(() {
+            checkBuy = !checkBuy;
+            numOfItem = BasketList.getInstance()!.listBasket.length;
+          });
+        },
+        icon: Icon(
+          Icons.cancel_sharp,
+          color: Colors.white,
+          size: 40,
+        ),
+      ),
+      top: -24,
+      left: -8,
+    );
+  }
+
+  Widget buildCancelByNow() {
+    return TextButton(
+      onPressed: () {
+        BasketList.getInstance()!.listBasket.remove(item);
+        setState(() {
+          checkBuy = !checkBuy;
+          numOfItem = BasketList.getInstance()!.listBasket.length;
+        });
+      },
+      child: Container(
+          child: const Center(
+            child: Text(
+              "CANCEL BUY",
+              style: TextStyle(
+                fontFamily: "Kurale",
+                color: Colors.white,
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ),
+          width: MediaQuery.of(context).size.width * 0.57,
+          height: 50,
+          decoration: const BoxDecoration(
+            color: Colors.deepPurple,
+            borderRadius: BorderRadius.all(Radius.circular(30)),
           )),
     );
   }

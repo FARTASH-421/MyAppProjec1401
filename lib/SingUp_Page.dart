@@ -30,9 +30,6 @@ class _SingUpPageState extends State<SingUpPage> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   String _log = "";
 
-  final RegExp emailExp =
-      new RegExp("//", caseSensitive: false, multiLine: false);
-
   Widget _bulidTextWelcome() {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,

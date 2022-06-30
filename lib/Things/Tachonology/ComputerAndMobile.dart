@@ -36,7 +36,7 @@ class Comp {
           itemBuilder: (BuildContext context, int index) =>
               buildCard(item: items[index]),
           separatorBuilder: (BuildContext context, _) => const SizedBox(
-            width: 2,
+            width: 5,
           ),
         ),
       );
@@ -76,7 +76,7 @@ class Comp {
           ),
           Text(
             item.subtitle,
-            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w300),
           ),
         ],
       ),
